@@ -1,0 +1,174 @@
+[gd_scene load_steps=7 format=3 uid="uid://lsujkapc0lhq"]
+
+[ext_resource type="Texture2D" uid="uid://bbyc82agqtd6x" path="res://icon.svg" id="1_aa00k"]
+[ext_resource type="Script" path="res://DynamicUI.cs" id="2_pilr5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_t154j"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_khnuk"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1lf7l"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nmpi2"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(935, 65)
+texture = ExtResource("1_aa00k")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_pilr5")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+offset_left = 870.0
+offset_top = 130.0
+offset_right = 1000.0
+offset_bottom = 260.0
+metadata/_edit_group_ = true
+
+[node name="Date" type="Label" parent="Control/ColorRect"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 5.0
+offset_right = 102.0
+offset_bottom = 50.0
+text = "Date"
+label_settings = SubResource("LabelSettings_t154j")
+
+[node name="Year" type="Label" parent="Control/ColorRect"]
+layout_mode = 0
+offset_top = 70.0
+offset_right = 40.0
+offset_bottom = 93.0
+label_settings = SubResource("LabelSettings_khnuk")
+
+[node name="Month" type="Label" parent="Control/ColorRect"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 70.0
+offset_right = 85.0
+offset_bottom = 93.0
+label_settings = SubResource("LabelSettings_1lf7l")
+
+[node name="Day" type="Label" parent="Control/ColorRect"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 70.0
+offset_right = 130.0
+offset_bottom = 93.0
+label_settings = SubResource("LabelSettings_nmpi2")
+
+[node name="ColorRect2" type="ColorRect" parent="Control"]
+offset_left = 870.0
+offset_top = 260.0
+offset_right = 1000.0
+offset_bottom = 390.0
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Control/ColorRect2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Label2" type="Label" parent="Control/ColorRect2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ColorRect3" type="ColorRect" parent="Control"]
+offset_left = 870.0
+offset_top = 390.0
+offset_right = 1000.0
+offset_bottom = 520.0
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Control/ColorRect3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Label2" type="Label" parent="Control/ColorRect3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ColorRect4" type="ColorRect" parent="Control"]
+offset_left = 700.0
+offset_top = 520.0
+offset_right = 1000.0
+offset_bottom = 650.0
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Control/ColorRect4"]
+z_index = 2
+layout_mode = 0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 85.0
+offset_bottom = 85.0
+color = Color(0.501407, 0.501406, 0.501406, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Control/ColorRect4"]
+z_index = 2
+layout_mode = 0
+offset_left = 115.0
+offset_top = 15.0
+offset_right = 185.0
+offset_bottom = 85.0
+color = Color(0.501961, 0.501961, 0.501961, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Control/ColorRect4"]
+z_index = 2
+layout_mode = 0
+offset_left = 215.0
+offset_top = 15.0
+offset_right = 285.0
+offset_bottom = 85.0
+color = Color(0.501961, 0.501961, 0.501961, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="Control"]
+offset_left = 350.0
+offset_top = 520.0
+offset_right = 700.0
+offset_bottom = 650.0
+
+[node name="ColorRect6" type="ColorRect" parent="Control"]
+offset_top = 520.0
+offset_right = 350.0
+offset_bottom = 650.0
+
+[node name="ProgressBar" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 400.0
+offset_right = 180.0
+offset_bottom = 435.0
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Control/ProgressBar"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ProgressBar2" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = 675.0
+offset_top = 400.0
+offset_right = 805.0
+offset_bottom = 435.0
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Control/ProgressBar2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
