@@ -1,6 +1,6 @@
 [gd_scene load_steps=36 format=3 uid="uid://lsujkapc0lhq"]
 
-[ext_resource type="Texture2D" uid="uid://bbyc82agqtd6x" path="res://icon.svg" id="1_aa00k"]
+[ext_resource type="Texture2D" uid="uid://dguo44s8ekyum" path="res://pharaoh1.png" id="1_8anlt"]
 [ext_resource type="Script" path="res://DynamicUI.cs" id="2_pilr5"]
 [ext_resource type="Texture2D" uid="uid://daciksrvlweqf" path="res://PauseButton.png" id="3_borg8"]
 [ext_resource type="Script" path="res://pause_menu.gd" id="3_jmogg"]
@@ -233,8 +233,8 @@ font_size = 20
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(899.5, 100.5)
-scale = Vector2(1.55469, 1.55469)
-texture = ExtResource("1_aa00k")
+scale = Vector2(0.39, 0.39)
+texture = ExtResource("1_8anlt")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
