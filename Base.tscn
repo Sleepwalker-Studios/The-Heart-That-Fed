@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://lsujkapc0lhq"]
+[gd_scene load_steps=8 format=3 uid="uid://lsujkapc0lhq"]
 
 [ext_resource type="Texture2D" uid="uid://bbyc82agqtd6x" path="res://icon.svg" id="1_aa00k"]
 [ext_resource type="Script" path="res://DynamicUI.cs" id="2_pilr5"]
+[ext_resource type="PackedScene" uid="uid://dyactumyvb28h" path="res://pause_menu.tscn" id="3_srk5w"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_t154j"]
 font_size = 32
@@ -178,3 +179,7 @@ metadata/_edit_group_ = true
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause Menu" parent="CanvasLayer" instance=ExtResource("3_srk5w")]
