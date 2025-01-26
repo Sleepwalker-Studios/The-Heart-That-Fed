@@ -1,8 +1,9 @@
-[gd_scene load_steps=35 format=3 uid="uid://lsujkapc0lhq"]
+[gd_scene load_steps=36 format=3 uid="uid://lsujkapc0lhq"]
 
 [ext_resource type="Texture2D" uid="uid://bbyc82agqtd6x" path="res://icon.svg" id="1_aa00k"]
 [ext_resource type="Script" path="res://DynamicUI.cs" id="2_pilr5"]
 [ext_resource type="Texture2D" uid="uid://daciksrvlweqf" path="res://PauseButton.png" id="3_borg8"]
+[ext_resource type="Script" path="res://pause_menu.gd" id="3_jmogg"]
 [ext_resource type="Texture2D" uid="uid://cyix133i0lbtd" path="res://ArrowButton.png" id="3_ob7ma"]
 [ext_resource type="PackedScene" uid="uid://dyactumyvb28h" path="res://pause_menu.tscn" id="3_srk5w"]
 
@@ -251,6 +252,7 @@ offset_bottom = 325.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_gjkhg")
 
 [node name="Panel3" type="Panel" parent="Control/Time"]
+layout_mode = 0
 offset_left = 110.0
 offset_top = 65.0
 offset_right = 140.0
@@ -267,6 +269,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Panel2" type="Panel" parent="Control/Time"]
+layout_mode = 0
 offset_left = 65.0
 offset_top = 65.0
 offset_right = 105.0
@@ -320,6 +323,7 @@ offset_right = 990.0
 offset_bottom = 300.0
 theme_override_styles/hover = SubResource("StyleBoxFlat_ybn43")
 theme_override_styles/normal = SubResource("StyleBoxFlat_pysic")
+script = ExtResource("3_jmogg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/Time/CanvasLayer/Pause"]
 position = Vector2(17.5, 17.5)
@@ -391,6 +395,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_ohm0d")
 theme_override_styles/normal = SubResource("StyleBoxFlat_lij3p")
 
 [node name="Label" type="Label" parent="Control/Workers/CanvasLayer/BuyWorkers"]
+layout_mode = 0
 offset_left = 5.0
 offset_top = 3.0
 offset_right = 155.0

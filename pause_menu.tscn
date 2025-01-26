@@ -56,6 +56,7 @@ grow_vertical = 2
 script = ExtResource("1_a0dd3")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 z_index = 150
 material = SubResource("ShaderMaterial_vjuxy")
 layout_mode = 1
