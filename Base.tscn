@@ -1,7 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://lsujkapc0lhq"]
+[gd_scene load_steps=35 format=3 uid="uid://lsujkapc0lhq"]
 
 [ext_resource type="Texture2D" uid="uid://bbyc82agqtd6x" path="res://icon.svg" id="1_aa00k"]
 [ext_resource type="Script" path="res://DynamicUI.cs" id="2_pilr5"]
+[ext_resource type="Texture2D" uid="uid://daciksrvlweqf" path="res://PauseButton.png" id="3_borg8"]
 [ext_resource type="Texture2D" uid="uid://cyix133i0lbtd" path="res://ArrowButton.png" id="3_ob7ma"]
 [ext_resource type="PackedScene" uid="uid://dyactumyvb28h" path="res://pause_menu.tscn" id="3_srk5w"]
 
@@ -26,6 +27,30 @@ font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_nmpi2"]
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ybn43"]
+bg_color = Color(0.74558, 0.74558, 0.74558, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pysic"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77t01"]
 bg_color = Color(1, 1, 1, 1)
@@ -65,8 +90,32 @@ font_color = Color(0, 0, 0, 1)
 font_size = 32
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohm0d"]
+bg_color = Color(0.745098, 0.745098, 0.745098, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lij3p"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
 [sub_resource type="LabelSettings" id="LabelSettings_r1662"]
 font_size = 24
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kblsv"]
 border_width_left = 3
@@ -236,9 +285,14 @@ layer = 100
 z_index = 1
 offset_left = 950.0
 offset_top = 270.0
-offset_right = 976.0
-offset_bottom = 301.0
-text = "||"
+offset_right = 975.0
+offset_bottom = 295.0
+theme_override_styles/hover = SubResource("StyleBoxFlat_ybn43")
+theme_override_styles/normal = SubResource("StyleBoxFlat_pysic")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Time/CanvasLayer/Pause"]
+position = Vector2(12.5, 12.5)
+texture = ExtResource("3_borg8")
 
 [node name="Money" type="Panel" parent="Control"]
 layout_mode = 0
@@ -312,9 +366,10 @@ offset_left = 820.0
 offset_top = 590.0
 offset_right = 980.0
 offset_bottom = 630.0
+theme_override_styles/hover = SubResource("StyleBoxFlat_ohm0d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lij3p")
 
 [node name="Label" type="Label" parent="Control/Workers/CanvasLayer/BuyWorkers"]
-layout_mode = 0
 offset_left = 5.0
 offset_top = 3.0
 offset_right = 155.0
