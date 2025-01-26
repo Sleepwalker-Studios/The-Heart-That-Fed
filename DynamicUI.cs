@@ -73,7 +73,7 @@ public partial class DynamicUI : Control
 	{
 		gold_timer += delta;
 		tick += delta;
-		if(tick >= 0.05)
+		if(tick >= 0.0328767)
 		{
 				day_value++;
 				tick = 0;
