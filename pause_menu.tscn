@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://pause_menu.gd" id="1_a0dd3"]
 [ext_resource type="Shader" path="res://pause_menu.gdshader" id="2_6matw"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vka4o"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vjuxy"]
 shader = ExtResource("2_6matw")
 shader_parameter/lod = 0.0
 
-[sub_resource type="Animation" id="Animation_sfkqv"]
+[sub_resource type="Animation" id="Animation_i1117"]
 resource_name = "blur"
 length = 0.3
 tracks/0/type = "value"
@@ -20,22 +20,10 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 1.5]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PanelContainer:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [0.0, 2.859]
 }
 
-[sub_resource type="Animation" id="Animation_3iyos"]
+[sub_resource type="Animation" id="Animation_0xrnd"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -49,27 +37,16 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PanelContainer:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vl5tx"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vpq5w"]
 _data = {
-"RESET": SubResource("Animation_3iyos"),
-"blur": SubResource("Animation_sfkqv")
+"RESET": SubResource("Animation_0xrnd"),
+"blur": SubResource("Animation_i1117")
 }
 
 [node name="Pause Menu" type="Control"]
 process_mode = 3
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -79,7 +56,7 @@ grow_vertical = 2
 script = ExtResource("1_a0dd3")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_vka4o")
+material = SubResource("ShaderMaterial_vjuxy")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -87,44 +64,53 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-modulate = Color(1, 1, 1, 0)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vpq5w")
+}
+speed_scale = 4.0
+
+[node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -180.0
-offset_top = -170.0
-offset_right = 180.0
-offset_bottom = 170.0
+offset_left = -273.5
+offset_top = -85.5
+offset_right = 273.5
+offset_bottom = 85.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/v_separation = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="Label" type="Label" parent="GridContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "The World Waits for Thee"
 
-[node name="Resume" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="Resume" type="Button" parent="GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
 text = "Resume"
 
-[node name="Restart" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="Restart" type="Button" parent="GridContainer"]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
 text = "Restart"
 
-[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
 text = "Quit"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_vl5tx")
-}
-
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="GridContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="GridContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="GridContainer/Quit" to="." method="_on_quit_pressed"]
