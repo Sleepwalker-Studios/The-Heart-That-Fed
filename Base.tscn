@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://lsujkapc0lhq"]
+[gd_scene load_steps=30 format=3 uid="uid://lsujkapc0lhq"]
 
 [ext_resource type="Texture2D" uid="uid://bbyc82agqtd6x" path="res://icon.svg" id="1_aa00k"]
 [ext_resource type="Script" path="res://DynamicUI.cs" id="2_pilr5"]
+[ext_resource type="Texture2D" uid="uid://cyix133i0lbtd" path="res://ArrowButton.png" id="3_ob7ma"]
 [ext_resource type="PackedScene" uid="uid://dyactumyvb28h" path="res://pause_menu.tscn" id="3_srk5w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjkhg"]
@@ -481,11 +482,20 @@ offset_top = 415.5
 offset_right = 189.0
 offset_bottom = 428.5
 
+[node name="Sprite2D" type="Sprite2D" parent="Control/Village/CanvasLayer/Down"]
+position = Vector2(15, 7)
+rotation = 3.14159
+texture = ExtResource("3_ob7ma")
+
 [node name="Up" type="Button" parent="Control/Village/CanvasLayer"]
 offset_left = 159.0
 offset_top = 401.0
 offset_right = 189.0
 offset_bottom = 414.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Village/CanvasLayer/Up"]
+position = Vector2(15, 6)
+texture = ExtResource("3_ob7ma")
 
 [node name="Statue" type="Panel" parent="Control"]
 layout_mode = 0
@@ -510,12 +520,22 @@ offset_left = 399.0
 offset_top = 351.0
 offset_right = 429.0
 offset_bottom = 364.0
+theme_override_font_sizes/font_size = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Statue/CanvasLayer/Up"]
+position = Vector2(15, 6)
+texture = ExtResource("3_ob7ma")
 
 [node name="Down" type="Button" parent="Control/Statue/CanvasLayer"]
 offset_left = 399.0
 offset_top = 365.5
 offset_right = 429.0
 offset_bottom = 378.5
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Statue/CanvasLayer/Down"]
+position = Vector2(15, 7)
+rotation = 3.14159
+texture = ExtResource("3_ob7ma")
 
 [node name="Farm" type="Panel" parent="Control"]
 layout_mode = 0
@@ -533,11 +553,20 @@ offset_top = 401.0
 offset_right = 679.0
 offset_bottom = 414.0
 
+[node name="Sprite2D" type="Sprite2D" parent="Control/Farm/CanvasLayer/Up"]
+position = Vector2(15, 6)
+texture = ExtResource("3_ob7ma")
+
 [node name="Down" type="Button" parent="Control/Farm/CanvasLayer"]
 offset_left = 649.0
 offset_top = 415.5
 offset_right = 679.0
 offset_bottom = 428.5
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Farm/CanvasLayer/Down"]
+position = Vector2(15, 7)
+rotation = 3.14159
+texture = ExtResource("3_ob7ma")
 
 [node name="Label" type="Label" parent="Control/Farm"]
 layout_mode = 0
