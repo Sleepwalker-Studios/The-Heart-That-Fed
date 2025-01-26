@@ -41,9 +41,9 @@ public partial class DynamicUI : Control
 	
 	public override void _Ready()
 	{
-		_year = GetTree().Root.GetNode<Label>("Node2D/Control/Time/Year");
-		_month = GetTree().Root.GetNode<Label>("Node2D/Control/Time/Month");
-		_day = GetTree().Root.GetNode<Label>("Node2D/Control/Time/Day");
+		_year = GetTree().Root.GetNode<Label>("Node2D/Control/Time/Panel/Year");
+		_month = GetTree().Root.GetNode<Label>("Node2D/Control/Time/Panel2/Month");
+		_day = GetTree().Root.GetNode<Label>("Node2D/Control/Time/Panel3/Day");
 		_gold = GetTree().Root.GetNode<Label>("Node2D/Control/Money/Gold");
 		_workers = GetTree().Root.GetNode<Label>("Node2D/Control/Workers/WorkerCount");
 		_hungerbar = GetTree().Root.GetNode<ProgressBar>("Node2D/Control/HungerBox/ProgressBar");
@@ -107,12 +107,12 @@ public partial class DynamicUI : Control
 		_year.Text = year_value.ToString();
 		_month.Text = month_value[i];
 		_day.Text = day_value.ToString();
-		_gold.Text = gold.ToString();
+		_gold.Text = gold.ToString() + " G";
 		_workers.Text = passive_workers.ToString();
 		_hungerbar.Value = hunger;
 		_statuebar.Value = statue;
-		_hunger.Text = hunger.ToString();
-		_statue.Text = statue.ToString();
+		_hunger.Text = hunger.ToString() + "%";
+		_statue.Text = statue.ToString() + "%";
 		_village.Text = traders.ToString();
 		_statuenum.Text = builders.ToString();
 		_farm.Text = farmers.ToString();
