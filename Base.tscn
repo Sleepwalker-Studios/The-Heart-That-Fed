@@ -231,7 +231,7 @@ font_size = 20
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Pharoh Head" type="Sprite2D" parent="."]
 position = Vector2(899.5, 100.5)
 scale = Vector2(0.39, 0.39)
 texture = ExtResource("1_8anlt")

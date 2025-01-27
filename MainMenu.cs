@@ -5,12 +5,28 @@ public partial class MainMenu : Control
 {
 	public override void _Ready()
 	{
-		Button button = GetTree().Root.GetNode<Button>("Control/MarginContainer/VBoxContainer/Play");
-		button.Pressed += OnPlayPressed;
+		Button playButton = GetTree().Root.GetNode<Button>("Control/MarginContainer/VBoxContainer/Play");
+		playButton.Pressed += OnPlayPressed;
+
+		Button quitButton = GetTree().Root.GetNode<Button>("Control/MarginContainer/VBoxContainer/Quit");
+		quitButton.Pressed += OnQuitPressed;
+		
+		Button optionsButton = GetTree().Root.GetNode<Button>("Control/MarginContainer/VBoxContainer/Options");
+		optionsButton.Pressed += OnOptionsPressed; 
 	}
+
 	void OnPlayPressed()
 	{
-		//github change
 		GetTree().ChangeSceneToFile("res://Base.tscn");
+	}
+
+	void OnQuitPressed()
+	{
+		GetTree().Quit();
+	}
+
+	void OnOptionsPressed()
+	{
+		GetTree().ChangeSceneToFile("res://OptionMenu.tscn");
 	}
 }
