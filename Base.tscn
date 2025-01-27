@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://lsujkapc0lhq"]
+[gd_scene load_steps=54 format=3 uid="uid://lsujkapc0lhq"]
 
 [ext_resource type="Texture2D" uid="uid://dguo44s8ekyum" path="res://pharaoh1.png" id="1_8anlt"]
 [ext_resource type="Script" path="res://DynamicUI.cs" id="2_pilr5"]
@@ -6,6 +6,10 @@
 [ext_resource type="Script" path="res://pause_menu.gd" id="3_jmogg"]
 [ext_resource type="Texture2D" uid="uid://cyix133i0lbtd" path="res://ArrowButton.png" id="3_ob7ma"]
 [ext_resource type="PackedScene" uid="uid://dyactumyvb28h" path="res://pause_menu.tscn" id="3_srk5w"]
+[ext_resource type="Texture2D" uid="uid://btrxcyov0v3kl" path="res://PlayButton.png" id="5_k7joh"]
+[ext_resource type="Texture2D" uid="uid://bnbivfvc4s5bh" path="res://red.png" id="8_gd8rc"]
+[ext_resource type="Texture2D" uid="uid://bbg1vc8sx1w6g" path="res://yellow.png" id="9_yqybj"]
+[ext_resource type="Texture2D" uid="uid://cyeehvyiepefo" path="res://green.png" id="10_xnv13"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjkhg"]
 bg_color = Color(1, 1, 1, 1)
@@ -37,6 +41,9 @@ border_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_t154j"]
 font_size = 24
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_447r1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ybn43"]
 bg_color = Color(0.74558, 0.74558, 0.74558, 1)
@@ -95,6 +102,9 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_00pg2"]
 font_size = 32
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_psh8h"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohm0d"]
 bg_color = Color(0.745098, 0.745098, 0.745098, 1)
@@ -229,6 +239,27 @@ font_size = 24
 [sub_resource type="LabelSettings" id="LabelSettings_4wqtg"]
 font_size = 20
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i52js"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hsheu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jeoe"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3rjcs"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cvchv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jvw1p"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dy14r"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x0ffb"]
 bg_color = Color(0.393086, 0.393086, 0.393085, 1)
 corner_radius_top_left = 50
@@ -243,12 +274,18 @@ corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ib35p"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p24s7"]
 bg_color = Color(0.393086, 0.393086, 0.393085, 1)
 corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_edq13"]
+font_size = 32
 
 [node name="Node2D" type="Node2D"]
 
@@ -342,13 +379,19 @@ offset_left = 955.0
 offset_top = 265.0
 offset_right = 990.0
 offset_bottom = 300.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_447r1")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ybn43")
 theme_override_styles/normal = SubResource("StyleBoxFlat_pysic")
 script = ExtResource("3_jmogg")
 
-[node name="Sprite2D" type="Sprite2D" parent="Control/Time/CanvasLayer/Pause"]
+[node name="Pause" type="Sprite2D" parent="Control/Time/CanvasLayer/Pause"]
 position = Vector2(17.5, 17.5)
 texture = ExtResource("3_borg8")
+
+[node name="Play" type="Sprite2D" parent="Control/Time/CanvasLayer/Pause"]
+visible = false
+position = Vector2(17.5, 17.5)
+texture = ExtResource("5_k7joh")
 
 [node name="Money" type="Panel" parent="Control"]
 layout_mode = 0
@@ -412,6 +455,7 @@ offset_left = 820.0
 offset_top = 590.0
 offset_right = 980.0
 offset_bottom = 630.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_psh8h")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ohm0d")
 theme_override_styles/normal = SubResource("StyleBoxFlat_lij3p")
 
@@ -421,7 +465,6 @@ offset_left = 5.0
 offset_top = 3.0
 offset_right = 155.0
 offset_bottom = 37.0
-text = "Buy Workers"
 label_settings = SubResource("LabelSettings_r1662")
 horizontal_alignment = 1
 
@@ -510,6 +553,7 @@ offset_right = 290.0
 offset_bottom = 55.0
 theme_override_styles/background = SubResource("StyleBoxFlat_hg3wt")
 theme_override_styles/fill = SubResource("StyleBoxFlat_hmjj3")
+max_value = 7500.0
 show_percentage = false
 
 [node name="Label Statue" type="Label" parent="Control/StatueBox"]
@@ -541,11 +585,12 @@ offset_bottom = 650.0
 color = Color(0.230315, 0.230315, 0.230315, 1)
 
 [node name="Village" type="Panel" parent="Control"]
+visible = false
 layout_mode = 0
-offset_left = 110.0
-offset_top = 400.0
-offset_right = 190.0
-offset_bottom = 430.0
+offset_left = 360.0
+offset_top = 350.0
+offset_right = 440.0
+offset_bottom = 380.0
 
 [node name="Label" type="Label" parent="Control/Village"]
 layout_mode = 0
@@ -559,10 +604,12 @@ vertical_alignment = 1
 layer = 100
 
 [node name="Down" type="Button" parent="Control/Village/CanvasLayer"]
-offset_left = 159.0
-offset_top = 415.5
-offset_right = 189.0
-offset_bottom = 428.5
+visible = false
+offset_left = 409.0
+offset_top = 365.5
+offset_right = 439.0
+offset_bottom = 378.5
+theme_override_styles/focus = SubResource("StyleBoxFlat_i52js")
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/Village/CanvasLayer/Down"]
 position = Vector2(15, 7)
@@ -570,20 +617,23 @@ rotation = 3.14159
 texture = ExtResource("3_ob7ma")
 
 [node name="Up" type="Button" parent="Control/Village/CanvasLayer"]
-offset_left = 159.0
-offset_top = 401.0
-offset_right = 189.0
-offset_bottom = 414.0
+visible = false
+offset_left = 409.0
+offset_top = 351.0
+offset_right = 439.0
+offset_bottom = 364.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_hsheu")
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/Village/CanvasLayer/Up"]
 position = Vector2(15, 6)
 texture = ExtResource("3_ob7ma")
 
 [node name="Statue" type="Panel" parent="Control"]
+visible = false
 layout_mode = 0
-offset_left = 350.0
+offset_left = 360.0
 offset_top = 350.0
-offset_right = 430.0
+offset_right = 440.0
 offset_bottom = 380.0
 
 [node name="Label" type="Label" parent="Control/Statue"]
@@ -598,21 +648,25 @@ vertical_alignment = 1
 layer = 100
 
 [node name="Up" type="Button" parent="Control/Statue/CanvasLayer"]
-offset_left = 399.0
+visible = false
+offset_left = 409.0
 offset_top = 351.0
-offset_right = 429.0
+offset_right = 439.0
 offset_bottom = 364.0
 theme_override_font_sizes/font_size = 4
+theme_override_styles/focus = SubResource("StyleBoxFlat_2jeoe")
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/Statue/CanvasLayer/Up"]
 position = Vector2(15, 6)
 texture = ExtResource("3_ob7ma")
 
 [node name="Down" type="Button" parent="Control/Statue/CanvasLayer"]
-offset_left = 399.0
+visible = false
+offset_left = 409.0
 offset_top = 365.5
-offset_right = 429.0
+offset_right = 439.0
 offset_bottom = 378.5
+theme_override_styles/focus = SubResource("StyleBoxFlat_3rjcs")
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/Statue/CanvasLayer/Down"]
 position = Vector2(15, 7)
@@ -620,30 +674,35 @@ rotation = 3.14159
 texture = ExtResource("3_ob7ma")
 
 [node name="Farm" type="Panel" parent="Control"]
+visible = false
 layout_mode = 0
-offset_left = 600.0
-offset_top = 400.0
-offset_right = 680.0
-offset_bottom = 430.0
+offset_left = 360.0
+offset_top = 350.0
+offset_right = 440.0
+offset_bottom = 380.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Control/Farm"]
 layer = 100
 
 [node name="Up" type="Button" parent="Control/Farm/CanvasLayer"]
-offset_left = 649.0
-offset_top = 401.0
-offset_right = 679.0
-offset_bottom = 414.0
+visible = false
+offset_left = 409.0
+offset_top = 351.0
+offset_right = 439.0
+offset_bottom = 364.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_cvchv")
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/Farm/CanvasLayer/Up"]
 position = Vector2(15, 6)
 texture = ExtResource("3_ob7ma")
 
 [node name="Down" type="Button" parent="Control/Farm/CanvasLayer"]
-offset_left = 649.0
-offset_top = 415.5
-offset_right = 679.0
-offset_bottom = 428.5
+visible = false
+offset_left = 409.0
+offset_top = 365.5
+offset_right = 439.0
+offset_bottom = 378.5
+theme_override_styles/focus = SubResource("StyleBoxFlat_jvw1p")
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/Farm/CanvasLayer/Down"]
 position = Vector2(15, 7)
@@ -664,6 +723,7 @@ offset_left = 10.0
 offset_top = 275.0
 offset_right = 45.0
 offset_bottom = 310.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_dy14r")
 theme_override_styles/hover = SubResource("StyleBoxFlat_x0ffb")
 theme_override_styles/normal = SubResource("StyleBoxFlat_1d3yu")
 
@@ -673,10 +733,12 @@ rotation = 4.71239
 texture = ExtResource("3_ob7ma")
 
 [node name="Right" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 755.0
 offset_top = 275.0
 offset_right = 790.0
 offset_bottom = 310.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_ib35p")
 theme_override_styles/hover = SubResource("StyleBoxFlat_p24s7")
 theme_override_styles/normal = SubResource("StyleBoxFlat_1d3yu")
 
@@ -688,6 +750,60 @@ texture = ExtResource("3_ob7ma")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Pause Menu" parent="CanvasLayer" instance=ExtResource("3_srk5w")]
+
+[node name="Village" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(398.5, 292)
+scale = Vector2(24.8438, 18.1875)
+texture = ExtResource("8_gd8rc")
+
+[node name="Statue" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(400, 291)
+scale = Vector2(24.9375, 18.1875)
+texture = ExtResource("9_yqybj")
+
+[node name="Farm" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(400, 292)
+scale = Vector2(24.875, 18.1875)
+texture = ExtResource("10_xnv13")
+
+[node name="VillageLabel" type="Label" parent="."]
+visible = false
+offset_left = 300.0
+offset_top = 10.0
+offset_right = 500.0
+offset_bottom = 60.0
+text = "Village"
+label_settings = SubResource("LabelSettings_edq13")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatueLabel" type="Label" parent="."]
+visible = false
+offset_left = 300.0
+offset_top = 10.0
+offset_right = 500.0
+offset_bottom = 60.0
+text = "Statue"
+label_settings = SubResource("LabelSettings_edq13")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FarmLabel" type="Label" parent="."]
+visible = false
+offset_left = 300.0
+offset_top = 10.0
+offset_right = 500.0
+offset_bottom = 60.0
+text = "Farm"
+label_settings = SubResource("LabelSettings_edq13")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Control/Time/CanvasLayer/Pause" to="CanvasLayer/Pause Menu" method="_on_pause_pressed"]
 [connection signal="pressed" from="Control/Workers/CanvasLayer/BuyWorkers" to="Control" method="_on_buy_workers_pressed"]
