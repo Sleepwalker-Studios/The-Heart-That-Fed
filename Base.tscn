@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://lsujkapc0lhq"]
+[gd_scene load_steps=39 format=3 uid="uid://lsujkapc0lhq"]
 
 [ext_resource type="Texture2D" uid="uid://dguo44s8ekyum" path="res://pharaoh1.png" id="1_8anlt"]
 [ext_resource type="Script" path="res://DynamicUI.cs" id="2_pilr5"]
@@ -228,6 +228,27 @@ font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_4wqtg"]
 font_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x0ffb"]
+bg_color = Color(0.393086, 0.393086, 0.393085, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1d3yu"]
+bg_color = Color(0.176419, 0.176419, 0.176419, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p24s7"]
+bg_color = Color(0.393086, 0.393086, 0.393085, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
 
 [node name="Node2D" type="Node2D"]
 
@@ -636,6 +657,33 @@ offset_bottom = 30.0
 label_settings = SubResource("LabelSettings_4wqtg")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Left" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 275.0
+offset_right = 45.0
+offset_bottom = 310.0
+theme_override_styles/hover = SubResource("StyleBoxFlat_x0ffb")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1d3yu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Left"]
+position = Vector2(17.5, 17.5)
+rotation = 4.71239
+texture = ExtResource("3_ob7ma")
+
+[node name="Right" type="Button" parent="Control"]
+offset_left = 755.0
+offset_top = 275.0
+offset_right = 790.0
+offset_bottom = 310.0
+theme_override_styles/hover = SubResource("StyleBoxFlat_p24s7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1d3yu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Right"]
+position = Vector2(17.5, 17.5)
+rotation = 1.5708
+texture = ExtResource("3_ob7ma")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
