@@ -11,6 +11,7 @@ public partial class DynamicUI : Control
 	public bool villagerevolt;
 	public bool statuerevolt;
 	public bool farmrevolt;
+	private Label _dialoguecontrol;
 	private bool vupheld;
 	private bool supheld;
 	private bool fupheld;
@@ -93,6 +94,7 @@ public partial class DynamicUI : Control
 	
 	public override void _Ready()
 	{
+		_dialoguecontrol = GetTree().Root.GetNode<Label>("Node2D/DialogueBox/Panel/Label");
 		_year = GetTree().Root.GetNode<Label>("Node2D/Control/Time/Panel/Year");
 		_month = GetTree().Root.GetNode<Label>("Node2D/Control/Time/Panel2/Month");
 		_day = GetTree().Root.GetNode<Label>("Node2D/Control/Time/Panel3/Day");
@@ -462,6 +464,7 @@ public partial class DynamicUI : Control
 			passive_workers += worker_buy_count;
 			gold -= worker_price;
 			worker_price += 5;
+			DisplayText("BALLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLS");
 		}
 	}
 	
@@ -804,5 +807,15 @@ public partial class DynamicUI : Control
 			KillWorkers(ref farmers, count);
 		}
 	}
+	
+	public void DisplayText(string text)
+{
+	if (_dialoguecontrol != null)
+	{
+		_dialoguecontrol.Text = text;
+		
+	}
+}
+
 	
 }
