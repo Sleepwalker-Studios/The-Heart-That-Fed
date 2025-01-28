@@ -3,6 +3,8 @@ using System;
 
 public partial class DynamicUI : Control
 {
+	public double verttick;
+	public bool vertpressed;
 	public double sidetick;
 	public bool sidepressed;
 	public int statuerevoltcount;
@@ -361,6 +363,46 @@ public partial class DynamicUI : Control
 				OnRightPressed();
 				sidetick = 0.2;
 				sidepressed = true;
+			}
+		}
+		if(Input.IsActionPressed("ui_up"))
+		{
+			if(vertpressed == false)
+			{
+				if(state == 0)
+				{
+					OnVUPHeld();
+				}
+				else if(state == 0)
+				{
+					OnSUPHeld();
+				}
+				else
+				{
+					OnFUPHeld();
+				}
+				verttick = 0.2;
+				vertpressed = true;
+			}
+		}
+		if(Input.IsActionPressed("ui_down"))
+		{
+			if(vertpressed == false)
+			{
+				if(state == 0)
+				{
+					OnVDOWNHeld();
+				}
+				else if(state == 0)
+				{
+					OnSDOWNHeld();
+				}
+				else
+				{
+					OnFDOWNHeld();
+				}
+				verttick = 0.2;
+				vertpressed = true;
 			}
 		}
 		gold_py = traders * 10;
@@ -809,13 +851,13 @@ public partial class DynamicUI : Control
 	}
 	
 	public void DisplayText(string text)
-{
-	if (_dialoguecontrol != null)
 	{
-		_dialoguecontrol.Text = text;
-		
+		if (_dialoguecontrol != null)
+		{
+			_dialoguecontrol.Text = text;
+			
+		}
 	}
-}
 
 	
 }
