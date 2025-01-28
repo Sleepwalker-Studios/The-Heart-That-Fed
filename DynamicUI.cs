@@ -3,12 +3,22 @@ using System;
 
 public partial class DynamicUI : Control
 {
+	public double sidetick;
+	public bool sidepressed;
+	public int statuerevoltcount;
+	public bool revoltbool = false;
+	public double revolttick;
+	public bool villagerevolt;
+	public bool statuerevolt;
+	public bool farmrevolt;
 	private bool vupheld;
 	private bool supheld;
 	private bool fupheld;
 	private bool vdownheld;
 	private bool sdownheld;
 	private bool fdownheld;
+	public double revolt_timer;
+	public double revolt_cooldown;
 	public int cooldown_timer;
 	public int hold_timer;
 	public int statue_py;
@@ -17,10 +27,13 @@ public partial class DynamicUI : Control
 	public int worker_buy_count = 5;
 	public int worker_price = 100;
 	public int state = 1;
+	public int statue_py_temp;
+	public int hunger_temp;
+	public int gold_py_temp;
 	public double gold_timer;
 	public int gold = 1000;
 	public int hunger;
-	public int happiness;
+	public int happiness = 100;
 	public int total_workers;
 	public int passive_workers;
 	public int active_workers;
@@ -30,6 +43,7 @@ public partial class DynamicUI : Control
 	public int statue;
 	private Label _gold;
 	private Label _workers;
+	private Label _workerstotal;
 	private Label _hunger;
 	private Label _statue;
 	private Label _year;
@@ -43,6 +57,7 @@ public partial class DynamicUI : Control
 	private Panel _farmpanel;
 	private ProgressBar _hungerbar;
 	private ProgressBar _statuebar;
+	private ProgressBar _revoltbar;
 	private Button _buybutton;
 	private Button _vup;
 	private Button _sup;
@@ -53,15 +68,23 @@ public partial class DynamicUI : Control
 	public Button _left;
 	public Button _right;
 	public Button _pause;
+	public Button _vrevolt;
+	public Button _srevolt;
+	public Button _frevolt;
 	public Sprite2D _pausesprite;
 	public Sprite2D _playsprite;
 	public Sprite2D _villagesprite;
 	public Sprite2D _statuesprite;
 	public Sprite2D _farmsprite;
+	public Sprite2D _villagealert;
+	public Sprite2D _statuealert;
+	public Sprite2D _farmalert;
 	public Label _villagelabel;
 	public Label _statuelabel;
 	public Label _farmlabel;
 	public Label _price;
+	public Label _revolt;
+	public MinigamePanel _popup;
 	public double tick;
 	public int i = 4;
 	public int year_value = 1279;
@@ -73,8 +96,9 @@ public partial class DynamicUI : Control
 		_year = GetTree().Root.GetNode<Label>("Node2D/Control/Time/Panel/Year");
 		_month = GetTree().Root.GetNode<Label>("Node2D/Control/Time/Panel2/Month");
 		_day = GetTree().Root.GetNode<Label>("Node2D/Control/Time/Panel3/Day");
-		_gold = GetTree().Root.GetNode<Label>("Node2D/Control/Money/Gold");
+		_gold = GetTree().Root.GetNode<Label>("Node2D/Control/Money/PanelGold/Gold");
 		_workers = GetTree().Root.GetNode<Label>("Node2D/Control/Workers/WorkerCount");
+		_workerstotal = GetTree().Root.GetNode<Label>("Node2D/Control/Workers/WorkerCountTotal");
 		_hungerbar = GetTree().Root.GetNode<ProgressBar>("Node2D/Control/HungerBox/ProgressBar");
 		_statuebar = GetTree().Root.GetNode<ProgressBar>("Node2D/Control/StatueBox/ProgressBar");
 		_hunger = GetTree().Root.GetNode<Label>("Node2D/Control/HungerBox/Hunger");
@@ -82,27 +106,21 @@ public partial class DynamicUI : Control
 		_buybutton = GetTree().Root.GetNode<Button>("Node2D/Control/Workers/CanvasLayer/BuyWorkers");
 		_buybutton.Pressed += OnBuyWorkersPressed;
 		_vup = GetTree().Root.GetNode<Button>("Node2D/Control/Village/CanvasLayer/Up");
-		_vup.Pressed += OnVUPPressed;
 		_vup.ButtonDown += OnVUPHeld;
 		_vup.ButtonUp += OnVUPUp;
 		_vdown = GetTree().Root.GetNode<Button>("Node2D/Control/Village/CanvasLayer/Down");	
-		_vdown.Pressed += OnVDOWNPressed;
 		_vdown.ButtonDown += OnVDOWNHeld;
 		_vdown.ButtonUp += OnVDOWNUp;
 		_sup = GetTree().Root.GetNode<Button>("Node2D/Control/Statue/CanvasLayer/Up");
-		_sup.Pressed += OnSUPPressed;
 		_sup.ButtonDown += OnSUPHeld;
 		_sup.ButtonUp += OnSUPUp;
 		_sdown = GetTree().Root.GetNode<Button>("Node2D/Control/Statue/CanvasLayer/Down");
-		_sdown.Pressed += OnSDOWNPressed;
 		_sdown.ButtonDown += OnSDOWNHeld;
 		_sdown.ButtonUp += OnSDOWNUp;
 		_fup = GetTree().Root.GetNode<Button>("Node2D/Control/Farm/CanvasLayer/Up");
-		_fup.Pressed += OnFUPPressed;
 		_fup.ButtonDown += OnFUPHeld;
 		_fup.ButtonUp += OnFUPUp;
 		_fdown = GetTree().Root.GetNode<Button>("Node2D/Control/Farm/CanvasLayer/Down");
-		_fdown.Pressed += OnFDOWNPressed;
 		_fdown.ButtonDown += OnFDOWNHeld;
 		_fdown.ButtonUp += OnFDOWNUp;
 		_village = GetTree().Root.GetNode<Label>("Node2D/Control/Village/Label");
@@ -126,6 +144,18 @@ public partial class DynamicUI : Control
 		_statuelabel = GetTree().Root.GetNode<Label>("Node2D/StatueLabel");
 		_farmlabel = GetTree().Root.GetNode<Label>("Node2D/FarmLabel");
 		_price = GetTree().Root.GetNode<Label>("Node2D/Control/Workers/CanvasLayer/BuyWorkers/Label");
+		_villagealert = GetTree().Root.GetNode<Sprite2D>("Node2D/Control/Village/Alert");
+		_statuealert = GetTree().Root.GetNode<Sprite2D>("Node2D/Control/Statue/Alert");
+		_farmalert = GetTree().Root.GetNode<Sprite2D>("Node2D/Control/Farm/Alert");
+		_vrevolt = GetTree().Root.GetNode<Button>("Node2D/Control/Village/Button");
+		_vrevolt.Pressed += OnVRPressed;
+		_srevolt = GetTree().Root.GetNode<Button>("Node2D/Control/Statue/Button");
+		_srevolt.Pressed += OnSRPressed;
+		_frevolt = GetTree().Root.GetNode<Button>("Node2D/Control/Farm/Button");
+		_frevolt.Pressed += OnFRPressed;
+		_popup = GetTree().Root.GetNode<MinigamePanel>("Node2D/PopupPanel");
+		_revoltbar = GetTree().Root.GetNode<ProgressBar>("Node2D/Control/RevoltBar");
+		_revolt = GetTree().Root.GetNode<Label>("Node2D/Control/RevoltBar/Revolt");
 	}
 	
 	public override void _Process(double delta)
@@ -208,6 +238,65 @@ public partial class DynamicUI : Control
 				if(hold_timer > 0){hold_timer--;}
 			}
 		}
+		if(revoltbool)
+		{
+			revolttick += delta;
+			_revoltbar.Visible = true;
+			_revoltbar.Value = (int)revolttick * 5;
+			_revolt.Text = ((int)revolttick).ToString();
+			if(revolttick >= 20.0)
+			{
+				GD.Print("cooked");
+				GetTree().ChangeSceneToFile("res://Main.tscn");
+			}
+		}
+		
+		if(villagerevolt)
+		{
+			gold_py = 0;
+			if(revolt_timer <= 0){
+				KillWorkers(ref traders, 2);
+				revolt_timer = 1;
+			}
+			revolt_timer -= delta;
+			if(Global.minigame == true)
+			{
+				EndRevolt(0);
+				Global.minigame = false;
+				_popup.CloseMinigame();
+			}
+		}
+		if(statuerevolt)
+		{
+			statue_py = 0;
+			if(revolt_timer <= 0){
+				KillWorkers(ref builders, 2);
+				revolt_timer = 1;
+			}
+			revolt_timer -= delta;
+			if(Global.minigame == true)
+			{
+				EndRevolt(1);
+				Global.minigame = false;
+				_popup.CloseMinigame();
+			}
+		}
+		if(farmrevolt)
+		{
+			hunger = 100;
+			if(revolt_timer <= 0){
+				KillWorkers(ref farmers, 2);
+				revolt_timer = 1;
+			}
+			revolt_timer -= delta;
+			if(Global.minigame == true)
+			{
+				EndRevolt(2);
+				Global.minigame = false;
+				_popup.CloseMinigame();
+			}
+		}
+		
 		gold_timer += delta;
 		tick += delta;
 		if(tick >= 0.0328767)
@@ -237,6 +326,41 @@ public partial class DynamicUI : Control
 		{
 			_price.LabelSettings.FontColor = new Color(0, 1, 0);
 		}
+		if(revolt_cooldown > 0){
+			revolt_cooldown -= delta;
+			if(revolt_cooldown < 0){revolt_cooldown = 0;}
+		}
+		if(Global.toreload == true) {
+			Global.toreload = false;
+			_popup.ResetMinigame();
+		}
+		if(sidepressed)
+		{
+			sidetick -= delta;
+			if(sidetick <= 0.0)
+			{
+				sidepressed = false;
+				sidetick = 0.0;
+			}
+		}
+		if(Input.IsActionPressed("ui_left"))
+		{
+			if(sidepressed == false)
+			{
+				OnLeftPressed();
+				sidetick = 0.2;
+				sidepressed = true;
+			}
+		}
+		if(Input.IsActionPressed("ui_right"))
+		{
+			if(sidepressed == false)
+			{
+				OnRightPressed();
+				sidetick = 0.2;
+				sidepressed = true;
+			}
+		}
 		gold_py = traders * 10;
 		statue_py = builders;
 		hunger_py = total_workers - farmers * 3;
@@ -247,6 +371,7 @@ public partial class DynamicUI : Control
 		_day.Text = day_value.ToString();
 		_gold.Text = gold.ToString() + " G";
 		_workers.Text = passive_workers.ToString();
+		_workerstotal.Text = total_workers.ToString();
 		_hungerbar.Value = hunger;
 		_statuebar.Value = statue;
 		_hunger.Text = hunger.ToString() + "%";
@@ -260,6 +385,57 @@ public partial class DynamicUI : Control
 			GD.Print("cooked");
 			GetTree().ChangeSceneToFile("res://Main.tscn");
 		}
+	}
+	
+	public void OnVRPressed()
+	{
+		_popup.ShowMinigame();
+	}
+	public void OnSRPressed()
+	{
+		_popup.ShowMinigame();
+	}
+	public void OnFRPressed()
+	{
+		_popup.ShowMinigame();
+	}
+	
+	public void CalculateHappiness()
+	{
+		if(((double)active_workers/(double)total_workers) > (0.8))
+		{
+			happiness -= 5;
+		}
+		else
+		{
+			happiness += 5;
+		}
+		if(((double)farmers/(double)active_workers) < (0.4))
+		{
+			happiness -= 5;
+		}
+		else
+		{
+			happiness += 5;
+		}
+		if(hunger < 25)
+		{
+			happiness += 5;
+		}
+		else if(hunger >= 25 && hunger < 50)
+		{
+			happiness = happiness;
+		}
+		else if(hunger >= 50 && hunger < 75)
+		{
+			happiness -= 5;
+		}
+		else if(hunger >= 75)
+		{
+			happiness -= 10;
+		}
+		if(happiness > 100){happiness = 100;}
+		if(happiness < 0){happiness = 0;}
 	}
 	
 	public int Month_Length(int month)
@@ -287,36 +463,6 @@ public partial class DynamicUI : Control
 			gold -= worker_price;
 			worker_price += 5;
 		}
-	}
-	
-	void OnVUPPressed()
-	{
-		
-	}
-	
-	void OnSUPPressed()
-	{
-		
-	}
-	
-	void OnFUPPressed()
-	{
-		
-	}
-	
-	void OnVDOWNPressed()
-	{
-		
-	}
-	
-	void OnSDOWNPressed()
-	{
-		
-	}
-	
-	void OnFDOWNPressed()
-	{
-		
 	}
 	
 	void OnVUPHeld()
@@ -541,9 +687,122 @@ public partial class DynamicUI : Control
 		{
 			gold += 10;
 		}
+		if((double)builders/(double)active_workers < 0.25)
+		{
+			statuerevoltcount += 1;
+		}
 		gold += gold_py;
 		statue += statue_py;
 		hunger += hunger_py;
+		if(statue >= 7500)
+		{
+			GetTree().ChangeSceneToFile("res://Main.tscn");
+		}
+		if(hunger > 100)
+		{
+			hunger = 100;
+		}
+		if(hunger < 0)
+		{
+			hunger = 0;
+		}
+		if(hunger >= 50)
+		{
+			KillAnyWorkers(2);
+		}
+		CalculateHappiness();
+		if(happiness < 40 || statuerevoltcount >= 3)
+		{
+			if(revolt_cooldown <= 0 && !revoltbool)
+			{
+				Random random = new Random();
+				int bruh = random.Next(0,3);
+				if(bruh == 0){VillageRevolt();}
+				else if(bruh == 1){StatueRevolt();}
+				else{FarmRevolt();}
+				revoltbool = true;
+				if(statuerevoltcount >= 3)
+				{
+					statuerevoltcount = 0;
+				}
+			}
+		}
+	}
+	
+	void VillageRevolt()
+	{
+		GD.Print("Village Revolt!");
+		_vrevolt.Visible = true;
+		villagerevolt = true;
+		gold_py_temp = gold_py;
+		revolt_timer = 3;
+		revolt_cooldown = 20.0;
+	}
+	
+	void StatueRevolt()
+	{
+		GD.Print("Statue Revolt!");
+		_srevolt.Visible = true;
+		statuerevolt = true;
+		statue_py_temp = statue_py;
+		revolt_timer = 3;
+		revolt_cooldown = 20.0;
+	}
+	
+	void FarmRevolt()
+	{
+		GD.Print("Farm Revolt!");
+		_frevolt.Visible = true;
+		farmrevolt = true;
+		gold_py_temp = gold_py;
+		revolt_timer = 3;
+		revolt_cooldown = 20.0;
+	}
+	
+	void EndRevolt(int area)
+	{
+		GD.Print("Revolt Ended");
+		_revoltbar.Visible = false;
+		_revoltbar.Value = 0;
+		revoltbool = false;
+		revolttick = 0.0;
+		_frevolt.Visible = false;
+		_srevolt.Visible = false;
+		_vrevolt.Visible = false;
+		villagerevolt = false;
+		statuerevolt = false;
+		farmrevolt = false;
+		Global.minigame = false;
+		if(area == 0){gold_py = gold_py_temp;}
+		else if(area == 1){statue_py = statue_py_temp;}
+		else{hunger = hunger_temp;}
+	}
+	
+	void KillWorkers(ref int people, int count)
+	{
+		if(people >= count)
+		{
+			people -= count;
+			active_workers -= count;
+		}
+	}
+	
+	void KillAnyWorkers(int count)
+	{
+		Random random = new Random();
+		int bruh = random.Next(0,3);
+		if(bruh == 0)
+		{
+			KillWorkers(ref traders, count);
+		}
+		else if(bruh == 1)
+		{
+			KillWorkers(ref builders, count);
+		}
+		else
+		{
+			KillWorkers(ref farmers, count);
+		}
 	}
 	
 }
