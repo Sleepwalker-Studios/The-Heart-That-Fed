@@ -12,7 +12,6 @@ bg_color = Color(0.6, 0.6, 0.6, 0.372549)
 z_index = -2
 offset_right = 1000.0
 offset_bottom = 650.0
-scale = Vector2(0.8, 0.9)
 theme_override_styles/panel = SubResource("StyleBoxFlat_65ijw")
 
 [node name="Control" type="Control" parent="Panel"]

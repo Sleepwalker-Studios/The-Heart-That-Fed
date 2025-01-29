@@ -3,6 +3,8 @@ using System;
 
 public partial class DynamicUI : Control
 {
+	public double dialoguetimer;
+	public bool dialogue;
 	public double verttick;
 	public bool vertpressed;
 	public double sidetick;
@@ -13,7 +15,6 @@ public partial class DynamicUI : Control
 	public bool villagerevolt;
 	public bool statuerevolt;
 	public bool farmrevolt;
-	private Label _dialoguecontrol;
 	private bool vupheld;
 	private bool supheld;
 	private bool fupheld;
@@ -40,9 +41,9 @@ public partial class DynamicUI : Control
 	public int total_workers;
 	public int passive_workers;
 	public int active_workers;
-	public int farmers;
-	public int traders;
-	public int builders;
+	public int farmers = 1;
+	public int traders = 1;
+	public int builders = 1;
 	public int statue;
 	private Label _gold;
 	private Label _workers;
@@ -87,6 +88,7 @@ public partial class DynamicUI : Control
 	public Label _farmlabel;
 	public Label _price;
 	public Label _revolt;
+	public Label _dialogue;
 	public MinigamePanel _popup;
 	public double tick;
 	public int i = 4;
@@ -96,7 +98,7 @@ public partial class DynamicUI : Control
 	
 	public override void _Ready()
 	{
-		_dialoguecontrol = GetTree().Root.GetNode<Label>("Node2D/DialogueBox/Panel/Label");
+		_dialogue = GetTree().Root.GetNode<Label>("Node2D/Control/Dialogue");
 		_year = GetTree().Root.GetNode<Label>("Node2D/Control/Time/Panel/Year");
 		_month = GetTree().Root.GetNode<Label>("Node2D/Control/Time/Panel2/Month");
 		_day = GetTree().Root.GetNode<Label>("Node2D/Control/Time/Panel3/Day");
@@ -148,9 +150,6 @@ public partial class DynamicUI : Control
 		_statuelabel = GetTree().Root.GetNode<Label>("Node2D/StatueLabel");
 		_farmlabel = GetTree().Root.GetNode<Label>("Node2D/FarmLabel");
 		_price = GetTree().Root.GetNode<Label>("Node2D/Control/Workers/CanvasLayer/BuyWorkers/Label");
-		_villagealert = GetTree().Root.GetNode<Sprite2D>("Node2D/Control/Village/Alert");
-		_statuealert = GetTree().Root.GetNode<Sprite2D>("Node2D/Control/Statue/Alert");
-		_farmalert = GetTree().Root.GetNode<Sprite2D>("Node2D/Control/Farm/Alert");
 		_vrevolt = GetTree().Root.GetNode<Button>("Node2D/Control/Village/Button");
 		_vrevolt.Pressed += OnVRPressed;
 		_srevolt = GetTree().Root.GetNode<Button>("Node2D/Control/Statue/Button");
@@ -173,7 +172,7 @@ public partial class DynamicUI : Control
 				{
 					hold_timer = 0;
 					UpButtonHeld(ref traders);
-					cooldown_timer = 20;
+					cooldown_timer = 15;
 				}
 				cooldown_timer--;
 				if(hold_timer > 0){hold_timer--;}
@@ -184,7 +183,7 @@ public partial class DynamicUI : Control
 				{
 					hold_timer = 0;
 					DownButtonHeld(ref traders);
-					cooldown_timer = 20;
+					cooldown_timer = 15;
 				}
 				cooldown_timer--;
 				if(hold_timer > 0){hold_timer--;}
@@ -199,7 +198,7 @@ public partial class DynamicUI : Control
 				{
 					hold_timer = 0;
 					UpButtonHeld(ref builders);
-					cooldown_timer = 20;
+					cooldown_timer = 15;
 				}
 				cooldown_timer--;
 				if(hold_timer > 0){hold_timer--;}
@@ -210,7 +209,7 @@ public partial class DynamicUI : Control
 				{
 					hold_timer = 0;
 					DownButtonHeld(ref builders);
-					cooldown_timer = 20;
+					cooldown_timer = 15;
 				}
 				cooldown_timer--;
 				if(hold_timer > 0){hold_timer--;}
@@ -225,7 +224,7 @@ public partial class DynamicUI : Control
 				{
 					hold_timer = 0;
 					UpButtonHeld(ref farmers);
-					cooldown_timer = 20;
+					cooldown_timer = 15;
 				}
 				cooldown_timer--;
 				if(hold_timer > 0){hold_timer--;}
@@ -236,7 +235,7 @@ public partial class DynamicUI : Control
 				{
 					hold_timer = 0;
 					DownButtonHeld(ref farmers);
-					cooldown_timer = 20;
+					cooldown_timer = 15;
 				}
 				cooldown_timer--;
 				if(hold_timer > 0){hold_timer--;}
@@ -251,7 +250,7 @@ public partial class DynamicUI : Control
 			if(revolttick >= 20.0)
 			{
 				GD.Print("cooked");
-				GetTree().ChangeSceneToFile("res://Main.tscn");
+				GetTree().ChangeSceneToFile("res://Lose.tscn");
 			}
 		}
 		
@@ -268,6 +267,7 @@ public partial class DynamicUI : Control
 				EndRevolt(0);
 				Global.minigame = false;
 				_popup.CloseMinigame();
+				DisplayDialogue("Revolt Ended");
 			}
 		}
 		if(statuerevolt)
@@ -283,6 +283,7 @@ public partial class DynamicUI : Control
 				EndRevolt(1);
 				Global.minigame = false;
 				_popup.CloseMinigame();
+				DisplayDialogue("Revolt Ended");
 			}
 		}
 		if(farmrevolt)
@@ -298,6 +299,7 @@ public partial class DynamicUI : Control
 				EndRevolt(2);
 				Global.minigame = false;
 				_popup.CloseMinigame();
+				DisplayDialogue("Revolt Ended");
 			}
 		}
 		
@@ -371,15 +373,15 @@ public partial class DynamicUI : Control
 			{
 				if(state == 0)
 				{
-					OnVUPHeld();
+					vupheld = true;
 				}
-				else if(state == 0)
+				else if(state == 1)
 				{
-					OnSUPHeld();
+					supheld = true;
 				}
 				else
 				{
-					OnFUPHeld();
+					fupheld = true;
 				}
 				verttick = 0.2;
 				vertpressed = true;
@@ -391,18 +393,28 @@ public partial class DynamicUI : Control
 			{
 				if(state == 0)
 				{
-					OnVDOWNHeld();
+					vdownheld = true;
 				}
-				else if(state == 0)
+				else if(state == 1)
 				{
-					OnSDOWNHeld();
+					sdownheld = true;
 				}
 				else
 				{
-					OnFDOWNHeld();
+					fdownheld = true;
 				}
 				verttick = 0.2;
 				vertpressed = true;
+			}
+		}
+		if(dialogue)
+		{
+			dialoguetimer -= delta;
+			if(dialoguetimer <= 0)
+			{
+				dialoguetimer = 0;
+				dialogue = false;
+				_dialogue.Visible = false;
 			}
 		}
 		gold_py = traders * 10;
@@ -427,7 +439,7 @@ public partial class DynamicUI : Control
 		if(year_value == 1213 && i == 7 && day_value == 8)
 		{
 			GD.Print("cooked");
-			GetTree().ChangeSceneToFile("res://Main.tscn");
+			GetTree().ChangeSceneToFile("res://Lose.tscn");
 		}
 	}
 	
@@ -506,7 +518,6 @@ public partial class DynamicUI : Control
 			passive_workers += worker_buy_count;
 			gold -= worker_price;
 			worker_price += 5;
-			DisplayText("BALLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLS");
 		}
 	}
 	
@@ -728,10 +739,6 @@ public partial class DynamicUI : Control
 	
 	void NewYear()
 	{
-		if(traders == 0)
-		{
-			gold += 10;
-		}
 		if((double)builders/(double)active_workers < 0.25)
 		{
 			statuerevoltcount += 1;
@@ -741,7 +748,7 @@ public partial class DynamicUI : Control
 		hunger += hunger_py;
 		if(statue >= 7500)
 		{
-			GetTree().ChangeSceneToFile("res://Main.tscn");
+			GetTree().ChangeSceneToFile("res://Win.tscn");
 		}
 		if(hunger > 100)
 		{
@@ -776,7 +783,7 @@ public partial class DynamicUI : Control
 	
 	void VillageRevolt()
 	{
-		GD.Print("Village Revolt!");
+		DisplayDialogue("Village Revolt!");
 		_vrevolt.Visible = true;
 		villagerevolt = true;
 		gold_py_temp = gold_py;
@@ -786,7 +793,7 @@ public partial class DynamicUI : Control
 	
 	void StatueRevolt()
 	{
-		GD.Print("Statue Revolt!");
+		DisplayDialogue("Statue Revolt!");
 		_srevolt.Visible = true;
 		statuerevolt = true;
 		statue_py_temp = statue_py;
@@ -796,7 +803,7 @@ public partial class DynamicUI : Control
 	
 	void FarmRevolt()
 	{
-		GD.Print("Farm Revolt!");
+		DisplayDialogue("Farm Revolt!");
 		_frevolt.Visible = true;
 		farmrevolt = true;
 		gold_py_temp = gold_py;
@@ -806,7 +813,6 @@ public partial class DynamicUI : Control
 	
 	void EndRevolt(int area)
 	{
-		GD.Print("Revolt Ended");
 		_revoltbar.Visible = false;
 		_revoltbar.Value = 0;
 		revoltbool = false;
@@ -829,6 +835,7 @@ public partial class DynamicUI : Control
 		{
 			people -= count;
 			active_workers -= count;
+			DisplayDialogue(count + " workers died");
 		}
 	}
 	
@@ -839,24 +846,26 @@ public partial class DynamicUI : Control
 		if(bruh == 0)
 		{
 			KillWorkers(ref traders, count);
+			DisplayDialogue(count + " traders died");
 		}
 		else if(bruh == 1)
 		{
 			KillWorkers(ref builders, count);
+			DisplayDialogue(count + " builders died");
 		}
 		else
 		{
 			KillWorkers(ref farmers, count);
+			DisplayDialogue(count + " farmers died");
 		}
 	}
 	
-	public void DisplayText(string text)
+	public void DisplayDialogue(string text)
 	{
-		if (_dialoguecontrol != null)
-		{
-			_dialoguecontrol.Text = text;
-			
-		}
+		_dialogue.Visible = true;
+		_dialogue.Text = text;
+		dialoguetimer = 5.0;
+		dialogue = true;
 	}
 
 	
