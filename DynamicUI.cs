@@ -3,6 +3,7 @@ using System;
 
 public partial class DynamicUI : Control
 {
+	public bool famine;
 	public bool go;
 	public double dialoguetimer;
 	public bool dialogue;
@@ -430,7 +431,8 @@ public partial class DynamicUI : Control
 		if(Global.meet1){
 			hunger_py = (total_workers - farmers * 6);
 		}
-		else{hunger_py = total_workers - farmers * 3;}
+		else if(!Global.meet1 && !famine){hunger_py = total_workers - farmers * 3;}
+		else if(!Global.meet1 && famine){hunger_py = total_workers - farmers * 2;}
 		total_workers = active_workers + passive_workers;
 		_price.Text = "Buy 5: " + worker_price.ToString() + " G";
 		_year.Text = year_value.ToString();
@@ -451,6 +453,21 @@ public partial class DynamicUI : Control
 		{
 			GD.Print("cooked");
 			GetTree().ChangeSceneToFile("res://Lose.tscn");
+		}
+		if(year_value == 1271 && i == 6 && day_value == 3)
+		{
+			famine = true;
+			DisplayDialogue("Famine draweth near")
+		}
+		if(year_value == 1270 && i == 6 && day_value == 3)
+		{
+			famine = true;
+			DisplayDialogue("The fields yield not their bounty, and the people famish")
+		}
+		if(year_value == 1267 && i == 6 && day_value == 3)
+		{
+			famine = false;
+			DisplayDialogue("The land is restored, and hunger is no more")
 		}
 	}
 	
@@ -768,7 +785,7 @@ public partial class DynamicUI : Control
 	
 	void NewYear()
 	{
-		if(year_value == 1269)
+		if(year_value == 1266)
 		{
 			_advisor.ShowAdvisor();
 		}
