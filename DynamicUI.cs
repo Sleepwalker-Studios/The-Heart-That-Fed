@@ -3,6 +3,7 @@ using System;
 
 public partial class DynamicUI : Control
 {
+	public bool go;
 	public double dialoguetimer;
 	public bool dialogue;
 	public double verttick;
@@ -38,9 +39,9 @@ public partial class DynamicUI : Control
 	public int gold = 10000;
 	public int hunger;
 	public int happiness = 100;
-	public int total_workers;
+	public int total_workers = 30;
 	public int passive_workers;
-	public int active_workers;
+	public int active_workers = 30;
 	public int farmers = 10;
 	public int traders = 10;
 	public int builders = 10;
@@ -311,13 +312,13 @@ public partial class DynamicUI : Control
 		}
 		
 		gold_timer += delta;
-		tick += delta;
+		if(go){tick += delta;}
 		if(tick >= 0.0328767)
 		{
 				day_value++;
 				tick = 0;
 		}
-		if(day_value >= Month_Length(i))
+		if(day_value > Month_Length(i))
 		{
 			day_value = 1;
 			if(i < 11)
@@ -540,6 +541,7 @@ public partial class DynamicUI : Control
 	
 	void OnBuyWorkersPressed()
 	{
+		go = true;
 		if(gold >= worker_price)
 		{
 			passive_workers += worker_buy_count;
