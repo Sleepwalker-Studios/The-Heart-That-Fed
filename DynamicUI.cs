@@ -181,7 +181,7 @@ public partial class DynamicUI : Control
 				{
 					hold_timer = 0;
 					UpButtonHeld(ref traders);
-					cooldown_timer = 15;
+					cooldown_timer = 10;
 				}
 				cooldown_timer--;
 				if(hold_timer > 0){hold_timer--;}
@@ -192,7 +192,7 @@ public partial class DynamicUI : Control
 				{
 					hold_timer = 0;
 					DownButtonHeld(ref traders);
-					cooldown_timer = 15;
+					cooldown_timer = 10;
 				}
 				cooldown_timer--;
 				if(hold_timer > 0){hold_timer--;}
@@ -207,7 +207,7 @@ public partial class DynamicUI : Control
 				{
 					hold_timer = 0;
 					UpButtonHeld(ref builders);
-					cooldown_timer = 15;
+					cooldown_timer = 10;
 				}
 				cooldown_timer--;
 				if(hold_timer > 0){hold_timer--;}
@@ -218,7 +218,7 @@ public partial class DynamicUI : Control
 				{
 					hold_timer = 0;
 					DownButtonHeld(ref builders);
-					cooldown_timer = 15;
+					cooldown_timer = 10;
 				}
 				cooldown_timer--;
 				if(hold_timer > 0){hold_timer--;}
@@ -233,7 +233,7 @@ public partial class DynamicUI : Control
 				{
 					hold_timer = 0;
 					UpButtonHeld(ref farmers);
-					cooldown_timer = 15;
+					cooldown_timer = 10;
 				}
 				cooldown_timer--;
 				if(hold_timer > 0){hold_timer--;}
@@ -244,7 +244,7 @@ public partial class DynamicUI : Control
 				{
 					hold_timer = 0;
 					DownButtonHeld(ref farmers);
-					cooldown_timer = 15;
+					cooldown_timer = 10;
 				}
 				cooldown_timer--;
 				if(hold_timer > 0){hold_timer--;}
@@ -457,17 +457,17 @@ public partial class DynamicUI : Control
 		if(year_value == 1271 && i == 6 && day_value == 3)
 		{
 			famine = true;
-			DisplayDialogue("Famine draweth near")
+			DisplayDialogue("Famine draweth near");
 		}
 		if(year_value == 1270 && i == 6 && day_value == 3)
 		{
 			famine = true;
-			DisplayDialogue("The fields yield not their bounty, and the people famish")
+			DisplayDialogue("The fields yield not their bounty, and the people famish");
 		}
 		if(year_value == 1267 && i == 6 && day_value == 3)
 		{
 			famine = false;
-			DisplayDialogue("The land is restored, and hunger is no more")
+			DisplayDialogue("The land is restored, and hunger is no more");
 		}
 	}
 	
@@ -671,21 +671,21 @@ public partial class DynamicUI : Control
 	
 	void UpButtonHeld(ref int people)
 	{
-		if(passive_workers >= 5)
+		if(passive_workers >= 10)
 		{
-			people += 5;
-			passive_workers -= 5;
-			active_workers += 5;
+			people += 10;
+			passive_workers -= 10;
+			active_workers += 10;
 		}
 	}
 	
 	void DownButtonHeld(ref int people)
 	{
-		if(people >= 5)
+		if(people >= 10)
 		{
-			people -= 5;
-			passive_workers += 5;
-			active_workers -= 5;
+			people -= 10;
+			passive_workers += 10;
+			active_workers -= 10;
 		}
 	}
 	
