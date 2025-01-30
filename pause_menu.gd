@@ -36,4 +36,7 @@ func _on_pause_pressed():
 		
 func _input(event):
 	if(event.is_action_pressed("ui_pause")):
-		toggle_pause()
+		if _is_paused:
+			_is_paused = false
+		else:
+			_is_paused = true

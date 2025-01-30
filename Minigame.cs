@@ -31,7 +31,6 @@ public partial class Minigame : Control
 		_b5 = GetTree().Root.GetNode<Button>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button5");
 		_b5.Pressed += OnB5Pressed;
 		_p = GetTree().Root.GetNode<Panel>("Node2D/PopupPanel/CanvasLayer/Panel");
-		GD.Print("cuh");
 		
 		int[] buttons = {1,2,3,4,5};
 		List<int> list = new List<int>(buttons);

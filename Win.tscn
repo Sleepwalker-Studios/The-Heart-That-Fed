@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cm6gv04x4kj4a"]
+[gd_scene load_steps=3 format=3 uid="uid://cm6gv04x4kj4a"]
 
 [ext_resource type="Script" path="res://MainMenu.cs" id="1_3uags"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s4c4i"]
+font_size = 128
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -73,6 +76,8 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "Success"
+label_settings = SubResource("LabelSettings_s4c4i")
+vertical_alignment = 1
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

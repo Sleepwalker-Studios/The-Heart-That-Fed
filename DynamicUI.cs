@@ -28,22 +28,22 @@ public partial class DynamicUI : Control
 	public int statue_py;
 	public int hunger_py;
 	public int gold_py;
-	public int worker_buy_count = 5;
-	public int worker_price = 100;
+	public int worker_buy_count = 50;
+	public int worker_price = 1000;
 	public int state = 1;
 	public int statue_py_temp;
 	public int hunger_temp;
 	public int gold_py_temp;
 	public double gold_timer;
-	public int gold = 1000;
+	public int gold = 10000;
 	public int hunger;
 	public int happiness = 100;
 	public int total_workers;
 	public int passive_workers;
 	public int active_workers;
-	public int farmers = 1;
-	public int traders = 1;
-	public int builders = 1;
+	public int farmers = 10;
+	public int traders = 10;
+	public int builders = 10;
 	public int statue;
 	private Label _gold;
 	private Label _workers;
@@ -90,6 +90,7 @@ public partial class DynamicUI : Control
 	public Label _revolt;
 	public Label _dialogue;
 	public MinigamePanel _popup;
+	public AdvisorPanel _advisor;
 	public double tick;
 	public int i = 4;
 	public int year_value = 1279;
@@ -157,12 +158,18 @@ public partial class DynamicUI : Control
 		_frevolt = GetTree().Root.GetNode<Button>("Node2D/Control/Farm/Button");
 		_frevolt.Pressed += OnFRPressed;
 		_popup = GetTree().Root.GetNode<MinigamePanel>("Node2D/PopupPanel");
+		_advisor = GetTree().Root.GetNode<AdvisorPanel>("Node2D/AdvisorPanel");
 		_revoltbar = GetTree().Root.GetNode<ProgressBar>("Node2D/Control/RevoltBar");
 		_revolt = GetTree().Root.GetNode<Label>("Node2D/Control/RevoltBar/Revolt");
 	}
 	
 	public override void _Process(double delta)
 	{
+		if(Global.meet2)
+		{
+			worker_price = worker_price - 500;
+			Global.meet2 = false;
+		}
 		if(state == 0)
 		{
 			SetVillage();
@@ -258,7 +265,7 @@ public partial class DynamicUI : Control
 		{
 			gold_py = 0;
 			if(revolt_timer <= 0){
-				KillWorkers(ref traders, 2);
+				KillWorkers(ref traders, 20);
 				revolt_timer = 1;
 			}
 			revolt_timer -= delta;
@@ -274,7 +281,7 @@ public partial class DynamicUI : Control
 		{
 			statue_py = 0;
 			if(revolt_timer <= 0){
-				KillWorkers(ref builders, 2);
+				KillWorkers(ref builders, 20);
 				revolt_timer = 1;
 			}
 			revolt_timer -= delta;
@@ -290,7 +297,7 @@ public partial class DynamicUI : Control
 		{
 			hunger = 100;
 			if(revolt_timer <= 0){
-				KillWorkers(ref farmers, 2);
+				KillWorkers(ref farmers, 20);
 				revolt_timer = 1;
 			}
 			revolt_timer -= delta;
@@ -418,8 +425,11 @@ public partial class DynamicUI : Control
 			}
 		}
 		gold_py = traders * 10;
-		statue_py = builders;
-		hunger_py = total_workers - farmers * 3;
+		statue_py = (builders/10);
+		if(Global.meet1){
+			hunger_py = (total_workers - farmers * 6);
+		}
+		else{hunger_py = total_workers - farmers * 3;}
 		total_workers = active_workers + passive_workers;
 		_price.Text = "Buy 5: " + worker_price.ToString() + " G";
 		_year.Text = year_value.ToString();
@@ -428,9 +438,9 @@ public partial class DynamicUI : Control
 		_gold.Text = gold.ToString() + " G";
 		_workers.Text = passive_workers.ToString();
 		_workerstotal.Text = total_workers.ToString();
-		_hungerbar.Value = hunger;
+		_hungerbar.Value = (hunger/10);
 		_statuebar.Value = statue;
-		_hunger.Text = hunger.ToString() + "%";
+		_hunger.Text = (hunger/10).ToString() + "%";
 		_statue.Text = (statue/75).ToString() + "%";
 		_village.Text = traders.ToString();
 		_statuenum.Text = builders.ToString();
@@ -456,6 +466,23 @@ public partial class DynamicUI : Control
 		_popup.ShowMinigame();
 	}
 	
+	public override void _Input(InputEvent @event)
+	{
+		if (@event.IsActionPressed("ui_pause"))
+		{
+			if(_pausesprite.Visible == true)
+			{
+				_pausesprite.Visible = false;
+				_playsprite.Visible = true;
+			}
+			else
+			{
+				_pausesprite.Visible = true;
+				_playsprite.Visible = false;
+			}
+		}
+	}
+	
 	public void CalculateHappiness()
 	{
 		if(((double)active_workers/(double)total_workers) > (0.8))
@@ -478,15 +505,15 @@ public partial class DynamicUI : Control
 		{
 			happiness += 5;
 		}
-		else if(hunger >= 25 && hunger < 50)
+		else if(hunger >= 250 && hunger < 500)
 		{
 			happiness = happiness;
 		}
-		else if(hunger >= 50 && hunger < 75)
+		else if(hunger >= 500 && hunger < 750)
 		{
 			happiness -= 5;
 		}
-		else if(hunger >= 75)
+		else if(hunger >= 750)
 		{
 			happiness -= 10;
 		}
@@ -517,7 +544,7 @@ public partial class DynamicUI : Control
 		{
 			passive_workers += worker_buy_count;
 			gold -= worker_price;
-			worker_price += 5;
+			worker_price += 50;
 		}
 	}
 	
@@ -625,21 +652,21 @@ public partial class DynamicUI : Control
 	
 	void UpButtonHeld(ref int people)
 	{
-		if(passive_workers >= 1)
+		if(passive_workers >= 5)
 		{
-			people += 1;
-			passive_workers -= 1;
-			active_workers += 1;
+			people += 5;
+			passive_workers -= 5;
+			active_workers += 5;
 		}
 	}
 	
 	void DownButtonHeld(ref int people)
 	{
-		if(people >= 1)
+		if(people >= 5)
 		{
-			people -= 1;
-			passive_workers += 1;
-			active_workers -= 1;
+			people -= 5;
+			passive_workers += 5;
+			active_workers -= 5;
 		}
 	}
 	
@@ -739,6 +766,18 @@ public partial class DynamicUI : Control
 	
 	void NewYear()
 	{
+		if(year_value == 1269)
+		{
+			_advisor.ShowAdvisor();
+		}
+		if(year_value == 1244)
+		{
+			_advisor.ShowAdvisor();
+		}
+		if(year_value == 1222)
+		{
+			_advisor.ShowAdvisor();
+		}
 		if((double)builders/(double)active_workers < 0.25)
 		{
 			statuerevoltcount += 1;
@@ -750,29 +789,30 @@ public partial class DynamicUI : Control
 		{
 			GetTree().ChangeSceneToFile("res://Win.tscn");
 		}
-		if(hunger > 100)
+		if(hunger > 1000)
 		{
-			hunger = 100;
+			hunger = 1000;
 		}
 		if(hunger < 0)
 		{
 			hunger = 0;
 		}
-		if(hunger >= 50)
+		if(hunger >= 500)
 		{
-			KillAnyWorkers(2);
+			KillAnyWorkers(20);
 		}
 		CalculateHappiness();
 		if(happiness < 40 || statuerevoltcount >= 3)
 		{
-			if(revolt_cooldown <= 0 && !revoltbool)
+			if(revolt_cooldown <= 0 && !revoltbool && !Global.meet3)
 			{
 				Random random = new Random();
 				int bruh = random.Next(0,3);
+				revoltbool = true;
+				revolt_cooldown = 25.0;
 				if(bruh == 0){VillageRevolt();}
 				else if(bruh == 1){StatueRevolt();}
 				else{FarmRevolt();}
-				revoltbool = true;
 				if(statuerevoltcount >= 3)
 				{
 					statuerevoltcount = 0;
@@ -788,7 +828,6 @@ public partial class DynamicUI : Control
 		villagerevolt = true;
 		gold_py_temp = gold_py;
 		revolt_timer = 3;
-		revolt_cooldown = 20.0;
 	}
 	
 	void StatueRevolt()
@@ -798,7 +837,6 @@ public partial class DynamicUI : Control
 		statuerevolt = true;
 		statue_py_temp = statue_py;
 		revolt_timer = 3;
-		revolt_cooldown = 20.0;
 	}
 	
 	void FarmRevolt()
@@ -808,7 +846,6 @@ public partial class DynamicUI : Control
 		farmrevolt = true;
 		gold_py_temp = gold_py;
 		revolt_timer = 3;
-		revolt_cooldown = 20.0;
 	}
 	
 	void EndRevolt(int area)
@@ -827,6 +864,7 @@ public partial class DynamicUI : Control
 		if(area == 0){gold_py = gold_py_temp;}
 		else if(area == 1){statue_py = statue_py_temp;}
 		else{hunger = hunger_temp;}
+		_dialogue.Text = ("");
 	}
 	
 	void KillWorkers(ref int people, int count)
@@ -845,18 +883,27 @@ public partial class DynamicUI : Control
 		int bruh = random.Next(0,3);
 		if(bruh == 0)
 		{
-			KillWorkers(ref traders, count);
-			DisplayDialogue(count + " traders died");
+			if(traders >= count){
+				KillWorkers(ref traders, count);
+				DisplayDialogue(count + " traders died");
+			}
+			else{KillAnyWorkers(count);}
 		}
 		else if(bruh == 1)
 		{
-			KillWorkers(ref builders, count);
-			DisplayDialogue(count + " builders died");
+			if(builders >= count){
+				KillWorkers(ref builders, count);
+				DisplayDialogue(count + " builders died");
+			}
+			else{KillAnyWorkers(count);}
 		}
 		else
 		{
-			KillWorkers(ref farmers, count);
-			DisplayDialogue(count + " farmers died");
+			if(farmers >= count){
+				KillWorkers(ref farmers, count);
+				DisplayDialogue(count + " farmers died");
+			}
+			else{KillAnyWorkers(count);}
 		}
 	}
 	

@@ -1,7 +1,8 @@
-[gd_scene load_steps=60 format=3 uid="uid://lsujkapc0lhq"]
+[gd_scene load_steps=62 format=3 uid="uid://lsujkapc0lhq"]
 
 [ext_resource type="Texture2D" uid="uid://dyngfwa0tsmcd" path="res://pharaoh1.png" id="1_8anlt"]
 [ext_resource type="Script" path="res://DynamicUI.cs" id="2_pilr5"]
+[ext_resource type="FontFile" uid="uid://656a3usq0856" path="res://Jersey10-Regular.ttf" id="2_x74ly"]
 [ext_resource type="Texture2D" uid="uid://daciksrvlweqf" path="res://PauseButton.png" id="3_borg8"]
 [ext_resource type="Script" path="res://pause_menu.gd" id="3_jmogg"]
 [ext_resource type="Texture2D" uid="uid://cyix133i0lbtd" path="res://ArrowButton.png" id="3_ob7ma"]
@@ -12,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bbg1vc8sx1w6g" path="res://yellow.png" id="9_yqybj"]
 [ext_resource type="Texture2D" uid="uid://cyeehvyiepefo" path="res://green.png" id="10_xnv13"]
 [ext_resource type="Script" path="res://MinigamePanel.cs" id="12_0h5lj"]
+[ext_resource type="Script" path="res://AdvisorPanel.cs" id="14_jo1a2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjkhg"]
 bg_color = Color(1, 1, 1, 1)
@@ -28,6 +30,8 @@ border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_khnuk"]
+font = ExtResource("2_x74ly")
+font_size = 28
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kfkle"]
@@ -73,7 +77,8 @@ border_width_bottom = 2
 border_color = Color(0.637843, 0.637843, 0.637843, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ktea0"]
-font_size = 24
+font = ExtResource("2_x74ly")
+font_size = 32
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77t01"]
@@ -89,7 +94,8 @@ corner_detail = 1
 bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_equ5b"]
-font_size = 32
+font = ExtResource("2_x74ly")
+font_size = 48
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_td284"]
@@ -102,7 +108,8 @@ border_color = Color(0.427451, 0.427451, 0.427451, 1)
 corner_detail = 1
 
 [sub_resource type="LabelSettings" id="LabelSettings_00pg2"]
-font_size = 24
+font = ExtResource("2_x74ly")
+font_size = 48
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_psh8h"]
@@ -133,7 +140,8 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
 [sub_resource type="LabelSettings" id="LabelSettings_r1662"]
-font_size = 24
+font = ExtResource("2_x74ly")
+font_size = 32
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nfuqm"]
@@ -142,7 +150,8 @@ border_width_bottom = 2
 border_color = Color(0.639216, 0.639216, 0.639216, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_5e12c"]
-font_size = 20
+font = ExtResource("2_x74ly")
+font_size = 28
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kblsv"]
@@ -204,10 +213,11 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_d3wmy"]
-font_size = 24
+font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_w7rgh"]
-font_size = 24
+font = ExtResource("2_x74ly")
+font_size = 32
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ttoh"]
 border_width_left = 3
@@ -245,10 +255,11 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_up1pl"]
-font_size = 24
+font = ExtResource("2_x74ly")
+font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_4wqtg"]
-font_size = 20
+font_size = 28
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i52js"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -308,9 +319,10 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_tjdor"]
+font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_edq13"]
-font_size = 32
+font_size = 64
 
 [node name="Node2D" type="Node2D"]
 
@@ -475,9 +487,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_td284")
 [node name="WorkerCount" type="Label" parent="Control/Workers"]
 layout_mode = 0
 offset_left = 75.0
-offset_top = 105.0
+offset_top = 100.0
 offset_right = 115.0
-offset_bottom = 150.0
+offset_bottom = 152.0
 label_settings = SubResource("LabelSettings_00pg2")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -503,13 +515,14 @@ offset_right = 155.0
 offset_bottom = 37.0
 label_settings = SubResource("LabelSettings_r1662")
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="WorkerCountTotal" type="Label" parent="Control/Workers"]
 layout_mode = 0
 offset_left = 75.0
-offset_top = 33.0
+offset_top = 28.0
 offset_right = 115.0
-offset_bottom = 78.0
+offset_bottom = 80.0
 label_settings = SubResource("LabelSettings_00pg2")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -608,6 +621,7 @@ offset_bottom = 49.0
 text = "Hunger:"
 label_settings = SubResource("LabelSettings_d3wmy")
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Hunger" type="Label" parent="Control/HungerBox"]
 layout_mode = 0
@@ -617,6 +631,7 @@ offset_right = 220.0
 offset_bottom = 49.0
 label_settings = SubResource("LabelSettings_w7rgh")
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="StatueBox" type="Panel" parent="Control"]
 layout_mode = 0
@@ -646,6 +661,7 @@ offset_bottom = 49.0
 text = "Statue:"
 label_settings = SubResource("LabelSettings_up1pl")
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Statue" type="Label" parent="Control/StatueBox"]
 layout_mode = 0
@@ -655,6 +671,7 @@ offset_right = 220.0
 offset_bottom = 49.0
 label_settings = SubResource("LabelSettings_w7rgh")
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 z_index = -1
@@ -897,7 +914,6 @@ label_settings = SubResource("LabelSettings_w7rgh")
 horizontal_alignment = 1
 
 [node name="Dialogue" type="Label" parent="Control"]
-visible = false
 layout_mode = 0
 offset_left = 10.0
 offset_top = 10.0
@@ -972,6 +988,10 @@ script = ExtResource("12_0h5lj")
 position = Vector2(900.1, 100.35)
 scale = Vector2(0.394095, 0.389258)
 texture = ExtResource("1_8anlt")
+
+[node name="AdvisorPanel" type="PopupPanel" parent="."]
+size = Vector2i(1000, 650)
+script = ExtResource("14_jo1a2")
 
 [connection signal="pressed" from="Control/Time/CanvasLayer/Pause" to="CanvasLayer/Pause Menu" method="_on_pause_pressed"]
 [connection signal="pressed" from="Control/Workers/CanvasLayer/BuyWorkers" to="Control" method="_on_buy_workers_pressed"]

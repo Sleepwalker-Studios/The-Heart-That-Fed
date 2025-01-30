@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://6ixag2lww33r"]
+[gd_scene load_steps=4 format=3 uid="uid://6ixag2lww33r"]
 
 [ext_resource type="Script" path="res://MainMenu.cs" id="1_10m23"]
+[ext_resource type="FontFile" uid="uid://656a3usq0856" path="res://Jersey10-Regular.ttf" id="2_skg4w"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kibhl"]
+font = ExtResource("2_skg4w")
+font_size = 128
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -42,16 +47,19 @@ size_flags_vertical = 4
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_skg4w")
 theme_override_font_sizes/font_size = 72
 text = "Play"
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_skg4w")
 theme_override_font_sizes/font_size = 72
 text = "Options"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_skg4w")
 theme_override_font_sizes/font_size = 72
 text = "Quit"
 
@@ -73,6 +81,7 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "The Heart That Fed"
+label_settings = SubResource("LabelSettings_kibhl")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://5pfosrmmhgt7"]
+[gd_scene load_steps=9 format=3 uid="uid://5pfosrmmhgt7"]
 
 [ext_resource type="Script" path="res://Advisor.cs" id="1_wkmij"]
+[ext_resource type="Script" path="res://Typing.cs" id="2_aja1m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kc3xi"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -60,6 +61,11 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="LabelSettings" id="LabelSettings_vp222"]
+line_spacing = 0.0
+font_size = 46
+font_color = Color(0, 0, 0, 1)
+
 [node name="CanvasLayer" type="CanvasLayer"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -81,23 +87,33 @@ offset_bottom = 630.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_kc3xi")
 
 [node name="Option1" type="Button" parent="Control/Panel"]
+visible = false
 layout_mode = 0
 offset_left = 150.0
 offset_top = 10.0
 offset_right = 350.0
 offset_bottom = 60.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 42
 theme_override_styles/hover = SubResource("StyleBoxFlat_kfcpk")
 theme_override_styles/normal = SubResource("StyleBoxFlat_p8stw")
+text = "Yes"
 
 [node name="Option2" type="Button" parent="Control/Panel"]
+visible = false
+layout_mode = 0
 offset_left = 150.0
 offset_top = 70.0
 offset_right = 350.0
 offset_bottom = 120.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 42
 theme_override_styles/hover = SubResource("StyleBoxFlat_7ftdi")
 theme_override_styles/normal = SubResource("StyleBoxFlat_p8stw")
+text = "No"
 
 [node name="Panel2" type="Panel" parent="Control"]
+layout_mode = 0
 offset_left = 20.0
 offset_top = 20.0
 offset_right = 980.0
@@ -106,5 +122,15 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_8w447")
 
 [node name="Label" type="Label" parent="Control/Panel2"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 10.0
+offset_right = 950.0
+offset_bottom = 52.0
+text = "Hello there"
+label_settings = SubResource("LabelSettings_vp222")
+autowrap_mode = 3
+visible_characters = 0
+visible_ratio = 0.0
+script = ExtResource("2_aja1m")
+
+[node name="Timer" type="Timer" parent="Control/Panel2/Label"]
+wait_time = 0.05
