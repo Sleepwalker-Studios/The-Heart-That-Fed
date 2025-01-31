@@ -133,6 +133,7 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_howma")
 
 [node name="Button2" type="Button" parent="Control/Panel"]
+layout_mode = 0
 offset_left = 175.0
 offset_top = 195.0
 offset_right = 265.0
@@ -150,6 +151,7 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_howma")
 
 [node name="Confirm" type="Button" parent="Control/Panel"]
+layout_mode = 0
 offset_left = 270.0
 offset_top = 165.0
 offset_right = 310.0

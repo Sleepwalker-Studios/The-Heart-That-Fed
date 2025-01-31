@@ -3,6 +3,7 @@ using System;
 
 public partial class DynamicUI : Control
 {
+	public bool tutorial = true;
 	public bool tradeboost;
 	public bool famine;
 	public bool go;
@@ -91,6 +92,13 @@ public partial class DynamicUI : Control
 	public Label _price;
 	public Label _revolt;
 	public Label _dialogue;
+	public Panel _tutorial;
+	public Button _1;
+	public Button _2;
+	public Button _3;
+	public Button _4;
+	public Button _5;
+	public Button _6;
 	public MinigamePanel _popup;
 	public AdvisorPanel _advisor;
 	public MilitaryPanel _military;
@@ -165,6 +173,13 @@ public partial class DynamicUI : Control
 		_military = GetTree().Root.GetNode<MilitaryPanel>("Node2D/MilitaryPanel");
 		_revoltbar = GetTree().Root.GetNode<ProgressBar>("Node2D/Control/RevoltBar");
 		_revolt = GetTree().Root.GetNode<Label>("Node2D/Control/RevoltBar/Revolt");
+		_tutorial = GetTree().Root.GetNode<Panel>("Node2D/Tutorial");
+		_1 = GetTree().Root.GetNode<Button>("Node2D/Tutorial/Panel/Statue/CanvasLayer/Up");
+		_2 = GetTree().Root.GetNode<Button>("Node2D/Tutorial/Panel/Statue/CanvasLayer/Down");
+		_3 = GetTree().Root.GetNode<Button>("Node2D/Tutorial/Panel2/Statue/CanvasLayer/Up");
+		_4 = GetTree().Root.GetNode<Button>("Node2D/Tutorial/Panel2/Statue/CanvasLayer/Down");
+		_5 = GetTree().Root.GetNode<Button>("Node2D/Tutorial/Panel3/Statue/CanvasLayer/Up");
+		_6 = GetTree().Root.GetNode<Button>("Node2D/Tutorial/Panel3/Statue/CanvasLayer/Down");
 	}
 	
 	public override void _Process(double delta)
@@ -174,82 +189,85 @@ public partial class DynamicUI : Control
 			worker_price = worker_price - 500;
 			Global.meet2 = false;
 		}
-		if(state == 0)
+		if(!tutorial)
 		{
-			SetVillage();
-			if(vupheld)
+			if(state == 0)
 			{
-				if(hold_timer <= 0 && cooldown_timer <= 0)
+				SetVillage();
+				if(vupheld)
 				{
-					hold_timer = 0;
-					UpButtonHeld(ref traders);
-					cooldown_timer = 10;
+					if(hold_timer <= 0 && cooldown_timer <= 0)
+					{
+						hold_timer = 0;
+						UpButtonHeld(ref traders);
+						cooldown_timer = 10;
+					}
+					cooldown_timer--;
+					if(hold_timer > 0){hold_timer--;}
 				}
-				cooldown_timer--;
-				if(hold_timer > 0){hold_timer--;}
+				if(vdownheld)
+				{
+					if(hold_timer <= 0 && cooldown_timer <= 0)
+					{
+						hold_timer = 0;
+						DownButtonHeld(ref traders);
+						cooldown_timer = 10;
+					}
+					cooldown_timer--;
+					if(hold_timer > 0){hold_timer--;}
+				}
 			}
-			if(vdownheld)
+			else if(state == 1)
 			{
-				if(hold_timer <= 0 && cooldown_timer <= 0)
+				SetStatue();
+				if(supheld)
 				{
-					hold_timer = 0;
-					DownButtonHeld(ref traders);
-					cooldown_timer = 10;
+					if(hold_timer <= 0 && cooldown_timer <= 0)
+					{
+						hold_timer = 0;
+						UpButtonHeld(ref builders);
+						cooldown_timer = 10;
+					}
+					cooldown_timer--;
+					if(hold_timer > 0){hold_timer--;}
 				}
-				cooldown_timer--;
-				if(hold_timer > 0){hold_timer--;}
+				if(sdownheld)
+				{
+					if(hold_timer <= 0 && cooldown_timer <= 0)
+					{
+						hold_timer = 0;
+						DownButtonHeld(ref builders);
+						cooldown_timer = 10;
+					}
+					cooldown_timer--;
+					if(hold_timer > 0){hold_timer--;}
+				}
 			}
-		}
-		else if(state == 1)
-		{
-			SetStatue();
-			if(supheld)
+			else
 			{
-				if(hold_timer <= 0 && cooldown_timer <= 0)
+				SetFarm();
+				if(fupheld)
 				{
-					hold_timer = 0;
-					UpButtonHeld(ref builders);
-					cooldown_timer = 10;
+					if(hold_timer <= 0 && cooldown_timer <= 0)
+					{
+						hold_timer = 0;
+						UpButtonHeld(ref farmers);
+						cooldown_timer = 10;
+					}
+					cooldown_timer--;
+					if(hold_timer > 0){hold_timer--;}
 				}
-				cooldown_timer--;
-				if(hold_timer > 0){hold_timer--;}
-			}
-			if(sdownheld)
-			{
-				if(hold_timer <= 0 && cooldown_timer <= 0)
+				if(fdownheld)
 				{
-					hold_timer = 0;
-					DownButtonHeld(ref builders);
-					cooldown_timer = 10;
+					if(hold_timer <= 0 && cooldown_timer <= 0)
+					{
+						hold_timer = 0;
+						DownButtonHeld(ref farmers);
+						cooldown_timer = 10;
+					}
+					cooldown_timer--;
+					if(hold_timer > 0){hold_timer--;}
 				}
-				cooldown_timer--;
-				if(hold_timer > 0){hold_timer--;}
-			}
-		}
-		else
-		{
-			SetFarm();
-			if(fupheld)
-			{
-				if(hold_timer <= 0 && cooldown_timer <= 0)
-				{
-					hold_timer = 0;
-					UpButtonHeld(ref farmers);
-					cooldown_timer = 10;
-				}
-				cooldown_timer--;
-				if(hold_timer > 0){hold_timer--;}
-			}
-			if(fdownheld)
-			{
-				if(hold_timer <= 0 && cooldown_timer <= 0)
-				{
-					hold_timer = 0;
-					DownButtonHeld(ref farmers);
-					cooldown_timer = 10;
-				}
-				cooldown_timer--;
-				if(hold_timer > 0){hold_timer--;}
 			}
 		}
 		if(revoltbool)
@@ -493,7 +511,6 @@ public partial class DynamicUI : Control
 		{
 			tradeboost = false;
 		}
-		
 	}
 	
 	public void OnVRPressed()
@@ -583,6 +600,14 @@ public partial class DynamicUI : Control
 	
 	void OnBuyWorkersPressed()
 	{
+		tutorial = false;
+		_1.Visible = false;
+		_2.Visible = false;
+		_3.Visible = false;
+		_4.Visible = false;
+		_5.Visible = false;
+		_6.Visible = false;
+		_tutorial.Visible = false;
 		go = true;
 		if(Global.gold >= worker_price)
 		{
