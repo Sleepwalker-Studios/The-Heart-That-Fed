@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cfimrecp5hyxf" path="res://exclamation.png" id="7_ptfdk"]
 [ext_resource type="Texture2D" uid="uid://bnbivfvc4s5bh" path="res://red.png" id="8_gd8rc"]
 [ext_resource type="Texture2D" uid="uid://bbg1vc8sx1w6g" path="res://yellow.png" id="9_yqybj"]
-[ext_resource type="Texture2D" uid="uid://cyeehvyiepefo" path="res://green.png" id="10_xnv13"]
+[ext_resource type="Texture2D" uid="uid://7wbpaxo71ctp" path="res://ase files/farm.png" id="11_8t4yx"]
 [ext_resource type="Script" path="res://MinigamePanel.cs" id="12_0h5lj"]
 [ext_resource type="Script" path="res://AdvisorPanel.cs" id="14_jo1a2"]
 [ext_resource type="Script" path="res://MilitaryPanel.cs" id="15_ha07b"]
@@ -987,9 +987,9 @@ texture = ExtResource("9_yqybj")
 [node name="Farm" type="Sprite2D" parent="."]
 visible = false
 z_index = -1
-position = Vector2(400, 292)
-scale = Vector2(24.875, 18.1875)
-texture = ExtResource("10_xnv13")
+position = Vector2(500, 315)
+scale = Vector2(6.3, 6.3)
+texture = ExtResource("11_8t4yx")
 
 [node name="VillageLabel" type="Label" parent="."]
 visible = false

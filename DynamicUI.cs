@@ -334,7 +334,7 @@ public partial class DynamicUI : Control
 		
 		gold_timer += delta;
 		if(go){tick += delta;}
-		if(tick >= 0.0328767)
+		if(tick >= 0.005)
 		{
 				day_value++;
 				tick = 0;
@@ -480,7 +480,6 @@ public partial class DynamicUI : Control
 		}
 		if(year_value == 1271 && i == 6 && day_value == 3)
 		{
-			famine = true;
 			DisplayDialogue("Famine draweth near");
 		}
 		if(year_value == 1270 && i == 6 && day_value == 3)
@@ -851,6 +850,7 @@ public partial class DynamicUI : Control
 		{
 			_military.ShowMilitary();
 		}
+		GD.Print("bomba");
 		if((double)builders/(double)active_workers < 0.25)
 		{
 			statuerevoltcount += 1;
@@ -877,6 +877,7 @@ public partial class DynamicUI : Control
 		CalculateHappiness();
 		if(happiness < 40 || statuerevoltcount >= 3)
 		{
+			statuerevoltcount = 3;
 			if(revolt_cooldown <= 0 && !revoltbool && !Global.meet3)
 			{
 				Random random = new Random();
