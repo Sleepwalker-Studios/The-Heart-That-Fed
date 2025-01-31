@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3ij1ukyas2kt"]
+[gd_scene load_steps=5 format=3 uid="uid://cnhd80wrw0abs"]
 
 [ext_resource type="Script" path="res://Minigame.cs" id="1_hm5gc"]
 [ext_resource type="Texture2D" uid="uid://bnbivfvc4s5bh" path="res://red.png" id="2_wsxv1"]
