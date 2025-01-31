@@ -3,6 +3,7 @@ using System;
 
 public partial class DynamicUI : Control
 {
+	public bool tradeboost;
 	public bool famine;
 	public bool go;
 	public double dialoguetimer;
@@ -37,7 +38,6 @@ public partial class DynamicUI : Control
 	public int hunger_temp;
 	public int gold_py_temp;
 	public double gold_timer;
-	public int gold = 10000;
 	public int hunger;
 	public int happiness = 100;
 	public int total_workers = 30;
@@ -93,6 +93,7 @@ public partial class DynamicUI : Control
 	public Label _dialogue;
 	public MinigamePanel _popup;
 	public AdvisorPanel _advisor;
+	public MilitaryPanel _military;
 	public double tick;
 	public int i = 4;
 	public int year_value = 1279;
@@ -161,6 +162,7 @@ public partial class DynamicUI : Control
 		_frevolt.Pressed += OnFRPressed;
 		_popup = GetTree().Root.GetNode<MinigamePanel>("Node2D/PopupPanel");
 		_advisor = GetTree().Root.GetNode<AdvisorPanel>("Node2D/AdvisorPanel");
+		_military = GetTree().Root.GetNode<MilitaryPanel>("Node2D/MilitaryPanel");
 		_revoltbar = GetTree().Root.GetNode<ProgressBar>("Node2D/Control/RevoltBar");
 		_revolt = GetTree().Root.GetNode<Label>("Node2D/Control/RevoltBar/Revolt");
 	}
@@ -333,7 +335,7 @@ public partial class DynamicUI : Control
 				NewYear();
 			}
 		}
-		if(worker_price > gold)
+		if(worker_price > Global.gold)
 		{
 			_price.LabelSettings.FontColor = new Color(1, 0, 0);
 		}
@@ -426,7 +428,11 @@ public partial class DynamicUI : Control
 				_dialogue.Visible = false;
 			}
 		}
-		gold_py = traders * 10;
+		if(tradeboost)
+		{
+			gold_py = traders * 13;
+		}
+		else{gold_py = traders * 10;}
 		statue_py = (builders/10);
 		if(Global.meet1){
 			hunger_py = (total_workers - farmers * 6);
@@ -438,7 +444,7 @@ public partial class DynamicUI : Control
 		_year.Text = year_value.ToString();
 		_month.Text = month_value[i];
 		_day.Text = day_value.ToString();
-		_gold.Text = gold.ToString() + " G";
+		_gold.Text = Global.gold.ToString() + " G";
 		_workers.Text = passive_workers.ToString();
 		_workerstotal.Text = total_workers.ToString();
 		_hungerbar.Value = (hunger/10);
@@ -469,6 +475,25 @@ public partial class DynamicUI : Control
 			famine = false;
 			DisplayDialogue("The land is restored, and hunger is no more");
 		}
+		if(year_value == 1254 && i == 4 && day_value == 24)
+		{
+			Random random = new Random();
+			int real = random.Next(0,2);
+			if(real == 0){
+				DisplayDialogue("Victory, like a golden wreath, doth rest upon thy head");
+				tradeboost = true;
+				Global.gold += ((Global.invest * 3)/2);
+			}
+			if(real == 1)
+			{
+				DisplayDialogue("Defeat hath claimed thee; the field is strewn with bitter woe");
+			}
+		}
+		if(year_value == 1251 && i == 4 && day_value == 24)
+		{
+			tradeboost = false;
+		}
+		
 	}
 	
 	public void OnVRPressed()
@@ -559,10 +584,10 @@ public partial class DynamicUI : Control
 	void OnBuyWorkersPressed()
 	{
 		go = true;
-		if(gold >= worker_price)
+		if(Global.gold >= worker_price)
 		{
 			passive_workers += worker_buy_count;
-			gold -= worker_price;
+			Global.gold -= worker_price;
 			worker_price += 50;
 		}
 	}
@@ -797,11 +822,15 @@ public partial class DynamicUI : Control
 		{
 			_advisor.ShowAdvisor();
 		}
+		if(year_value == 1255)
+		{
+			_military.ShowMilitary();
+		}
 		if((double)builders/(double)active_workers < 0.25)
 		{
 			statuerevoltcount += 1;
 		}
-		gold += gold_py;
+		Global.gold += gold_py;
 		statue += statue_py;
 		hunger += hunger_py;
 		if(statue >= 7500)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://lsujkapc0lhq"]
+[gd_scene load_steps=63 format=3 uid="uid://lsujkapc0lhq"]
 
 [ext_resource type="Texture2D" uid="uid://dyngfwa0tsmcd" path="res://pharaoh1.png" id="1_8anlt"]
 [ext_resource type="Script" path="res://DynamicUI.cs" id="2_pilr5"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cyeehvyiepefo" path="res://green.png" id="10_xnv13"]
 [ext_resource type="Script" path="res://MinigamePanel.cs" id="12_0h5lj"]
 [ext_resource type="Script" path="res://AdvisorPanel.cs" id="14_jo1a2"]
+[ext_resource type="Script" path="res://MilitaryPanel.cs" id="15_ha07b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjkhg"]
 bg_color = Color(1, 1, 1, 1)
@@ -992,6 +993,11 @@ texture = ExtResource("1_8anlt")
 [node name="AdvisorPanel" type="PopupPanel" parent="."]
 size = Vector2i(1000, 650)
 script = ExtResource("14_jo1a2")
+
+[node name="MilitaryPanel" type="PopupPanel" parent="."]
+position = Vector2i(240, 176)
+size = Vector2i(320, 234)
+script = ExtResource("15_ha07b")
 
 [connection signal="pressed" from="Control/Time/CanvasLayer/Pause" to="CanvasLayer/Pause Menu" method="_on_pause_pressed"]
 [connection signal="pressed" from="Control/Workers/CanvasLayer/BuyWorkers" to="Control" method="_on_buy_workers_pressed"]

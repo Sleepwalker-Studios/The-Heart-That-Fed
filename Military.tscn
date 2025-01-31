@@ -1,0 +1,177 @@
+[gd_scene load_steps=12 format=3 uid="uid://dicvoh86u6wlk"]
+
+[ext_resource type="Script" path="res://Military.cs" id="1_durba"]
+[ext_resource type="Texture2D" uid="uid://cyix133i0lbtd" path="res://ArrowButton.png" id="1_howma"]
+[ext_resource type="Texture2D" uid="uid://d1ecj48n4pcsm" path="res://check.png" id="3_6wxtq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_44uv8"]
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0jjft"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_wr1b8"]
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cf441"]
+bg_color = Color(0.513726, 0.513726, 0.513726, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hqrt1"]
+bg_color = Color(0.513233, 0.513233, 0.513233, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o4y5n"]
+bg_color = Color(0.314316, 0.314316, 0.314316, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4pvgd"]
+bg_color = Color(0.143598, 0.372405, 0.131722, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_ayrn2"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_durba")
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 234.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_44uv8")
+
+[node name="Panel" type="Panel" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 165.0
+offset_right = 170.0
+offset_bottom = 225.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0jjft")
+
+[node name="Label" type="Label" parent="Control/Panel/Panel"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 2.5
+offset_right = 155.0
+offset_bottom = 57.5
+label_settings = SubResource("LabelSettings_wr1b8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 165.0
+offset_right = 265.0
+offset_bottom = 193.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_cf441")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_hqrt1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hqrt1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hqrt1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4y5n")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Panel/Button"]
+position = Vector2(45, 13)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_howma")
+
+[node name="Button2" type="Button" parent="Control/Panel"]
+offset_left = 175.0
+offset_top = 195.0
+offset_right = 265.0
+offset_bottom = 223.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_cf441")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_hqrt1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hqrt1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hqrt1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4y5n")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Panel/Button2"]
+position = Vector2(45, 15)
+rotation = 3.14159
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_howma")
+
+[node name="Confirm" type="Button" parent="Control/Panel"]
+offset_left = 270.0
+offset_top = 165.0
+offset_right = 310.0
+offset_bottom = 225.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_cf441")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_hqrt1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hqrt1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hqrt1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4pvgd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Panel/Confirm"]
+position = Vector2(18, 33)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_6wxtq")
+
+[node name="Label" type="Label" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 5.0
+offset_right = 310.0
+offset_bottom = 230.0
+text = "An empire hath declared war upon thee; how much art thou willing to spend on this quarrel?"
+label_settings = SubResource("LabelSettings_ayrn2")
+horizontal_alignment = 1
+autowrap_mode = 3

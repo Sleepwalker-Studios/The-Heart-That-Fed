@@ -3,6 +3,9 @@ using System;
 
 public partial class Global : Node
 {
+	public static bool mcheck;
+	public static int invest = 1000;
+	public static int gold = 10000;
 	public static bool meet1check;
 	public static bool meet2check;
 	public static bool meet3check;
