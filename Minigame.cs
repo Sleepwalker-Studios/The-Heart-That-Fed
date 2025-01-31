@@ -50,7 +50,7 @@ public partial class Minigame : Control
 		if(a < 5)
 		{
 			timer += delta;
-			if(timer > 0.3)
+			if(timer > 0.5)
 			{
 				Demo(a);
 				timer = 0.0;
