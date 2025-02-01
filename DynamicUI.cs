@@ -38,7 +38,6 @@ public partial class DynamicUI : Control
 	public int statue_py_temp;
 	public int hunger_temp;
 	public int gold_py_temp;
-	public double gold_timer;
 	public int hunger;
 	public int happiness = 100;
 	public int total_workers = 30;
@@ -99,14 +98,16 @@ public partial class DynamicUI : Control
 	public Button _4;
 	public Button _5;
 	public Button _6;
+	public AudioStreamPlayer _music;
 	public MinigamePanel _popup;
 	public AdvisorPanel _advisor;
 	public MilitaryPanel _military;
+	public ProloguePanel _prologue;
 	public double tick;
-	public int i = 4;
+	public int i = 0;
 	public int year_value = 1279;
 	public string[] month_value = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
-	public int day_value = 31;
+	public int day_value = 1;
 	
 	public override void _Ready()
 	{
@@ -171,6 +172,7 @@ public partial class DynamicUI : Control
 		_popup = GetTree().Root.GetNode<MinigamePanel>("Node2D/PopupPanel");
 		_advisor = GetTree().Root.GetNode<AdvisorPanel>("Node2D/AdvisorPanel");
 		_military = GetTree().Root.GetNode<MilitaryPanel>("Node2D/MilitaryPanel");
+		_prologue = GetTree().Root.GetNode<ProloguePanel>("Node2D/ProloguePanel");
 		_revoltbar = GetTree().Root.GetNode<ProgressBar>("Node2D/Control/RevoltBar");
 		_revolt = GetTree().Root.GetNode<Label>("Node2D/Control/RevoltBar/Revolt");
 		_tutorial = GetTree().Root.GetNode<Panel>("Node2D/Tutorial");
@@ -180,12 +182,23 @@ public partial class DynamicUI : Control
 		_4 = GetTree().Root.GetNode<Button>("Node2D/Tutorial/Panel2/Statue/CanvasLayer/Down");
 		_5 = GetTree().Root.GetNode<Button>("Node2D/Tutorial/Panel3/Statue/CanvasLayer/Up");
 		_6 = GetTree().Root.GetNode<Button>("Node2D/Tutorial/Panel3/Statue/CanvasLayer/Down");
+		_music = GetTree().Root.GetNode<AudioStreamPlayer>("Node2D/Control/AudioStreamPlayer");
 	}
 	
 	public override void _Process(double delta)
 	{
+		if(Global.resume)
+		{
+			_music.StreamPaused = false;
+			Global.resume = false;;
+		}
+		if(!Global.pd)
+		{
+			_prologue.ShowPrologue();
+		}
 		if(Global.meet2)
 		{
+			GD.Print("yikes!");
 			worker_price = worker_price - 500;
 			Global.meet2 = false;
 		}
@@ -272,15 +285,7 @@ public partial class DynamicUI : Control
 		}
 		if(revoltbool)
 		{
-			revolttick += delta;
-			_revoltbar.Visible = true;
-			_revoltbar.Value = (int)revolttick * 5;
-			_revolt.Text = ((int)revolttick).ToString();
-			if(revolttick >= 20.0)
-			{
-				GD.Print("cooked");
-				GetTree().ChangeSceneToFile("res://Lose.tscn");
-			}
+			//nothing?
 		}
 		
 		if(villagerevolt)
@@ -331,10 +336,16 @@ public partial class DynamicUI : Control
 				DisplayDialogue("Revolt Ended");
 			}
 		}
-		
-		gold_timer += delta;
-		if(go){tick += delta;}
-		if(tick >= 0.0328767)
+		if(go)
+		{
+			tick += delta;
+		}
+		if(go && Global.music)
+		{
+			_music.Playing = true;
+			Global.music = false;
+		}
+		if(tick >= 0.0301)
 		{
 				day_value++;
 				tick = 0;
@@ -458,7 +469,7 @@ public partial class DynamicUI : Control
 		else if(!Global.meet1 && !famine){hunger_py = total_workers - farmers * 3;}
 		else if(!Global.meet1 && famine){hunger_py = total_workers - farmers * 2;}
 		total_workers = active_workers + passive_workers;
-		_price.Text = "Buy 5: " + worker_price.ToString() + " G";
+		_price.Text = "Buy 50: " + worker_price.ToString() + " G";
 		_year.Text = year_value.ToString();
 		_month.Text = month_value[i];
 		_day.Text = day_value.ToString();
@@ -473,22 +484,21 @@ public partial class DynamicUI : Control
 		_statuenum.Text = builders.ToString();
 		_farm.Text = farmers.ToString();
 		
-		if(year_value == 1213 && i == 7 && day_value == 8)
+		if(year_value == 1213 && i == 0 && day_value == 1)
 		{
 			GD.Print("cooked");
 			GetTree().ChangeSceneToFile("res://Lose.tscn");
 		}
-		if(year_value == 1271 && i == 6 && day_value == 3)
+		if(year_value == 1236 && i == 6 && day_value == 3)
 		{
-			famine = true;
 			DisplayDialogue("Famine draweth near");
 		}
-		if(year_value == 1270 && i == 6 && day_value == 3)
+		if(year_value == 1235 && i == 6 && day_value == 3)
 		{
 			famine = true;
 			DisplayDialogue("The fields yield not their bounty, and the people famish");
 		}
-		if(year_value == 1267 && i == 6 && day_value == 3)
+		if(year_value == 1262 && i == 6 && day_value == 3)
 		{
 			famine = false;
 			DisplayDialogue("The land is restored, and hunger is no more");
@@ -505,6 +515,10 @@ public partial class DynamicUI : Control
 			if(real == 1)
 			{
 				DisplayDialogue("Defeat hath claimed thee; the field is strewn with bitter woe");
+			}
+			if(statue >= 7500)
+			{
+				GetTree().ChangeSceneToFile("res://Win.tscn");
 			}
 		}
 		if(year_value == 1251 && i == 4 && day_value == 24)
@@ -838,19 +852,24 @@ public partial class DynamicUI : Control
 		if(year_value == 1266)
 		{
 			_advisor.ShowAdvisor();
+			_music.StreamPaused = true;
 		}
 		if(year_value == 1244)
 		{
 			_advisor.ShowAdvisor();
+			_music.StreamPaused = true;
 		}
 		if(year_value == 1222)
 		{
 			_advisor.ShowAdvisor();
+			_music.StreamPaused = true;
 		}
 		if(year_value == 1255)
 		{
 			_military.ShowMilitary();
+			_music.StreamPaused = true;
 		}
+		GD.Print("bomba");
 		if((double)builders/(double)active_workers < 0.25)
 		{
 			statuerevoltcount += 1;
@@ -858,10 +877,6 @@ public partial class DynamicUI : Control
 		Global.gold += gold_py;
 		statue += statue_py;
 		hunger += hunger_py;
-		if(statue >= 7500)
-		{
-			GetTree().ChangeSceneToFile("res://Win.tscn");
-		}
 		if(hunger > 1000)
 		{
 			hunger = 1000;
@@ -877,6 +892,7 @@ public partial class DynamicUI : Control
 		CalculateHappiness();
 		if(happiness < 40 || statuerevoltcount >= 3)
 		{
+			statuerevoltcount = 3;
 			if(revolt_cooldown <= 0 && !revoltbool && !Global.meet3)
 			{
 				Random random = new Random();
@@ -952,6 +968,7 @@ public partial class DynamicUI : Control
 	
 	void KillAnyWorkers(int count)
 	{
+		if(traders == 0 && builders == 0 && farmers == 0){return;}
 		Random random = new Random();
 		int bruh = random.Next(0,3);
 		if(bruh == 0)
@@ -960,7 +977,8 @@ public partial class DynamicUI : Control
 				KillWorkers(ref traders, count);
 				DisplayDialogue(count + " traders died");
 			}
-			else{KillAnyWorkers(count);}
+			else if(traders == 0){KillAnyWorkers(count);}
+			else{KillWorkers(ref traders, traders);}
 		}
 		else if(bruh == 1)
 		{
@@ -968,7 +986,8 @@ public partial class DynamicUI : Control
 				KillWorkers(ref builders, count);
 				DisplayDialogue(count + " builders died");
 			}
-			else{KillAnyWorkers(count);}
+			else if(builders == 0){KillAnyWorkers(count);}
+			else{KillWorkers(ref builders, builders);}
 		}
 		else
 		{
@@ -976,7 +995,8 @@ public partial class DynamicUI : Control
 				KillWorkers(ref farmers, count);
 				DisplayDialogue(count + " farmers died");
 			}
-			else{KillAnyWorkers(count);}
+			else if(farmers == 0){KillAnyWorkers(count);}
+			else{KillWorkers(ref farmers, farmers);}
 		}
 	}
 	

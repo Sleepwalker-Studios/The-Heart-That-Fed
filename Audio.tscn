@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dndiy3blnenuh"]
+
+[ext_resource type="AudioStream" uid="uid://dwbhcpbamerkd" path="res://BMGJ25_SFX_AMB_v01_-25dB.wav" id="1_vpwu7"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_vpwu7")
+autoplay = true

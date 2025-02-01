@@ -51,6 +51,7 @@ public partial class AdvisorPanel : PopupPanel
 	public void CloseAdvisor()
 	{
 		_control.SetProcess(true);
+		Global.resume = true;
 		_instance.QueueFree();
 		_instance = null;
 		Hide();

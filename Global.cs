@@ -3,6 +3,9 @@ using System;
 
 public partial class Global : Node
 {
+	public static bool resume;
+	public static bool music = true;
+	public static bool pd;
 	public static bool mcheck;
 	public static int invest = 1000;
 	public static int gold = 10000;

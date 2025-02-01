@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://bvb4p2asmxfvi"]
+
+[ext_resource type="Script" path="res://Prologue.cs" id="1_fwcnu"]
+[ext_resource type="Texture2D" uid="uid://b5rqxttbw02pl" path="res://ase files/statue.png" id="1_wiq4i"]
+[ext_resource type="Script" path="res://TypingP.cs" id="2_j4ktx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8w447"]
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_vp222"]
+line_spacing = 0.0
+font_size = 46
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lhlev"]
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(520, 325)
+scale = Vector2(6.5, 6.5)
+texture = ExtResource("1_wiq4i")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_fwcnu")
+
+[node name="Panel2" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 980.0
+offset_bottom = 120.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8w447")
+
+[node name="Label" type="Label" parent="Control/Panel2"]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 950.0
+offset_bottom = 52.0
+text = "Hello there"
+label_settings = SubResource("LabelSettings_vp222")
+autowrap_mode = 3
+visible_characters = 0
+visible_ratio = 0.0
+script = ExtResource("2_j4ktx")
+
+[node name="Timer" type="Timer" parent="Control/Panel2/Label"]
+wait_time = 0.05
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 350.0
+offset_top = 585.0
+offset_right = 650.0
+offset_bottom = 637.0
+text = "Click To Continue"
+label_settings = SubResource("LabelSettings_lhlev")
+horizontal_alignment = 1
+vertical_alignment = 1
