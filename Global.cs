@@ -3,6 +3,9 @@ using System;
 
 public partial class Global : Node
 {
+	public static int starved;
+	public static int exploit;
+	public static int killed;
 	public static bool frozen;
 	public static bool resume;
 	public static bool music = true;

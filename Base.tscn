@@ -1402,5 +1402,11 @@ position = Vector2(15, 15)
 scale = Vector2(0.85, 0.85)
 texture = ExtResource("7_ptfdk")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 4096
+offset_right = 1000.0
+offset_bottom = 650.0
+color = Color(0, 0, 0, 0)
+
 [connection signal="pressed" from="Control/Time/CanvasLayer/Pause" to="CanvasLayer/Pause Menu" method="_on_pause_pressed"]
 [connection signal="pressed" from="Control/Workers/CanvasLayer/BuyWorkers" to="Control" method="_on_buy_workers_pressed"]

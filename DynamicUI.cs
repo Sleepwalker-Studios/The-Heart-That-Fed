@@ -99,10 +99,12 @@ public partial class DynamicUI : Control
 	public Button _5;
 	public Button _6;
 	public AudioStreamPlayer _music;
+	public ColorRect _crui;
 	public MinigamePanel _popup;
 	public AdvisorPanel _advisor;
 	public MilitaryPanel _military;
 	public double tick;
+	public float fadecolor;
 	public int i = 0;
 	public int year_value = 1279;
 	public string[] month_value = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
@@ -181,6 +183,7 @@ public partial class DynamicUI : Control
 		_5 = GetTree().Root.GetNode<Button>("Node2D/Tutorial/Panel3/Statue/CanvasLayer/Up");
 		_6 = GetTree().Root.GetNode<Button>("Node2D/Tutorial/Panel3/Statue/CanvasLayer/Down");
 		_music = GetTree().Root.GetNode<AudioStreamPlayer>("Node2D/Control/AudioStreamPlayer");
+		_crui = GetTree().Root.GetNode<ColorRect>("Node2D/ColoRect");
 	}
 	
 	public override void _Process(double delta)
@@ -344,8 +347,12 @@ public partial class DynamicUI : Control
 		}
 		if(tick >= 0.0301)
 		{
-				day_value++;
-				tick = 0;
+			day_value++;
+			tick = 0;
+			if(year_value == 1214)
+			{
+				fadecolor += 0.002739726027397f;
+			}
 		}
 		if(day_value > Month_Length(i))
 		{
@@ -481,6 +488,10 @@ public partial class DynamicUI : Control
 		_statuenum.Text = builders.ToString();
 		_farm.Text = farmers.ToString();
 		
+		if(year_value == 1214)
+		{
+			_crui.Color = new Color(0,0,0,fadecolor);
+		}
 		if(year_value == 1213 && i == 0 && day_value == 1)
 		{
 			GD.Print("cooked");
@@ -515,7 +526,7 @@ public partial class DynamicUI : Control
 			}
 			if(statue >= 7500)
 			{
-				GetTree().ChangeSceneToFile("res://Win.tscn");
+				GetTree().ChangeSceneToFile("res://Credits.tscn");
 			}
 		}
 		if(year_value == 1251 && i == 4 && day_value == 24)
