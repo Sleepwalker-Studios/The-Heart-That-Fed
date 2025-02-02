@@ -997,6 +997,7 @@ stream = ExtResource("8_k5f71")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Pause Menu" parent="CanvasLayer" instance=ExtResource("3_srk5w")]
+visible = false
 
 [node name="Village" type="Sprite2D" parent="."]
 visible = false
