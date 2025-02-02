@@ -22,9 +22,9 @@ script = ExtResource("1_fwcnu")
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 100.0
-offset_top = 620.0
+offset_top = 700.0
 offset_right = 900.0
-offset_bottom = 1220.0
+offset_bottom = 1300.0
 text = "In the Nineteenth Dynasty of Egypt,
 13th Century BC,
 pharaoh Seti I passed his throne onto his son
