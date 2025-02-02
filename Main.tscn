@@ -10,11 +10,8 @@ font_size = 128
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6k81v"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
 border_width_bottom = 3
-border_color = Color(0, 0, 0, 1)
+border_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -72,9 +69,9 @@ text = "Play"
 
 [node name="Options" type="Button" parent="."]
 layout_mode = 2
-offset_left = 130.0
+offset_left = 125.0
 offset_top = 520.0
-offset_right = 315.0
+offset_right = 325.0
 offset_bottom = 598.0
 theme_override_fonts/font = ExtResource("2_skg4w")
 theme_override_font_sizes/font_size = 72
