@@ -24,6 +24,7 @@ public partial class Advisor : Control
 	public Button _o1;
 	public Button _o2;
 	public Label _dialogue;
+	public Sprite2D _second;
 	public override void _Ready()
 	{
 		_o1 = GetTree().Root.GetNode<Button>("Node2D/AdvisorPanel/CanvasLayer/Control/Panel/Option1");
@@ -31,6 +32,8 @@ public partial class Advisor : Control
 		_o2 = GetTree().Root.GetNode<Button>("Node2D/AdvisorPanel/CanvasLayer/Control/Panel/Option2");
 		_o2.Pressed += OnO2Pressed;
 		_dialogue = GetTree().Root.GetNode<Label>("Node2D/AdvisorPanel/CanvasLayer/Control/Panel2/Label");
+		_second = GetTree().Root.GetNode<Sprite2D>("Node2D/AdvisorPanel/CanvasLayer/Sprite2D2");
+		_second.Visible = false;
 	}
 	
 	public override void _Process(double delta)
@@ -46,6 +49,7 @@ public partial class Advisor : Control
 				}
 				if(i > 4)
 				{
+					_second.Visible = true;
 					_o1.Visible = true;
 					_o2.Visible = true;
 				}
@@ -93,6 +97,7 @@ public partial class Advisor : Control
 				}
 				if(i > 5)
 				{
+					_second.Visible = true;
 					_o1.Visible = true;
 					_o2.Visible = true;
 				}
@@ -140,6 +145,7 @@ public partial class Advisor : Control
 				}
 				if(i > 4)
 				{
+					_second.Visible = true;
 					_o1.Visible = true;
 					_o2.Visible = true;
 				}

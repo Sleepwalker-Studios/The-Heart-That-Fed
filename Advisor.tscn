@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://5pfosrmmhgt7"]
+[gd_scene load_steps=12 format=3 uid="uid://5pfosrmmhgt7"]
 
+[ext_resource type="Texture2D" uid="uid://crmg03xgjldbw" path="res://ase files/vizier1.png" id="1_e7k54"]
 [ext_resource type="Script" path="res://Advisor.cs" id="1_wkmij"]
 [ext_resource type="Script" path="res://Typing.cs" id="2_aja1m"]
+[ext_resource type="Texture2D" uid="uid://gqqopx3x81tp" path="res://ase files/vizier2.png" id="2_f8bl1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kc3xi"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -66,10 +68,21 @@ line_spacing = 0.0
 font_size = 46
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_bja3y"]
+font_size = 48
+
 [node name="CanvasLayer" type="CanvasLayer"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(500, 325)
+scale = Vector2(6.5, 6.5)
+texture = ExtResource("1_e7k54")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(500, 325)
+scale = Vector2(6.5, 6.5)
+texture = ExtResource("2_f8bl1")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -134,3 +147,13 @@ script = ExtResource("2_aja1m")
 
 [node name="Timer" type="Timer" parent="Control/Panel2/Label"]
 wait_time = 0.05
+
+[node name="Label" type="Label" parent="."]
+offset_left = 350.0
+offset_top = 560.0
+offset_right = 650.0
+offset_bottom = 660.0
+text = "Click To Continue"
+label_settings = SubResource("LabelSettings_bja3y")
+horizontal_alignment = 1
+vertical_alignment = 1
