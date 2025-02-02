@@ -17,7 +17,7 @@ public partial class MainMenu : Control
 
 	void OnPlayPressed()
 	{
-		GetTree().ChangeSceneToFile("res://Base.tscn");
+		GetTree().ChangeSceneToFile("res://Prologue.tscn");
 	}
 
 	void OnQuitPressed()
