@@ -3,6 +3,7 @@ using System;
 
 public partial class DynamicUI : Control
 {
+	public bool m2;
 	public bool tutorial = true;
 	public bool tradeboost;
 	public bool famine;
@@ -193,8 +194,9 @@ public partial class DynamicUI : Control
 			_music.StreamPaused = false;
 			Global.resume = false;;
 		}
-		if(Global.meet2)
+		if(Global.meet2 && !m2)
 		{
+			m2 = true;
 			GD.Print("yikes!");
 			worker_price -= 500;
 			Global.meet2 = false;
@@ -496,37 +498,53 @@ public partial class DynamicUI : Control
 		{
 			GD.Print("cooked");
 			GetTree().ChangeSceneToFile("res://Lose.tscn");
+			if(Global.meet1)
+			{
+				Global.starved += ((Global.killed * 3)/10);
+			}
+			if(Global.meet3)
+			{
+				Global.starved += ((Global.killed * 5)/10);
+			}
 		}
 		if(year_value == 1236 && i == 6 && day_value == 3)
 		{
-			DisplayDialogue("Famine draweth near");
+			DisplayDialogue("The harvest withered; a famine draws nigh...");
 		}
 		if(year_value == 1235 && i == 6 && day_value == 3)
 		{
 			famine = true;
-			DisplayDialogue("The fields yield not their bounty, and the people famish");
+			DisplayDialogue("A famine has begun.");
 		}
 		if(year_value == 1262 && i == 6 && day_value == 3)
 		{
 			famine = false;
-			DisplayDialogue("The land is restored, and hunger is no more");
+			DisplayDialogue("Your fields are renewed, and hunger is no more.");
 		}
 		if(year_value == 1254 && i == 4 && day_value == 24)
 		{
 			Random random = new Random();
 			int real = random.Next(0,2);
 			if(real == 0){
-				DisplayDialogue("Victory, like a golden wreath, doth rest upon thy head");
+				DisplayDialogue("Victory, like the sun's tender rays, rests upon your brow.");
 				tradeboost = true;
 				Global.gold += ((Global.invest * 3)/2);
 			}
 			if(real == 1)
 			{
-				DisplayDialogue("Defeat hath claimed thee; the field is strewn with bitter woe");
+				DisplayDialogue("Defeat in battle brings dishonor to your kingdom.");
 			}
 			if(statue >= 7500)
 			{
 				GetTree().ChangeSceneToFile("res://Credits.tscn");
+				if(Global.meet1)
+				{
+					Global.starved += ((Global.killed * 3)/10);
+				}
+				if(Global.meet3)
+				{
+					Global.starved += ((Global.killed * 5)/10);
+				}
 			}
 		}
 		if(year_value == 1251 && i == 4 && day_value == 24)
@@ -636,6 +654,7 @@ public partial class DynamicUI : Control
 			passive_workers += worker_buy_count;
 			Global.gold -= worker_price;
 			worker_price += 50;
+			Global.exploit += 50;
 		}
 	}
 	
@@ -976,6 +995,7 @@ public partial class DynamicUI : Control
 			people -= count;
 			active_workers -= count;
 			DisplayDialogue(count + " workers died");
+			Global.killed += count;
 		}
 	}
 	
@@ -989,6 +1009,7 @@ public partial class DynamicUI : Control
 			if(traders >= count){
 				KillWorkers(ref traders, count);
 				DisplayDialogue(count + " traders died");
+				Global.killed += count;
 			}
 			else if(traders == 0){KillAnyWorkers(count);}
 			else{KillWorkers(ref traders, traders);}
@@ -998,6 +1019,7 @@ public partial class DynamicUI : Control
 			if(builders >= count){
 				KillWorkers(ref builders, count);
 				DisplayDialogue(count + " builders died");
+				Global.killed += count;
 			}
 			else if(builders == 0){KillAnyWorkers(count);}
 			else{KillWorkers(ref builders, builders);}
@@ -1007,6 +1029,7 @@ public partial class DynamicUI : Control
 			if(farmers >= count){
 				KillWorkers(ref farmers, count);
 				DisplayDialogue(count + " farmers died");
+				Global.killed += count;
 			}
 			else if(farmers == 0){KillAnyWorkers(count);}
 			else{KillWorkers(ref farmers, farmers);}

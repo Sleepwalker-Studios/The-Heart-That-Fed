@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dicvoh86u6wlk"]
+[gd_scene load_steps=12 format=3 uid="uid://bd55xbrs3ou7b"]
 
 [ext_resource type="Script" path="res://Military.cs" id="1_durba"]
 [ext_resource type="Texture2D" uid="uid://cyix133i0lbtd" path="res://ArrowButton.png" id="1_howma"]
@@ -79,7 +79,7 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_ayrn2"]
-font_size = 32
+font_size = 29
 font_color = Color(0, 0, 0, 1)
 
 [node name="CanvasLayer" type="CanvasLayer"]
@@ -93,8 +93,11 @@ script = ExtResource("1_durba")
 
 [node name="Panel" type="Panel" parent="Control"]
 layout_mode = 0
-offset_right = 320.0
-offset_bottom = 234.0
+offset_left = 180.0
+offset_top = 104.0
+offset_right = 500.0
+offset_bottom = 338.0
+scale = Vector2(2, 2)
 theme_override_styles/panel = SubResource("StyleBoxFlat_44uv8")
 
 [node name="Panel" type="Panel" parent="Control/Panel"]
@@ -173,7 +176,13 @@ offset_left = 10.0
 offset_top = 5.0
 offset_right = 310.0
 offset_bottom = 230.0
-text = "An empire hath declared war upon thee; how much art thou willing to spend on this quarrel?"
+text = "One of your neighboring nations has exposed itself to attack. Decide how much to invest in a military campaign."
 label_settings = SubResource("LabelSettings_ayrn2")
 horizontal_alignment = 1
 autowrap_mode = 3
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+offset_right = 1000.0
+offset_bottom = 650.0
+color = Color(0.273873, 0.273873, 0.273873, 1)

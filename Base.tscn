@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://lsujkapc0lhq"]
+[gd_scene load_steps=74 format=3 uid="uid://lsujkapc0lhq"]
 
 [ext_resource type="Texture2D" uid="uid://dyngfwa0tsmcd" path="res://pharaoh1.png" id="1_8anlt"]
 [ext_resource type="Script" path="res://DynamicUI.cs" id="2_pilr5"]
@@ -9,13 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://dyactumyvb28h" path="res://pause_menu.tscn" id="3_srk5w"]
 [ext_resource type="Texture2D" uid="uid://btrxcyov0v3kl" path="res://PlayButton.png" id="5_k7joh"]
 [ext_resource type="Texture2D" uid="uid://cfimrecp5hyxf" path="res://exclamation.png" id="7_ptfdk"]
-[ext_resource type="Texture2D" uid="uid://bnbivfvc4s5bh" path="res://red.png" id="8_gd8rc"]
 [ext_resource type="AudioStream" uid="uid://egcc1ysa6ile" path="res://BMGJ25_MX_mainMusic_-5dB.wav" id="8_k5f71"]
+[ext_resource type="Texture2D" uid="uid://dywcflsxbtsmb" path="res://ase files/market.png" id="10_mrgjj"]
 [ext_resource type="Texture2D" uid="uid://b5rqxttbw02pl" path="res://ase files/statue.png" id="10_sfju5"]
 [ext_resource type="Texture2D" uid="uid://7wbpaxo71ctp" path="res://ase files/farm.png" id="11_8t4yx"]
 [ext_resource type="Script" path="res://MinigamePanel.cs" id="12_0h5lj"]
 [ext_resource type="Script" path="res://AdvisorPanel.cs" id="14_jo1a2"]
 [ext_resource type="Script" path="res://MilitaryPanel.cs" id="15_ha07b"]
+[ext_resource type="Texture2D" uid="uid://dm8f2g6wclib1" path="res://ase files/balcony.png" id="17_f3ssy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjkhg"]
 bg_color = Color(1, 1, 1, 1)
@@ -911,6 +912,7 @@ scale = Vector2(0.85, 0.85)
 texture = ExtResource("7_ptfdk")
 
 [node name="Left" type="Button" parent="Control"]
+z_index = 20
 layout_mode = 0
 offset_left = 10.0
 offset_top = 275.0
@@ -926,6 +928,7 @@ rotation = 4.71239
 texture = ExtResource("3_ob7ma")
 
 [node name="Right" type="Button" parent="Control"]
+z_index = 20
 layout_mode = 0
 offset_left = 755.0
 offset_top = 275.0
@@ -994,9 +997,9 @@ stream = ExtResource("8_k5f71")
 [node name="Village" type="Sprite2D" parent="."]
 visible = false
 z_index = -1
-position = Vector2(398.5, 292)
-scale = Vector2(24.8438, 18.1875)
-texture = ExtResource("8_gd8rc")
+position = Vector2(430, 315)
+scale = Vector2(5.5, 5.5)
+texture = ExtResource("10_mrgjj")
 
 [node name="Statue" type="Sprite2D" parent="."]
 visible = false
@@ -1008,8 +1011,8 @@ texture = ExtResource("10_sfju5")
 [node name="Farm" type="Sprite2D" parent="."]
 visible = false
 z_index = -1
-position = Vector2(500, 315)
-scale = Vector2(6.3, 6.3)
+position = Vector2(450, 315)
+scale = Vector2(5.6, 5.6)
 texture = ExtResource("11_8t4yx")
 
 [node name="VillageLabel" type="Label" parent="."]
@@ -1050,6 +1053,7 @@ size = Vector2i(1000, 650)
 script = ExtResource("12_0h5lj")
 
 [node name="PharaohHead" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(900.1, 100.35)
 scale = Vector2(0.394095, 0.389258)
 texture = ExtResource("1_8anlt")
@@ -1059,8 +1063,7 @@ size = Vector2i(1000, 650)
 script = ExtResource("14_jo1a2")
 
 [node name="MilitaryPanel" type="PopupPanel" parent="."]
-position = Vector2i(240, 176)
-size = Vector2i(320, 234)
+size = Vector2i(1000, 650)
 script = ExtResource("15_ha07b")
 
 [node name="Tutorial" type="Panel" parent="."]
@@ -1407,6 +1410,12 @@ z_index = 4096
 offset_right = 1000.0
 offset_bottom = 650.0
 color = Color(0, 0, 0, 0)
+
+[node name="Balcony" type="Sprite2D" parent="."]
+z_index = -1
+scale = Vector2(6.25, 6.25)
+texture = ExtResource("17_f3ssy")
+centered = false
 
 [connection signal="pressed" from="Control/Time/CanvasLayer/Pause" to="CanvasLayer/Pause Menu" method="_on_pause_pressed"]
 [connection signal="pressed" from="Control/Workers/CanvasLayer/BuyWorkers" to="Control" method="_on_buy_workers_pressed"]

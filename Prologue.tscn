@@ -4,13 +4,14 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_lhlev"]
 font_size = 48
+font_color = Color(1, 1, 0.803922, 1)
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1000.0
 offset_bottom = 650.0
-color = Color(0.0383972, 0.0383972, 0.0383972, 1)
+color = Color(0.00763358, 0.0379496, 0.0986112, 1)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -22,9 +23,9 @@ script = ExtResource("1_fwcnu")
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 100.0
-offset_top = 700.0
+offset_top = 670.0
 offset_right = 900.0
-offset_bottom = 1300.0
+offset_bottom = 1270.0
 text = "In the Nineteenth Dynasty of Egypt,
 13th Century BC,
 pharaoh Seti I passed his throne onto his son

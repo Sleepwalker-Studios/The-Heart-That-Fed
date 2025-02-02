@@ -22,9 +22,9 @@ script = ExtResource("1_3faqc")
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 100.0
-offset_top = 700.0
+offset_top = 630.0
 offset_right = 925.0
-offset_bottom = 1300.0
+offset_bottom = 1230.0
 text = "In 1213 BC,
 the great pharaoh’s age catches up to him.
 Surrounded by golden artifacts, priceless jewels,

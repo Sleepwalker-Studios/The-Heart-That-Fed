@@ -3,21 +3,21 @@ using System;
 
 public partial class Advisor : Control
 {
-	public string[] meeting1 = new string[6]{"My pharaoh…", "To thy legacy I am bound.", "Thou may have heard — one of our most devout religious sects hath taken to fasting by day.",
-											"I propose we bid our laborers follow this example.", "To forgo their meals would lessen their food consumption by 40%, at no cost to thee.",
-											"What sayest thou, my lord?"};
-	public string[] y1 = new string[1]{"Thy word is done."};
-	public string[] n1 = new string[3]{"How unlike thee.", "Thou shalt ne’er finish thy statue by fretting for thy people.", "Still, thy word is done."};
-	public string[] meeting2 = new string[6]{"My pharaoh…", "To thy legacy I am bound.", "Our labor groweth dear, and our kingdom wider by the hour.", 
-											"Yet I’ve spoken with one who offereth an… alternative means of securing new workers.", "Thou needst not trouble thyself with the details. It shall cut a new worker’s cost by 25%, for no ill consequence.",
-											"What say thee, lord?"};
-	public string[] y2 = new string[1]{"Thy word is done."};
-	public string[] n2 = new string[2]{"Thou shalt rue this choice.", "Yet thy word is done."};
-	public string[] meeting3 = new string[6]{"My pharaoh…", "To thy legacy I am bound.", "Thy people bow in full obedience. Thy name stands among history’s greatest kings.",
-											"Yet thou art still beholden to the fickle, daily concerns of thy subjects.", "Give me the order, and I shall make revolts an impossibility. Thou may direct them at thy will.",
-											"What say thee, lord?"};
-	public string[] y3 = new string[2]{"Thy word is done.", "Lead us into Egypt’s golden age."};
-	public string[] n3 = new string[2]{"Thou hast been too gentle with thy subjects.", "Thy legacy shall reckon the cost."};
+	public string[] meeting1 = new string[6]{"My pharaoh…", "To thy legacy I am bound.", "You may be aware — one of our most devout religious sects began daytime fasting.",
+											"I propose we encourage our laborers to follow this example.", "Enforcing this would lessen each worker's food consumption by 30%, at no personal cost.",
+											"What is your order, my lord?"};
+	public string[] y1 = new string[1]{"Your word is done."};
+	public string[] n1 = new string[3]{"How unlike you.", "You will never finish your statue by worrying over your people.", "Still, your word is done."};
+	public string[] meeting2 = new string[7]{"My pharaoh…", "To thy legacy I am bound.", "Our labor grows dear, and our kingdom wider by the hour.", 
+											"Recently, I’ve spoken with a man who offers us an… alternative means of securing new workers.", "You need not trouble yourself with the details.", "Taking the offer will cut a new worker’s cost by 25%, for no ill consequence to you.",
+											"What is your order, my lord?"};
+	public string[] y2 = new string[1]{"Your word is done."};
+	public string[] n2 = new string[2]{"You will rue this choice.", "Still, your word is done."};
+	public string[] meeting3 = new string[6]{"My pharaoh…", "To thy legacy I am bound.", "Your subjects bow in full obedience. Your name is planted among history’s greatest kings.",
+											"Yet you are still beholden to the fickle, daily concerns of your people.", "Give me the order, and I will make revolts an impossibility. You may direct them at your will.",
+											"What say you, lord?"};
+	public string[] y3 = new string[2]{"Your word is done.", "Lead us into Egypt’s golden age."};
+	public string[] n3 = new string[2]{"You have been too gentle with your subjects.", "Your legacy will reckon the cost."};
 	public int i;
 	public bool ans;
 	public int ansnum;
@@ -91,7 +91,7 @@ public partial class Advisor : Control
 					Global.starttyping = true;
 					i++;
 				}
-				if(i > 4)
+				if(i > 5)
 				{
 					_o1.Visible = true;
 					_o2.Visible = true;

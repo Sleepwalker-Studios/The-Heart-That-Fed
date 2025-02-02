@@ -5,6 +5,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_lhlev"]
 font_size = 48
+font_color = Color(1, 1, 0.803922, 1)
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -19,9 +20,9 @@ script = ExtResource("1_qund6")
 z_index = 10
 layout_mode = 0
 offset_left = 100.0
-offset_top = 700.0
+offset_top = 670.0
 offset_right = 900.0
-offset_bottom = 2200.0
+offset_bottom = 2170.0
 label_settings = SubResource("LabelSettings_lhlev")
 horizontal_alignment = 1
 vertical_alignment = 1
