@@ -1,6 +1,34 @@
 [gd_scene load_steps=2 format=3 uid="uid://ch8gmue5ffrgx"]
 
-[ext_resource type="Script" path="res://OptionMenu.cs" id="1_wvgvq"]
+[sub_resource type="GDScript" id="GDScript_78gy0"]
+script/source = "extends Control
+
+var volume_bus_index: int
+var sfx_bus_index: int
+
+func _ready():
+	var back_button = get_tree().root.get_node(\"Control/CanvasLayer/Back\")
+	back_button.pressed.connect(_on_back_pressed)
+	volume_bus_index = AudioServer.get_bus_index(\"volume\")
+	sfx_bus_index = AudioServer.get_bus_index(\"sfx\")
+
+func _on_back_pressed():
+	print(\"Back button pressed!\")
+	get_tree().change_scene_to_file(\"res://Main.tscn\")
+
+
+func _on_h_slider_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(volume_bus_index,linear_to_db(value))
+
+
+func _on_mute_toggled(toggled_on: bool) -> void:
+	AudioServer.set_bus_mute(volume_bus_index,toggled_on)
+	AudioServer.set_bus_mute(sfx_bus_index,toggled_on)
+
+
+func _on_sfx_volume_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(sfx_bus_index,linear_to_db(value))
+"
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -9,7 +37,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_wvgvq")
+script = SubResource("GDScript_78gy0")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -34,4 +62,45 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 36
 text = "BACK"
 
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -90.5
+offset_right = 100.0
+offset_bottom = 90.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Volume
+"
+
+[node name="Volume" type="HSlider" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "SFX Volume"
+
+[node name="SFX Volume" type="HSlider" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Mute" type="CheckBox" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Mute
+"
+
 [connection signal="pressed" from="CanvasLayer/Back" to="." method="_on_button_pressed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/Volume" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/SFX Volume" to="." method="_on_sfx_volume_value_changed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/Mute" to="." method="_on_mute_toggled"]

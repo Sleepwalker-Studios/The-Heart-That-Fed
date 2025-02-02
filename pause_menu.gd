@@ -40,3 +40,8 @@ func _input(event):
 			_is_paused = false
 		else:
 			_is_paused = true
+
+
+func _on_options_pressed() -> void:
+	_is_paused = false
+	get_tree().change_scene_to_file("res://OptionMenu.tscn")
