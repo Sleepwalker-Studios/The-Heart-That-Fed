@@ -1024,7 +1024,7 @@ public partial class DynamicUI : Control
 		if(area == 0){gold_py = gold_py_temp;}
 		else if(area == 1){statue_py = statue_py_temp;}
 		else{hunger = hunger_temp;}
-		_dialogue.Text = null;
+		_dialogue.Visible = false;
 	}
 	
 	void KillWorkers(ref int people, int count)

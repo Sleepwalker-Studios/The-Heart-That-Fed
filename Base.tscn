@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://lsujkapc0lhq"]
+[gd_scene load_steps=78 format=3 uid="uid://lsujkapc0lhq"]
 
 [ext_resource type="Script" path="res://DynamicUI.cs" id="2_pilr5"]
 [ext_resource type="FontFile" uid="uid://656a3usq0856" path="res://Jersey10-Regular.ttf" id="2_x74ly"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://btocvk42egb34" path="res://ase files/pharaoh2.png" id="18_6qp7a"]
 [ext_resource type="Texture2D" uid="uid://d0qvkb81yf5kv" path="res://ase files/pharaoh3.png" id="19_w4e5y"]
 [ext_resource type="Texture2D" uid="uid://bbf6qmlikmxew" path="res://ase files/pharaoh4.png" id="20_eqn35"]
+[ext_resource type="Texture2D" uid="uid://cd6tuayd0ytun" path="res://ase files/ui.png" id="21_la62h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjkhg"]
 bg_color = Color(1, 1, 1, 1)
@@ -1441,6 +1442,13 @@ z_index = 1
 position = Vector2(900.1, 100.35)
 scale = Vector2(6.25, 6.25)
 texture = ExtResource("20_eqn35")
+
+[node name="Ui" type="Sprite2D" parent="."]
+visible = false
+z_index = 4000
+position = Vector2(500, 325)
+scale = Vector2(6.25, 6.5)
+texture = ExtResource("21_la62h")
 
 [connection signal="pressed" from="Control/Time/CanvasLayer/Pause" to="CanvasLayer/Pause Menu" method="_on_pause_pressed"]
 [connection signal="pressed" from="Control/Workers/CanvasLayer/BuyWorkers" to="Control" method="_on_buy_workers_pressed"]
