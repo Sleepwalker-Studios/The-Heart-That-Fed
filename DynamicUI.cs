@@ -516,7 +516,7 @@ public partial class DynamicUI : Control
 				Global.starved += ((Global.killed * 5)/10);
 			}
 		}
-		if(i == 6 && day_value == 3 && !faminetime && !famine && !statuerevolt && !villagerevolt && !farmrevolt)
+		if(i == 6 && day_value == 3 && !faminetime && !famine && !statuerevolt && !villagerevolt && !farmrevolt && year_value < 1277)
 		{
 			Random random = new Random();
 			int pluh = random.Next(0,17);
@@ -538,7 +538,7 @@ public partial class DynamicUI : Control
 			famine = false;
 			DisplayDialogue("Your fields are renewed, and hunger is no more.");
 		}
-		if(i == 1 && day_value == 29 && !statuerevolt && !villagerevolt && !farmrevolt)
+		if(i == 1 && day_value == 29 && !statuerevolt && !villagerevolt && !farmrevolt && year_value < 1277)
 		{
 			Random random = new Random();
 			int pluh = random.Next(0,9);
