@@ -184,7 +184,7 @@ public partial class DynamicUI : Control
 		_5 = GetTree().Root.GetNode<Button>("Node2D/Tutorial/Panel3/Statue/CanvasLayer/Up");
 		_6 = GetTree().Root.GetNode<Button>("Node2D/Tutorial/Panel3/Statue/CanvasLayer/Down");
 		_music = GetTree().Root.GetNode<AudioStreamPlayer>("Node2D/Control/AudioStreamPlayer");
-		_crui = GetTree().Root.GetNode<ColorRect>("Node2D/ColoRect");
+		_crui = GetTree().Root.GetNode<ColorRect>("Node2D/ColorRect");
 	}
 	
 	public override void _Process(double delta)
