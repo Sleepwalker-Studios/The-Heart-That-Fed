@@ -464,7 +464,7 @@ public partial class DynamicUI : Control
 		else{gold_py = traders * 10;}
 		statue_py = (builders/10);
 		if(Global.meet1){
-			hunger_py = (total_workers - farmers * 6);
+			hunger_py = (total_workers - farmers * 5);
 		}
 		else if(!Global.meet1 && !famine){hunger_py = total_workers - farmers * 3;}
 		else if(!Global.meet1 && famine){hunger_py = total_workers - farmers * 2;}
