@@ -3,6 +3,8 @@ using System;
 
 public partial class DynamicUI : Control
 {
+	public int faminetick;
+	public bool faminetime;
 	public bool m2;
 	public bool tutorial = true;
 	public bool tradeboost;
@@ -155,7 +157,6 @@ public partial class DynamicUI : Control
 		_statuepanel = GetTree().Root.GetNode<Panel>("Node2D/Control/Statue");
 		_farmpanel = GetTree().Root.GetNode<Panel>("Node2D/Control/Farm");
 		_pause = GetTree().Root.GetNode<Button>("Node2D/Control/Time/CanvasLayer/Pause");
-		_pause.Pressed += OnPausePressed;
 		_pausesprite = GetTree().Root.GetNode<Sprite2D>("Node2D/Control/Time/CanvasLayer/Pause/Pause");
 		_playsprite = GetTree().Root.GetNode<Sprite2D>("Node2D/Control/Time/CanvasLayer/Pause/Play");
 		_villagesprite = GetTree().Root.GetNode<Sprite2D>("Node2D/Village");
@@ -507,19 +508,37 @@ public partial class DynamicUI : Control
 				Global.starved += ((Global.killed * 5)/10);
 			}
 		}
-		if(year_value == 1236 && i == 6 && day_value == 3)
+		if(i == 6 && day_value == 3 && !faminetime && !famine)
 		{
-			DisplayDialogue("The harvest withered; a famine draws nigh...");
+			Random random = new Random();
+			int pluh = random.Next(0,9);
+			if(pluh == 0)
+			{
+				DisplayDialogue("The harvest withered; a famine draws nigh...");
+				faminetime = true;
+			}
 		}
-		if(year_value == 1235 && i == 6 && day_value == 3)
+		if(i == 6 && day_value == 2 && faminetime)
 		{
+			faminetime = false;
+			faminetick = 0;
 			famine = true;
 			DisplayDialogue("A famine has begun.");
 		}
-		if(year_value == 1262 && i == 6 && day_value == 3)
+		if(i == 6 && day_value == 3 && famine && faminetick >= 3)
 		{
 			famine = false;
 			DisplayDialogue("Your fields are renewed, and hunger is no more.");
+		}
+		if(i == 1 && day_value == 29)
+		{
+			Random random = new Random();
+			int pluh = random.Next(0,9);
+			if(pluh == 0)
+			{
+				_military.ShowMilitary();
+				_music.StreamPaused = true;
+			}
 		}
 		if(year_value == 1254 && i == 4 && day_value == 24)
 		{
@@ -881,6 +900,7 @@ public partial class DynamicUI : Control
 	
 	void NewYear()
 	{
+		faminetick++;
 		if(year_value == 1266)
 		{
 			_advisor.ShowAdvisor();
@@ -894,11 +914,6 @@ public partial class DynamicUI : Control
 		if(year_value == 1222)
 		{
 			_advisor.ShowAdvisor();
-			_music.StreamPaused = true;
-		}
-		if(year_value == 1255)
-		{
-			_military.ShowMilitary();
 			_music.StreamPaused = true;
 		}
 		GD.Print("bomba");

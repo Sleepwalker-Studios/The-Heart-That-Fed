@@ -5,13 +5,13 @@ public partial class MainMenu : Control
 {
 	public override void _Ready()
 	{
-		Button playButton = GetTree().Root.GetNode<Button>("Control/MarginContainer/VBoxContainer/Play");
+		Button playButton = GetTree().Root.GetNode<Button>("Control/Play");
 		playButton.Pressed += OnPlayPressed;
 
-		Button quitButton = GetTree().Root.GetNode<Button>("Control/MarginContainer/VBoxContainer/Quit");
+		Button quitButton = GetTree().Root.GetNode<Button>("Control/Quit");
 		quitButton.Pressed += OnQuitPressed;
 		
-		Button optionsButton = GetTree().Root.GetNode<Button>("Control/MarginContainer/VBoxContainer/Options");
+		Button optionsButton = GetTree().Root.GetNode<Button>("Control/Options");
 		optionsButton.Pressed += OnOptionsPressed; 
 	}
 
