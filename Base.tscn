@@ -1,6 +1,5 @@
-[gd_scene load_steps=74 format=3 uid="uid://lsujkapc0lhq"]
+[gd_scene load_steps=77 format=3 uid="uid://lsujkapc0lhq"]
 
-[ext_resource type="Texture2D" uid="uid://dyngfwa0tsmcd" path="res://pharaoh1.png" id="1_8anlt"]
 [ext_resource type="Script" path="res://DynamicUI.cs" id="2_pilr5"]
 [ext_resource type="FontFile" uid="uid://656a3usq0856" path="res://Jersey10-Regular.ttf" id="2_x74ly"]
 [ext_resource type="Texture2D" uid="uid://daciksrvlweqf" path="res://PauseButton.png" id="3_borg8"]
@@ -16,7 +15,11 @@
 [ext_resource type="Script" path="res://MinigamePanel.cs" id="12_0h5lj"]
 [ext_resource type="Script" path="res://AdvisorPanel.cs" id="14_jo1a2"]
 [ext_resource type="Script" path="res://MilitaryPanel.cs" id="15_ha07b"]
+[ext_resource type="Texture2D" uid="uid://bgvd2mk8vcnjd" path="res://ase files/pharaoh1.png" id="17_da0bg"]
 [ext_resource type="Texture2D" uid="uid://dm8f2g6wclib1" path="res://ase files/balcony.png" id="17_f3ssy"]
+[ext_resource type="Texture2D" uid="uid://btocvk42egb34" path="res://ase files/pharaoh2.png" id="18_6qp7a"]
+[ext_resource type="Texture2D" uid="uid://d0qvkb81yf5kv" path="res://ase files/pharaoh3.png" id="19_w4e5y"]
+[ext_resource type="Texture2D" uid="uid://bbf6qmlikmxew" path="res://ase files/pharaoh4.png" id="20_eqn35"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjkhg"]
 bg_color = Color(1, 1, 1, 1)
@@ -1016,11 +1019,10 @@ scale = Vector2(5.6, 5.6)
 texture = ExtResource("11_8t4yx")
 
 [node name="VillageLabel" type="Label" parent="."]
-visible = false
 offset_left = 300.0
-offset_top = 10.0
+offset_top = -8.0
 offset_right = 500.0
-offset_bottom = 60.0
+offset_bottom = 62.0
 text = "Village"
 label_settings = SubResource("LabelSettings_edq13")
 horizontal_alignment = 1
@@ -1029,9 +1031,9 @@ vertical_alignment = 1
 [node name="StatueLabel" type="Label" parent="."]
 visible = false
 offset_left = 300.0
-offset_top = 10.0
+offset_top = -8.0
 offset_right = 500.0
-offset_bottom = 60.0
+offset_bottom = 62.0
 text = "Statue"
 label_settings = SubResource("LabelSettings_edq13")
 horizontal_alignment = 1
@@ -1040,9 +1042,9 @@ vertical_alignment = 1
 [node name="FarmLabel" type="Label" parent="."]
 visible = false
 offset_left = 300.0
-offset_top = 10.0
+offset_top = -8.0
 offset_right = 500.0
-offset_bottom = 60.0
+offset_bottom = 62.0
 text = "Farm"
 label_settings = SubResource("LabelSettings_edq13")
 horizontal_alignment = 1
@@ -1051,12 +1053,6 @@ vertical_alignment = 1
 [node name="PopupPanel" type="PopupPanel" parent="."]
 size = Vector2i(1000, 650)
 script = ExtResource("12_0h5lj")
-
-[node name="PharaohHead" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(900.1, 100.35)
-scale = Vector2(0.394095, 0.389258)
-texture = ExtResource("1_8anlt")
 
 [node name="AdvisorPanel" type="PopupPanel" parent="."]
 size = Vector2i(1000, 650)
@@ -1067,6 +1063,7 @@ size = Vector2i(1000, 650)
 script = ExtResource("15_ha07b")
 
 [node name="Tutorial" type="Panel" parent="."]
+visible = false
 z_index = 200
 offset_right = 800.0
 offset_bottom = 650.0
@@ -1417,6 +1414,33 @@ z_index = -1
 scale = Vector2(6.25, 6.25)
 texture = ExtResource("17_f3ssy")
 centered = false
+
+[node name="PharaohHead" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(900, 100)
+scale = Vector2(6.25, 6.25)
+texture = ExtResource("17_da0bg")
+
+[node name="PharaohHead2" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(900.1, 100.35)
+scale = Vector2(6.25, 6.25)
+texture = ExtResource("18_6qp7a")
+
+[node name="PharaohHead3" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(900.1, 100.35)
+scale = Vector2(6.25, 6.25)
+texture = ExtResource("19_w4e5y")
+
+[node name="PharaohHead4" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(900.1, 100.35)
+scale = Vector2(6.25, 6.25)
+texture = ExtResource("20_eqn35")
 
 [connection signal="pressed" from="Control/Time/CanvasLayer/Pause" to="CanvasLayer/Pause Menu" method="_on_pause_pressed"]
 [connection signal="pressed" from="Control/Workers/CanvasLayer/BuyWorkers" to="Control" method="_on_buy_workers_pressed"]

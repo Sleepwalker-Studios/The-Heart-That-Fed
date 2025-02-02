@@ -90,6 +90,9 @@ public partial class DynamicUI : Control
 	public Sprite2D _villagealert;
 	public Sprite2D _statuealert;
 	public Sprite2D _farmalert;
+	public Sprite2D _pharaoh2;
+	public Sprite2D _pharaoh3;
+	public Sprite2D _pharaoh4;
 	public Label _villagelabel;
 	public Label _statuelabel;
 	public Label _farmlabel;
@@ -188,6 +191,9 @@ public partial class DynamicUI : Control
 		_6 = GetTree().Root.GetNode<Button>("Node2D/Tutorial/Panel3/Statue/CanvasLayer/Down");
 		_music = GetTree().Root.GetNode<AudioStreamPlayer>("Node2D/Control/AudioStreamPlayer");
 		_crui = GetTree().Root.GetNode<ColorRect>("Node2D/ColorRect");
+		_pharaoh2 = GetTree().Root.GetNode<Sprite2D>("Node2D/PharaohHead2");
+		_pharaoh3 = GetTree().Root.GetNode<Sprite2D>("Node2D/PharaohHead3");
+		_pharaoh4 = GetTree().Root.GetNode<Sprite2D>("Node2D/PharaohHead4");
 	}
 	
 	public override void _Process(double delta)
@@ -513,7 +519,7 @@ public partial class DynamicUI : Control
 		if(i == 6 && day_value == 3 && !faminetime && !famine && !statuerevolt && !villagerevolt && !farmrevolt)
 		{
 			Random random = new Random();
-			int pluh = random.Next(0,9);
+			int pluh = random.Next(0,17);
 			if(pluh == 0)
 			{
 				DisplayDialogue("The harvest withered; a famine draws nigh...");
@@ -905,6 +911,18 @@ public partial class DynamicUI : Control
 	
 	void NewYear()
 	{
+		if(year_value == 1254)
+		{
+			_pharaoh2.Visible = true;
+		}
+		if(year_value == 1234)
+		{
+			_pharaoh3.Visible = true;
+		}
+		if(year_value == 1219)
+		{
+			_pharaoh4.Visible = true;
+		}
 		faminetick++;
 		wartime++;
 		if(year_value == 1266)
