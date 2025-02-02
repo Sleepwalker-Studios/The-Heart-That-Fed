@@ -744,6 +744,11 @@ public partial class DynamicUI : Control
 			passive_workers -= 10;
 			active_workers += 10;
 		}
+		else{
+			people += passive_workers;
+			active_workers += passive_workers;
+			passive_workers = 0;
+		}
 	}
 	
 	void DownButtonHeld(ref int people)
