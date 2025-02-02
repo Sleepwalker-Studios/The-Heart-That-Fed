@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://lsujkapc0lhq"]
+[gd_scene load_steps=74 format=3 uid="uid://lsujkapc0lhq"]
 
 [ext_resource type="Texture2D" uid="uid://dyngfwa0tsmcd" path="res://pharaoh1.png" id="1_8anlt"]
 [ext_resource type="Script" path="res://DynamicUI.cs" id="2_pilr5"]
@@ -321,8 +321,23 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfl0q"]
+bg_color = Color(0.823529, 0.823529, 0.823529, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+
 [sub_resource type="LabelSettings" id="LabelSettings_tjdor"]
 font_size = 32
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_edq13"]
 font_size = 64
@@ -960,11 +975,13 @@ label_settings = SubResource("LabelSettings_w7rgh")
 horizontal_alignment = 1
 
 [node name="Dialogue" type="Label" parent="Control"]
+visible = false
 layout_mode = 0
 offset_left = 10.0
 offset_top = 10.0
 offset_right = 210.0
 offset_bottom = 37.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_lfl0q")
 label_settings = SubResource("LabelSettings_tjdor")
 autowrap_mode = 3
 

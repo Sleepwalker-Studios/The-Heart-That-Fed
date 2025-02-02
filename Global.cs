@@ -3,6 +3,7 @@ using System;
 
 public partial class Global : Node
 {
+	public static bool frozen;
 	public static bool resume;
 	public static bool music = true;
 	public static bool pd;
