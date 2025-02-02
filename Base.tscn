@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://lsujkapc0lhq"]
+[gd_scene load_steps=73 format=3 uid="uid://lsujkapc0lhq"]
 
 [ext_resource type="Texture2D" uid="uid://dyngfwa0tsmcd" path="res://pharaoh1.png" id="1_8anlt"]
 [ext_resource type="Script" path="res://DynamicUI.cs" id="2_pilr5"]
@@ -16,7 +16,6 @@
 [ext_resource type="Script" path="res://MinigamePanel.cs" id="12_0h5lj"]
 [ext_resource type="Script" path="res://AdvisorPanel.cs" id="14_jo1a2"]
 [ext_resource type="Script" path="res://MilitaryPanel.cs" id="15_ha07b"]
-[ext_resource type="Script" path="res://ProloguePanel.cs" id="16_pbub6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjkhg"]
 bg_color = Color(1, 1, 1, 1)
@@ -1402,12 +1401,6 @@ scale = Vector2(0.9, 0.9)
 position = Vector2(15, 15)
 scale = Vector2(0.85, 0.85)
 texture = ExtResource("7_ptfdk")
-
-[node name="ProloguePanel" type="PopupPanel" parent="."]
-auto_translate_mode = 1
-transparent_bg = true
-size = Vector2i(1000, 650)
-script = ExtResource("16_pbub6")
 
 [connection signal="pressed" from="Control/Time/CanvasLayer/Pause" to="CanvasLayer/Pause Menu" method="_on_pause_pressed"]
 [connection signal="pressed" from="Control/Workers/CanvasLayer/BuyWorkers" to="Control" method="_on_buy_workers_pressed"]

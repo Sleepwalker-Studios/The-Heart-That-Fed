@@ -102,7 +102,6 @@ public partial class DynamicUI : Control
 	public MinigamePanel _popup;
 	public AdvisorPanel _advisor;
 	public MilitaryPanel _military;
-	public ProloguePanel _prologue;
 	public double tick;
 	public int i = 0;
 	public int year_value = 1279;
@@ -172,7 +171,6 @@ public partial class DynamicUI : Control
 		_popup = GetTree().Root.GetNode<MinigamePanel>("Node2D/PopupPanel");
 		_advisor = GetTree().Root.GetNode<AdvisorPanel>("Node2D/AdvisorPanel");
 		_military = GetTree().Root.GetNode<MilitaryPanel>("Node2D/MilitaryPanel");
-		_prologue = GetTree().Root.GetNode<ProloguePanel>("Node2D/ProloguePanel");
 		_revoltbar = GetTree().Root.GetNode<ProgressBar>("Node2D/Control/RevoltBar");
 		_revolt = GetTree().Root.GetNode<Label>("Node2D/Control/RevoltBar/Revolt");
 		_tutorial = GetTree().Root.GetNode<Panel>("Node2D/Tutorial");
@@ -192,14 +190,10 @@ public partial class DynamicUI : Control
 			_music.StreamPaused = false;
 			Global.resume = false;;
 		}
-		if(!Global.pd)
-		{
-			_prologue.ShowPrologue();
-		}
 		if(Global.meet2)
 		{
 			GD.Print("yikes!");
-			worker_price = worker_price - 500;
+			worker_price -= 500;
 			Global.meet2 = false;
 		}
 		if(!tutorial)
