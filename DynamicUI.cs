@@ -302,6 +302,7 @@ public partial class DynamicUI : Control
 				Global.minigame = false;
 				_popup.CloseMinigame();
 				DisplayDialogue("Revolt Ended");
+				KillWorkers(ref traders, 5);
 			}
 		}
 		if(statuerevolt)
@@ -318,6 +319,7 @@ public partial class DynamicUI : Control
 				Global.minigame = false;
 				_popup.CloseMinigame();
 				DisplayDialogue("Revolt Ended");
+				KillWorkers(ref builders, 5);
 			}
 		}
 		if(farmrevolt)
@@ -334,6 +336,7 @@ public partial class DynamicUI : Control
 				Global.minigame = false;
 				_popup.CloseMinigame();
 				DisplayDialogue("Revolt Ended");
+				KillWorkers(ref farmers, 5);
 			}
 		}
 		if(go)
