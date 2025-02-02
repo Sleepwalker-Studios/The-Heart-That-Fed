@@ -155,7 +155,7 @@ public partial class DynamicUI : Control
 		_statuepanel = GetTree().Root.GetNode<Panel>("Node2D/Control/Statue");
 		_farmpanel = GetTree().Root.GetNode<Panel>("Node2D/Control/Farm");
 		_pause = GetTree().Root.GetNode<Button>("Node2D/Control/Time/CanvasLayer/Pause");
-		_pause.Pressed += OnPausePressed;
+		//_pause.Pressed += OnPausePressed;
 		_pausesprite = GetTree().Root.GetNode<Sprite2D>("Node2D/Control/Time/CanvasLayer/Pause/Pause");
 		_playsprite = GetTree().Root.GetNode<Sprite2D>("Node2D/Control/Time/CanvasLayer/Pause/Play");
 		_villagesprite = GetTree().Root.GetNode<Sprite2D>("Node2D/Village");
@@ -566,22 +566,22 @@ public partial class DynamicUI : Control
 		_popup.ShowMinigame();
 	}
 	
-	public override void _Input(InputEvent @event)
-	{
-		if (@event.IsActionPressed("ui_pause"))
-		{
-			if(_pausesprite.Visible == true)
-			{
-				_pausesprite.Visible = false;
-				_playsprite.Visible = true;
-			}
-			else
-			{
-				_pausesprite.Visible = true;
-				_playsprite.Visible = false;
-			}
-		}
-	}
+	//public override void _Input(InputEvent @event) 
+	//{
+		//if (@event.IsActionPressed("ui_select"))
+		//{
+			//if(_pausesprite.Visible == true)
+			//{
+				//_pausesprite.Visible = false;
+				//_playsprite.Visible = true;
+			//}
+			//else
+			//{
+				//_pausesprite.Visible = true;
+				//_playsprite.Visible = false;
+			//}
+		//}
+	//}
 	
 	public void CalculateHappiness()
 	{
@@ -801,19 +801,19 @@ public partial class DynamicUI : Control
 		}
 	}
 	
-	void OnPausePressed()
-	{
-		if(_pausesprite.Visible == true)
-		{
-			_pausesprite.Visible = false;
-			_playsprite.Visible = true;
-		}
-		else
-		{
-			_pausesprite.Visible = true;
-			_playsprite.Visible = false;
-		}
-	}
+	//void OnPausePressed()
+	//{
+		//if(_pausesprite.Visible == true)
+		//{
+			//_pausesprite.Visible = false;
+			//_playsprite.Visible = true;
+		//}
+		//else
+		//{
+			//_pausesprite.Visible = true;
+			//_playsprite.Visible = false;
+		//}
+	//}
 	
 	void SetVillage()
 	{

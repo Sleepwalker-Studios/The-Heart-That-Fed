@@ -1,5 +1,8 @@
 extends Control
 
+@onready var _pausesprite = get_tree().root.get_node("Node2D/Control/Time/CanvasLayer/Pause/Pause")
+@onready var _playsprite = get_tree().root.get_node("Node2D/Control/Time/CanvasLayer/Pause/Play")
+
 var _is_paused:bool = false:
 	set = set_paused
 
@@ -31,12 +34,14 @@ func _on_quit_pressed() -> void:
 func _on_pause_pressed():
 	if _is_paused:
 		_is_paused = false
+		_pausesprite.visible = true
+		
 	else:
 		_is_paused = true
+		_playsprite.visible = true
 		
 func _input(event):
 	if(event.is_action_pressed("ui_pause")):
-		if _is_paused:
-			_is_paused = false
-		else:
-			_is_paused = true
+		_pausesprite.visible = false
+		_playsprite.visible = false
+		_on_pause_pressed()
