@@ -3,6 +3,8 @@ using System;
 
 public partial class DynamicUI : Control
 {
+	public int wartime;
+	public bool war;
 	public int faminetick;
 	public bool faminetime;
 	public bool m2;
@@ -508,7 +510,7 @@ public partial class DynamicUI : Control
 				Global.starved += ((Global.killed * 5)/10);
 			}
 		}
-		if(i == 6 && day_value == 3 && !faminetime && !famine)
+		if(i == 6 && day_value == 3 && !faminetime && !famine && !statuerevolt && !villagerevolt && !farmrevolt)
 		{
 			Random random = new Random();
 			int pluh = random.Next(0,9);
@@ -530,7 +532,7 @@ public partial class DynamicUI : Control
 			famine = false;
 			DisplayDialogue("Your fields are renewed, and hunger is no more.");
 		}
-		if(i == 1 && day_value == 29)
+		if(i == 1 && day_value == 29 && !statuerevolt && !villagerevolt && !farmrevolt)
 		{
 			Random random = new Random();
 			int pluh = random.Next(0,9);
@@ -538,10 +540,13 @@ public partial class DynamicUI : Control
 			{
 				_military.ShowMilitary();
 				_music.StreamPaused = true;
+				war = true;
+				wartime = 0;
 			}
 		}
-		if(year_value == 1254 && i == 4 && day_value == 24)
+		if(i == 2 && day_value == 25 && war && wartime >= 3)
 		{
+			war = false;
 			Random random = new Random();
 			int real = random.Next(0,2);
 			if(real == 0){
@@ -553,17 +558,17 @@ public partial class DynamicUI : Control
 			{
 				DisplayDialogue("Defeat in battle brings dishonor to your kingdom.");
 			}
-			if(statue >= 7500)
+		}
+		if(statue >= 7500)
+		{
+			GetTree().ChangeSceneToFile("res://Credits.tscn");
+			if(Global.meet1)
 			{
-				GetTree().ChangeSceneToFile("res://Credits.tscn");
-				if(Global.meet1)
-				{
-					Global.starved += ((Global.killed * 3)/10);
-				}
-				if(Global.meet3)
-				{
-					Global.starved += ((Global.killed * 5)/10);
-				}
+				Global.starved += ((Global.killed * 3)/10);
+			}
+			if(Global.meet3)
+			{
+				Global.starved += ((Global.killed * 5)/10);
 			}
 		}
 		if(year_value == 1251 && i == 4 && day_value == 24)
@@ -901,6 +906,7 @@ public partial class DynamicUI : Control
 	void NewYear()
 	{
 		faminetick++;
+		wartime++;
 		if(year_value == 1266)
 		{
 			_advisor.ShowAdvisor();
