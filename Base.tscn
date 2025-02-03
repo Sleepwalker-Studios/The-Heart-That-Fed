@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://lsujkapc0lhq"]
+[gd_scene load_steps=83 format=3 uid="uid://lsujkapc0lhq"]
 
 [ext_resource type="Script" path="res://DynamicUI.cs" id="2_pilr5"]
 [ext_resource type="FontFile" uid="uid://656a3usq0856" path="res://Jersey10-Regular.ttf" id="2_x74ly"]
@@ -14,7 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://dywcflsxbtsmb" path="res://ase files/market.png" id="10_mrgjj"]
 [ext_resource type="Texture2D" uid="uid://b5rqxttbw02pl" path="res://ase files/statue.png" id="10_sfju5"]
 [ext_resource type="Texture2D" uid="uid://7wbpaxo71ctp" path="res://ase files/farm.png" id="11_8t4yx"]
+[ext_resource type="AudioStream" uid="uid://eoaoiy5y2nsr" path="res://BMGJ25_SFX_coinsFallShort_-6dB.wav" id="11_kft52"]
 [ext_resource type="Script" path="res://MinigamePanel.cs" id="12_0h5lj"]
+[ext_resource type="AudioStream" uid="uid://lkkedgu1pxh6" path="res://BMGJ25_SFX_assignFarm_-4dB.wav" id="12_6p7c8"]
+[ext_resource type="AudioStream" uid="uid://bfvhfxvq0nb74" path="res://BMGJ25_SFX_assignStatue_-4dB.wav" id="13_tckte"]
 [ext_resource type="Script" path="res://AdvisorPanel.cs" id="14_jo1a2"]
 [ext_resource type="Script" path="res://MilitaryPanel.cs" id="15_ha07b"]
 [ext_resource type="Texture2D" uid="uid://bgvd2mk8vcnjd" path="res://ase files/pharaoh1.png" id="17_da0bg"]
@@ -767,6 +770,15 @@ stream = ExtResource("9_rwsqc")
 
 [node name="AdvisorMusic" type="AudioStreamPlayer" parent="Control"]
 stream = ExtResource("10_5mk5d")
+
+[node name="coin" type="AudioStreamPlayer" parent="Control"]
+stream = ExtResource("11_kft52")
+
+[node name="farm" type="AudioStreamPlayer" parent="Control"]
+stream = ExtResource("12_6p7c8")
+
+[node name="statue" type="AudioStreamPlayer" parent="Control"]
+stream = ExtResource("13_tckte")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false

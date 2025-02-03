@@ -118,6 +118,9 @@ public partial class DynamicUI : Control
 	public AudioStreamPlayer _music;
 	public AudioStreamPlayer _UIbtn;
 	public AudioStreamPlayer _AdvisorMusic;
+	public AudioStreamPlayer _coinMusic;
+	public AudioStreamPlayer _farmMusic;
+	public AudioStreamPlayer _statueMusic;
 	public ColorRect _crui;
 	public MinigamePanel _popup;
 	public AdvisorPanel _advisor;
@@ -131,6 +134,9 @@ public partial class DynamicUI : Control
 
 	public override void _Ready()
 	{
+		_statueMusic = GetTree().Root.GetNode<AudioStreamPlayer>("Node2D/Control/statue");
+		_farmMusic = GetTree().Root.GetNode<AudioStreamPlayer>("Node2D/Control/farm");
+		_coinMusic = GetTree().Root.GetNode<AudioStreamPlayer>("Node2D/Control/coin");
 		_AdvisorMusic = GetTree().Root.GetNode<AudioStreamPlayer>("Node2D/Control/AdvisorMusic");
 		_UIbtn = GetTree().Root.GetNode<AudioStreamPlayer>("Node2D/Control/UISound");
 		_dialogue = GetTree().Root.GetNode<Label>("Node2D/Control/Dialogue");
@@ -734,6 +740,7 @@ public partial class DynamicUI : Control
 
 	void OnVUPHeld()
 	{
+		_coinMusic.Playing = true;
 		if (passive_workers >= 1)
 		{
 			traders += 1;
@@ -746,6 +753,8 @@ public partial class DynamicUI : Control
 
 	void OnSUPHeld()
 	{
+		_statueMusic.Playing = true;
+		
 		if (passive_workers >= 1)
 		{
 			builders += 1;
@@ -758,6 +767,7 @@ public partial class DynamicUI : Control
 
 	void OnFUPHeld()
 	{
+		_farmMusic.Playing = true;
 		if (passive_workers >= 1)
 		{
 			farmers += 1;
