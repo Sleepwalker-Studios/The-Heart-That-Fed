@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://5pfosrmmhgt7"]
+[gd_scene load_steps=13 format=3 uid="uid://5pfosrmmhgt7"]
 
 [ext_resource type="Texture2D" uid="uid://crmg03xgjldbw" path="res://ase files/vizier1.png" id="1_e7k54"]
 [ext_resource type="Script" path="res://Advisor.cs" id="1_wkmij"]
 [ext_resource type="Script" path="res://Typing.cs" id="2_aja1m"]
 [ext_resource type="Texture2D" uid="uid://gqqopx3x81tp" path="res://ase files/vizier2.png" id="2_f8bl1"]
+[ext_resource type="AudioStream" uid="uid://bt2x3thtxgonh" path="res://BMGJ25_MX_vizier_-8dB.wav" id="5_3mosx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kc3xi"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -149,6 +150,9 @@ script = ExtResource("2_aja1m")
 
 [node name="Timer" type="Timer" parent="Control/Panel2/Label"]
 wait_time = 0.05
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
+stream = ExtResource("5_3mosx")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 350.0

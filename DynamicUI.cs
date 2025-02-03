@@ -117,6 +117,7 @@ public partial class DynamicUI : Control
 	public Button _6;
 	public AudioStreamPlayer _music;
 	public AudioStreamPlayer _UIbtn;
+	public AudioStreamPlayer _AdvisorMusic;
 	public ColorRect _crui;
 	public MinigamePanel _popup;
 	public AdvisorPanel _advisor;
@@ -130,6 +131,7 @@ public partial class DynamicUI : Control
 
 	public override void _Ready()
 	{
+		_AdvisorMusic = GetTree().Root.GetNode<AudioStreamPlayer>("Node2D/Control/AdvisorMusic");
 		_UIbtn = GetTree().Root.GetNode<AudioStreamPlayer>("Node2D/Control/UISound");
 		_dialogue = GetTree().Root.GetNode<Label>("Node2D/Control/Dialogue");
 		_year = GetTree().Root.GetNode<Label>("Node2D/Control/Panel/Year");
@@ -993,6 +995,8 @@ public partial class DynamicUI : Control
 		if (year_value == 1266)
 		{
 			_advisor.ShowAdvisor();
+			_AdvisorMusic.Playing = true;
+			
 			_music.StreamPaused = true;
 		}
 		if (year_value == 1244)
