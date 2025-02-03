@@ -976,10 +976,6 @@ public partial class DynamicUI : Control
 
 	void NewYear()
 	{
-		if (year_value == 1278)
-		{
-			StatueRevolt();
-		}
 		if (year_value == 1254)
 		{
 			_pharaoh2.Visible = true;
