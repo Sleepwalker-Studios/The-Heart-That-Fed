@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cnhd80wrw0abs"]
+[gd_scene load_steps=16 format=3 uid="uid://cnhd80wrw0abs"]
 
 [ext_resource type="Script" path="res://Minigame.cs" id="1_hm5gc"]
 [ext_resource type="Texture2D" uid="uid://bnbivfvc4s5bh" path="res://red.png" id="2_wsxv1"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cfweuciaxlfxd" path="res://ase files/civilians/civilians5.png" id="7_5dywo"]
 [ext_resource type="Texture2D" uid="uid://dpomfleva7w01" path="res://ase files/civilians/civilians6.png" id="8_5ybgp"]
 [ext_resource type="Texture2D" uid="uid://dxv1jui2ducdx" path="res://ase files/civilians/deadcivil.png" id="9_mu2yb"]
+[ext_resource type="AudioStream" uid="uid://cwxcu0r0rbgdj" path="res://BMGJ25_SFX_arrowShoot_-6dB.wav" id="10_i50sy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_65ijw"]
 bg_color = Color(0.6, 0.6, 0.6, 0.372549)
@@ -332,6 +333,9 @@ texture_filter = 1
 position = Vector2(80, 100)
 scale = Vector2(6, 6)
 texture = ExtResource("9_mu2yb")
+
+[node name="Bow" type="AudioStreamPlayer" parent="Panel/Control"]
+stream = ExtResource("10_i50sy")
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 0
