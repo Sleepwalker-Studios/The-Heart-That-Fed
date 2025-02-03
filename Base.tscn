@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://lsujkapc0lhq"]
+[gd_scene load_steps=83 format=3 uid="uid://lsujkapc0lhq"]
 
 [ext_resource type="Script" path="res://DynamicUI.cs" id="2_pilr5"]
 [ext_resource type="FontFile" uid="uid://656a3usq0856" path="res://Jersey10-Regular.ttf" id="2_x74ly"]
@@ -21,6 +21,11 @@
 [ext_resource type="Texture2D" uid="uid://d0qvkb81yf5kv" path="res://ase files/pharaoh3.png" id="19_w4e5y"]
 [ext_resource type="Texture2D" uid="uid://bbf6qmlikmxew" path="res://ase files/pharaoh4.png" id="20_eqn35"]
 [ext_resource type="Texture2D" uid="uid://cd6tuayd0ytun" path="res://ase files/ui.png" id="21_la62h"]
+[ext_resource type="Texture2D" uid="uid://bdvlo7mrlurse" path="res://ase files/statue1.png" id="22_jhpnc"]
+[ext_resource type="Texture2D" uid="uid://4tdmsskps0fb" path="res://ase files/statue2.png" id="23_oj7lq"]
+[ext_resource type="Texture2D" uid="uid://bvgynb2ruamia" path="res://ase files/statue3.png" id="24_qkg38"]
+[ext_resource type="Texture2D" uid="uid://c332nupxm7tsk" path="res://ase files/statue4.png" id="25_u05y8"]
+[ext_resource type="Texture2D" uid="uid://b0ou20y8vwey5" path="res://ase files/statue5.png" id="26_xgsr7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjkhg"]
 bg_color = Color(1, 1, 1, 1)
@@ -998,7 +1003,6 @@ stream = ExtResource("8_k5f71")
 visible = false
 
 [node name="Pause Menu" parent="CanvasLayer" instance=ExtResource("3_srk5w")]
-visible = false
 
 [node name="Village" type="Sprite2D" parent="."]
 visible = false
@@ -1006,13 +1010,6 @@ z_index = -1
 position = Vector2(430, 315)
 scale = Vector2(5.5, 5.5)
 texture = ExtResource("10_mrgjj")
-
-[node name="Statue" type="Sprite2D" parent="."]
-visible = false
-z_index = -1
-position = Vector2(500, 315)
-scale = Vector2(6.3, 6.3)
-texture = ExtResource("10_sfju5")
 
 [node name="Farm" type="Sprite2D" parent="."]
 visible = false
@@ -1067,7 +1064,6 @@ size = Vector2i(1000, 650)
 script = ExtResource("15_ha07b")
 
 [node name="Tutorial" type="Panel" parent="."]
-visible = false
 z_index = 200
 offset_right = 800.0
 offset_bottom = 650.0
@@ -1474,6 +1470,41 @@ z_index = 4000
 position = Vector2(500, 325)
 scale = Vector2(6.25, 6.5)
 texture = ExtResource("21_la62h")
+
+[node name="Statue" type="Sprite2D" parent="."]
+visible = false
+z_index = -2
+position = Vector2(500, 315)
+scale = Vector2(6.5, 6.3)
+texture = ExtResource("22_jhpnc")
+
+[node name="Statue2" type="Sprite2D" parent="."]
+visible = false
+z_index = -2
+position = Vector2(500, 315)
+scale = Vector2(6.5, 6.3)
+texture = ExtResource("23_oj7lq")
+
+[node name="Statue3" type="Sprite2D" parent="."]
+visible = false
+z_index = -2
+position = Vector2(500, 315)
+scale = Vector2(6.5, 6.3)
+texture = ExtResource("24_qkg38")
+
+[node name="Statue4" type="Sprite2D" parent="."]
+visible = false
+z_index = -2
+position = Vector2(500, 315)
+scale = Vector2(6.5, 6.3)
+texture = ExtResource("25_u05y8")
+
+[node name="Statue5" type="Sprite2D" parent="."]
+visible = false
+z_index = -2
+position = Vector2(500, 315)
+scale = Vector2(6.5, 6.3)
+texture = ExtResource("26_xgsr7")
 
 [connection signal="pressed" from="Control/Time/CanvasLayer/Pause" to="CanvasLayer/Pause Menu" method="_on_pause_pressed"]
 [connection signal="pressed" from="Control/Workers/CanvasLayer/BuyWorkers" to="Control" method="_on_buy_workers_pressed"]
