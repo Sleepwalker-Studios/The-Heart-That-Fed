@@ -702,9 +702,9 @@ vertical_alignment = 1
 
 [node name="WorkerCount" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 875.0
+offset_left = 852.0
 offset_top = 550.0
-offset_right = 915.0
+offset_right = 952.0
 offset_bottom = 602.0
 label_settings = SubResource("LabelSettings_00pg2")
 horizontal_alignment = 1
@@ -735,9 +735,9 @@ vertical_alignment = 1
 
 [node name="WorkerCountTotal" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 885.0
+offset_left = 852.0
 offset_top = 460.0
-offset_right = 925.0
+offset_right = 952.0
 offset_bottom = 512.0
 label_settings = SubResource("LabelSettings_00pg2")
 horizontal_alignment = 1
