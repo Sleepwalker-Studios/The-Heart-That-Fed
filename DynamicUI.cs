@@ -116,6 +116,7 @@ public partial class DynamicUI : Control
 	public Button _5;
 	public Button _6;
 	public AudioStreamPlayer _music;
+	public AudioStreamPlayer _UIbtn;
 	public ColorRect _crui;
 	public MinigamePanel _popup;
 	public AdvisorPanel _advisor;
@@ -129,6 +130,7 @@ public partial class DynamicUI : Control
 	
 	public override void _Ready()
 	{
+		_UIbtn = GetTree().Root.GetNode<AudioStreamPlayer>("Node2D/Control/UISound");
 		_dialogue = GetTree().Root.GetNode<Label>("Node2D/Control/Dialogue");
 		_year = GetTree().Root.GetNode<Label>("Node2D/Control/Panel/Year");
 		_month = GetTree().Root.GetNode<Label>("Node2D/Control/Panel2/Month");
@@ -427,6 +429,7 @@ public partial class DynamicUI : Control
 		}
 		if(sidepressed)
 		{
+			_UIbtn.Playing = true;
 			sidetick -= delta;
 			if(sidetick <= 0.0)
 			{
@@ -436,6 +439,7 @@ public partial class DynamicUI : Control
 		}
 		if(Input.IsActionPressed("ui_left"))
 		{
+			_UIbtn.Playing = true;
 			if(sidepressed == false)
 			{
 				OnLeftPressed();
@@ -445,6 +449,7 @@ public partial class DynamicUI : Control
 		}
 		if(Input.IsActionPressed("ui_right"))
 		{
+			_UIbtn.Playing = true;
 			if(sidepressed == false)
 			{
 				OnRightPressed();
@@ -454,6 +459,7 @@ public partial class DynamicUI : Control
 		}
 		if(Input.IsActionPressed("ui_up"))
 		{
+			_UIbtn.Playing = true;
 			if(vertpressed == false)
 			{
 				if(state == 0)
@@ -474,6 +480,7 @@ public partial class DynamicUI : Control
 		}
 		if(Input.IsActionPressed("ui_down"))
 		{
+			_UIbtn.Playing = true;
 			if(vertpressed == false)
 			{
 				if(state == 0)
@@ -570,7 +577,7 @@ public partial class DynamicUI : Control
 			_famine.Visible = false;
 			DisplayDialogue("Your fields are renewed, and hunger is no more.");
 		}
-		if(year_value == 1238i == 4 && day_value == 29)
+		if(year_value == 1238 == 4 && day_value == 29)
 		{
 			_military.ShowMilitary();
 			_music.StreamPaused = true;
@@ -697,6 +704,7 @@ public partial class DynamicUI : Control
 	
 	void OnBuyWorkersPressed()
 	{
+		_UIbtn.Playing = true;
 		tutorial = false;
 		_1.Visible = false;
 		_2.Visible = false;
@@ -844,6 +852,7 @@ public partial class DynamicUI : Control
 	
 	void OnLeftPressed()
 	{
+		_UIbtn.Playing = true;
 		if(state > 0)
 		{
 			state --;
@@ -852,6 +861,7 @@ public partial class DynamicUI : Control
 	
 	void OnRightPressed()
 	{
+		_UIbtn.Playing = true;
 		if(state < 2)
 		{
 			state ++;
@@ -860,6 +870,7 @@ public partial class DynamicUI : Control
 	
 	void OnPausePressed()
 	{
+		_UIbtn.Playing = true;
 		if(_pausesprite.Visible == true)
 		{
 			_pausesprite.Visible = false;

@@ -760,6 +760,8 @@ label_settings = SubResource("LabelSettings_5e12c")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="UISound" type="AudioStreamPlayer" parent="Control"]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
 
