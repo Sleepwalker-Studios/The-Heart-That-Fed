@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://lsujkapc0lhq"]
+[gd_scene load_steps=78 format=3 uid="uid://lsujkapc0lhq"]
 
 [ext_resource type="Script" path="res://DynamicUI.cs" id="2_pilr5"]
 [ext_resource type="FontFile" uid="uid://656a3usq0856" path="res://Jersey10-Regular.ttf" id="2_x74ly"]
@@ -31,249 +31,8 @@
 [ext_resource type="Texture2D" uid="uid://bc3l104hvv701" path="res://ase files/icons1.png" id="29_m8hxj"]
 [ext_resource type="Texture2D" uid="uid://dulqwucr0hnfj" path="res://ase files/icons2.png" id="30_8qfts"]
 [ext_resource type="Texture2D" uid="uid://gabc8w4ff1b3" path="res://ase files/icons3.png" id="31_2v114"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjkhg"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.427493, 0.427493, 0.427493, 1)
-corner_detail = 1
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_igxa7"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_khnuk"]
-font = ExtResource("2_x74ly")
-font_size = 28
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kfkle"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5knl"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_447r1"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ybn43"]
-bg_color = Color(0.74558, 0.74558, 0.74558, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pysic"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h40hk"]
-bg_color = Color(0.821789, 0.821789, 0.821788, 1)
-border_width_bottom = 2
-border_color = Color(0.637843, 0.637843, 0.637843, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_ktea0"]
-font = ExtResource("2_x74ly")
-font_size = 32
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77t01"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.427451, 0.427451, 0.427451, 1)
-corner_detail = 1
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sbxsw"]
-bg_color = Color(1, 1, 1, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_equ5b"]
-font = ExtResource("2_x74ly")
-font_size = 48
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_td284"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.427451, 0.427451, 0.427451, 1)
-corner_detail = 1
-
-[sub_resource type="LabelSettings" id="LabelSettings_00pg2"]
-font = ExtResource("2_x74ly")
-font_size = 48
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_psh8h"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohm0d"]
-bg_color = Color(0.745098, 0.745098, 0.745098, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lij3p"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-
-[sub_resource type="LabelSettings" id="LabelSettings_r1662"]
-font = ExtResource("2_x74ly")
-font_size = 32
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nfuqm"]
-bg_color = Color(0.823529, 0.823529, 0.823529, 1)
-border_width_bottom = 2
-border_color = Color(0.639216, 0.639216, 0.639216, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_5e12c"]
-font = ExtResource("2_x74ly")
-font_size = 28
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kblsv"]
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.144063, 0.144063, 0.144062, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mki7w"]
-bg_color = Color(0.27451, 0.27451, 0.27451, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a1cfv"]
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.145098, 0.145098, 0.145098, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tr06g"]
-bg_color = Color(0.27451, 0.27451, 0.27451, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rve8k"]
-bg_color = Color(0.843137, 0, 0, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.8, 0.8, 0.8, 0)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="LabelSettings" id="LabelSettings_d3wmy"]
-font_size = 32
-
-[sub_resource type="LabelSettings" id="LabelSettings_w7rgh"]
-font = ExtResource("2_x74ly")
-font_size = 32
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ttoh"]
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.145098, 0.145098, 0.145098, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hg3wt"]
-bg_color = Color(0.273873, 0.273873, 0.273873, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hmjj3"]
-bg_color = Color(0.844577, 0.511128, 9.62615e-07, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.8, 0.8, 0.8, 0)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="LabelSettings" id="LabelSettings_up1pl"]
-font = ExtResource("2_x74ly")
-font_size = 32
+[ext_resource type="Texture2D" uid="uid://4sk07d3r0ung" path="res://ase files/ui2.png" id="32_kwix0"]
+[ext_resource type="Texture2D" uid="uid://b4y5v0o6i8sw6" path="res://ase files/ui1.png" id="33_rob2a"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4wqtg"]
 font_size = 28
@@ -323,18 +82,6 @@ corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ut8v"]
-bg_color = Color(0.519327, 0, 0.0334385, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.8, 0.8, 0.8, 0)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfl0q"]
 bg_color = Color(0.823529, 0.823529, 0.823529, 1)
 border_width_left = 2
@@ -351,6 +98,152 @@ expand_margin_right = 5.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_tjdor"]
 font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tr06g"]
+bg_color = Color(0.691856, 0.649614, 0.573965, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rve8k"]
+bg_color = Color(0.843137, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_d3wmy"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_w7rgh"]
+font = ExtResource("2_x74ly")
+font_size = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hmjj3"]
+bg_color = Color(0.844577, 0.511128, 9.62615e-07, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_up1pl"]
+font = ExtResource("2_x74ly")
+font_size = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_igxa7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_khnuk"]
+font = ExtResource("2_x74ly")
+font_size = 28
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kfkle"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5knl"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_447r1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ybn43"]
+bg_color = Color(0.74558, 0.74558, 0.74558, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pysic"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_ktea0"]
+font = ExtResource("2_x74ly")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_equ5b"]
+font = ExtResource("2_x74ly")
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_00pg2"]
+font = ExtResource("2_x74ly")
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_psh8h"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohm0d"]
+bg_color = Color(0.745098, 0.745098, 0.745098, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lij3p"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_r1662"]
+font = ExtResource("2_x74ly")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5e12c"]
+font = ExtResource("2_x74ly")
+font_size = 27
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_edq13"]
@@ -407,346 +300,6 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_pilr5")
-
-[node name="Time" type="Panel" parent="Control"]
-layout_mode = 0
-offset_left = 800.0
-offset_top = 200.0
-offset_right = 1000.0
-offset_bottom = 325.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_gjkhg")
-
-[node name="Panel3" type="Panel" parent="Control/Time"]
-layout_mode = 0
-offset_left = 110.0
-offset_top = 70.0
-offset_right = 140.0
-offset_bottom = 105.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_igxa7")
-
-[node name="Day" type="Label" parent="Control/Time/Panel3"]
-layout_mode = 0
-offset_top = 7.0
-offset_right = 30.0
-offset_bottom = 32.0
-label_settings = SubResource("LabelSettings_khnuk")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Panel2" type="Panel" parent="Control/Time"]
-layout_mode = 0
-offset_left = 65.0
-offset_top = 70.0
-offset_right = 105.0
-offset_bottom = 105.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_kfkle")
-
-[node name="Month" type="Label" parent="Control/Time/Panel2"]
-layout_mode = 0
-offset_top = 7.0
-offset_right = 40.0
-offset_bottom = 32.0
-label_settings = SubResource("LabelSettings_khnuk")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Panel" type="Panel" parent="Control/Time"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 70.0
-offset_right = 60.0
-offset_bottom = 105.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_u5knl")
-
-[node name="Year" type="Label" parent="Control/Time/Panel"]
-layout_mode = 0
-offset_top = 7.0
-offset_right = 50.0
-offset_bottom = 32.0
-label_settings = SubResource("LabelSettings_khnuk")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Control/Time"]
-layer = 100
-
-[node name="Pause" type="Button" parent="Control/Time/CanvasLayer"]
-z_index = 1
-offset_left = 955.0
-offset_top = 270.0
-offset_right = 990.0
-offset_bottom = 305.0
-theme_override_styles/focus = SubResource("StyleBoxFlat_447r1")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ybn43")
-theme_override_styles/normal = SubResource("StyleBoxFlat_pysic")
-script = ExtResource("3_jmogg")
-
-[node name="Pause" type="Sprite2D" parent="Control/Time/CanvasLayer/Pause"]
-position = Vector2(17.5, 17.5)
-texture = ExtResource("3_borg8")
-
-[node name="Play" type="Sprite2D" parent="Control/Time/CanvasLayer/Pause"]
-visible = false
-position = Vector2(17.5, 17.5)
-texture = ExtResource("5_k7joh")
-
-[node name="Panel4" type="Panel" parent="Control/Time"]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 197.0
-offset_bottom = 53.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_h40hk")
-
-[node name="Label Date" type="Label" parent="Control/Time/Panel4"]
-layout_mode = 0
-offset_left = 47.0
-offset_right = 147.0
-offset_bottom = 50.0
-text = "Date (BC)"
-label_settings = SubResource("LabelSettings_ktea0")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Money" type="Panel" parent="Control"]
-layout_mode = 0
-offset_left = 800.0
-offset_top = 325.0
-offset_right = 1000.0
-offset_bottom = 450.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_77t01")
-
-[node name="Panel" type="Panel" parent="Control/Money"]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 197.0
-offset_bottom = 53.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_h40hk")
-
-[node name="Label Gold" type="Label" parent="Control/Money/Panel"]
-layout_mode = 0
-offset_left = 47.0
-offset_right = 147.0
-offset_bottom = 50.0
-text = "Gold"
-label_settings = SubResource("LabelSettings_ktea0")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="PanelGold" type="Panel" parent="Control/Money"]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 53.0
-offset_right = 197.0
-offset_bottom = 122.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_sbxsw")
-
-[node name="Gold" type="Label" parent="Control/Money/PanelGold"]
-layout_mode = 0
-offset_top = 9.5
-offset_right = 194.0
-offset_bottom = 59.5
-label_settings = SubResource("LabelSettings_equ5b")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Workers" type="Panel" parent="Control"]
-layout_mode = 0
-offset_left = 800.0
-offset_top = 450.0
-offset_right = 1000.0
-offset_bottom = 650.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_td284")
-
-[node name="WorkerCount" type="Label" parent="Control/Workers"]
-layout_mode = 0
-offset_left = 75.0
-offset_top = 100.0
-offset_right = 115.0
-offset_bottom = 152.0
-label_settings = SubResource("LabelSettings_00pg2")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Control/Workers"]
-layer = 100
-
-[node name="BuyWorkers" type="Button" parent="Control/Workers/CanvasLayer"]
-z_index = 5
-offset_left = 820.0
-offset_top = 597.5
-offset_right = 980.0
-offset_bottom = 637.5
-theme_override_styles/focus = SubResource("StyleBoxFlat_psh8h")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ohm0d")
-theme_override_styles/normal = SubResource("StyleBoxFlat_lij3p")
-
-[node name="Label" type="Label" parent="Control/Workers/CanvasLayer/BuyWorkers"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 3.0
-offset_right = 155.0
-offset_bottom = 37.0
-label_settings = SubResource("LabelSettings_r1662")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="WorkerCountTotal" type="Label" parent="Control/Workers"]
-layout_mode = 0
-offset_left = 75.0
-offset_top = 28.0
-offset_right = 115.0
-offset_bottom = 80.0
-label_settings = SubResource("LabelSettings_00pg2")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Panel" type="Panel" parent="Control/Workers"]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 197.0
-offset_bottom = 33.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_nfuqm")
-
-[node name="Label WorkersTotal" type="Label" parent="Control/Workers/Panel"]
-layout_mode = 0
-offset_right = 194.0
-offset_bottom = 30.0
-text = "Total  Workers"
-label_settings = SubResource("LabelSettings_5e12c")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Panel2" type="Panel" parent="Control/Workers"]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 75.0
-offset_right = 197.0
-offset_bottom = 105.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_nfuqm")
-
-[node name="Label Workers" type="Label" parent="Control/Workers/Panel2"]
-layout_mode = 0
-offset_right = 194.0
-offset_bottom = 30.0
-text = "Available  Workers"
-label_settings = SubResource("LabelSettings_5e12c")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Items" type="Panel" parent="Control"]
-layout_mode = 0
-offset_left = 600.0
-offset_top = 585.0
-offset_right = 800.0
-offset_bottom = 650.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_kblsv")
-
-[node name="Panel" type="Panel" parent="Control/Items"]
-layout_mode = 0
-offset_left = 17.0
-offset_top = 10.0
-offset_right = 62.0
-offset_bottom = 55.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_mki7w")
-
-[node name="Panel2" type="Panel" parent="Control/Items"]
-layout_mode = 0
-offset_left = 77.5
-offset_top = 10.0
-offset_right = 122.5
-offset_bottom = 55.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_mki7w")
-
-[node name="Panel3" type="Panel" parent="Control/Items"]
-layout_mode = 0
-offset_left = 138.0
-offset_top = 10.0
-offset_right = 183.0
-offset_bottom = 55.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_mki7w")
-
-[node name="HungerBox" type="Panel" parent="Control"]
-layout_mode = 0
-offset_left = 300.0
-offset_top = 585.0
-offset_right = 600.0
-offset_bottom = 650.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_a1cfv")
-
-[node name="ProgressBar" type="ProgressBar" parent="Control/HungerBox"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 290.0
-offset_bottom = 55.0
-theme_override_styles/background = SubResource("StyleBoxFlat_tr06g")
-theme_override_styles/fill = SubResource("StyleBoxFlat_rve8k")
-show_percentage = false
-
-[node name="Label Hunger" type="Label" parent="Control/HungerBox"]
-z_index = 1
-layout_mode = 0
-offset_left = 70.0
-offset_top = 15.0
-offset_right = 170.0
-offset_bottom = 49.0
-text = "Hunger:"
-label_settings = SubResource("LabelSettings_d3wmy")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Hunger" type="Label" parent="Control/HungerBox"]
-layout_mode = 0
-offset_left = 170.0
-offset_top = 15.0
-offset_right = 220.0
-offset_bottom = 49.0
-label_settings = SubResource("LabelSettings_w7rgh")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="StatueBox" type="Panel" parent="Control"]
-layout_mode = 0
-offset_top = 585.0
-offset_right = 300.0
-offset_bottom = 650.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_3ttoh")
-
-[node name="ProgressBar" type="ProgressBar" parent="Control/StatueBox"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 290.0
-offset_bottom = 55.0
-theme_override_styles/background = SubResource("StyleBoxFlat_hg3wt")
-theme_override_styles/fill = SubResource("StyleBoxFlat_hmjj3")
-max_value = 7500.0
-show_percentage = false
-
-[node name="Label Statue" type="Label" parent="Control/StatueBox"]
-z_index = 1
-layout_mode = 0
-offset_left = 70.0
-offset_top = 15.0
-offset_right = 170.0
-offset_bottom = 49.0
-text = "Statue:"
-label_settings = SubResource("LabelSettings_up1pl")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Statue" type="Label" parent="Control/StatueBox"]
-layout_mode = 0
-offset_left = 170.0
-offset_top = 15.0
-offset_right = 220.0
-offset_bottom = 49.0
-label_settings = SubResource("LabelSettings_w7rgh")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 z_index = -1
@@ -957,39 +510,6 @@ position = Vector2(17.5, 17.5)
 rotation = 1.5708
 texture = ExtResource("3_ob7ma")
 
-[node name="RevoltBar" type="ProgressBar" parent="Control"]
-visible = false
-z_index = 1
-layout_mode = 0
-offset_left = 570.0
-offset_top = 10.0
-offset_right = 850.0
-offset_bottom = 55.0
-scale = Vector2(0.8, 0.8)
-theme_override_styles/background = SubResource("StyleBoxFlat_tr06g")
-theme_override_styles/fill = SubResource("StyleBoxFlat_6ut8v")
-show_percentage = false
-
-[node name="Label Revolt" type="Label" parent="Control/RevoltBar"]
-z_index = 1
-layout_mode = 0
-offset_left = 70.0
-offset_top = 5.0
-offset_right = 170.0
-offset_bottom = 39.0
-text = "Revolt:"
-label_settings = SubResource("LabelSettings_up1pl")
-horizontal_alignment = 1
-
-[node name="Revolt" type="Label" parent="Control/RevoltBar"]
-layout_mode = 0
-offset_left = 170.0
-offset_top = 5.0
-offset_right = 220.0
-offset_bottom = 39.0
-label_settings = SubResource("LabelSettings_w7rgh")
-horizontal_alignment = 1
-
 [node name="Dialogue" type="Label" parent="Control"]
 visible = false
 layout_mode = 0
@@ -1003,6 +523,242 @@ autowrap_mode = 3
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
 stream = ExtResource("8_k5f71")
+
+[node name="ProgressBar" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = 309.0
+offset_top = 600.0
+offset_right = 589.0
+offset_bottom = 639.0
+theme_override_styles/background = SubResource("StyleBoxFlat_tr06g")
+theme_override_styles/fill = SubResource("StyleBoxFlat_rve8k")
+show_percentage = false
+
+[node name="Label Hunger" type="Label" parent="Control"]
+z_index = 1
+layout_mode = 0
+offset_left = 370.0
+offset_top = 600.0
+offset_right = 470.0
+offset_bottom = 635.0
+text = "Hunger:"
+label_settings = SubResource("LabelSettings_d3wmy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Hunger" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 600.0
+offset_right = 520.0
+offset_bottom = 635.0
+label_settings = SubResource("LabelSettings_w7rgh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar2" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 600.0
+offset_right = 289.0
+offset_bottom = 639.0
+theme_override_styles/background = SubResource("StyleBoxFlat_tr06g")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hmjj3")
+max_value = 7500.0
+show_percentage = false
+
+[node name="Label Statue" type="Label" parent="Control"]
+z_index = 1
+layout_mode = 0
+offset_left = 70.0
+offset_top = 600.0
+offset_right = 170.0
+offset_bottom = 635.0
+text = "Statue:"
+label_settings = SubResource("LabelSettings_up1pl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Statue2" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 600.0
+offset_right = 220.0
+offset_bottom = 635.0
+label_settings = SubResource("LabelSettings_w7rgh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel3" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 915.0
+offset_top = 265.0
+offset_right = 945.0
+offset_bottom = 300.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_igxa7")
+
+[node name="Day" type="Label" parent="Control/Panel3"]
+layout_mode = 0
+offset_top = 7.0
+offset_right = 30.0
+offset_bottom = 32.0
+label_settings = SubResource("LabelSettings_khnuk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 870.0
+offset_top = 265.0
+offset_right = 910.0
+offset_bottom = 300.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kfkle")
+
+[node name="Month" type="Label" parent="Control/Panel2"]
+layout_mode = 0
+offset_top = 7.0
+offset_right = 40.0
+offset_bottom = 32.0
+label_settings = SubResource("LabelSettings_khnuk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 820.0
+offset_top = 265.0
+offset_right = 865.0
+offset_bottom = 300.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_u5knl")
+
+[node name="Year" type="Label" parent="Control/Panel"]
+layout_mode = 0
+offset_top = 7.0
+offset_right = 50.0
+offset_bottom = 32.0
+label_settings = SubResource("LabelSettings_khnuk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
+layer = 100
+
+[node name="Pause" type="Button" parent="Control/CanvasLayer"]
+z_index = 1
+offset_left = 955.0
+offset_top = 260.0
+offset_right = 990.0
+offset_bottom = 295.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_447r1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ybn43")
+theme_override_styles/normal = SubResource("StyleBoxFlat_pysic")
+script = ExtResource("3_jmogg")
+
+[node name="Pause" type="Sprite2D" parent="Control/CanvasLayer/Pause"]
+position = Vector2(17.5, 17.5)
+texture = ExtResource("3_borg8")
+
+[node name="Play" type="Sprite2D" parent="Control/CanvasLayer/Pause"]
+visible = false
+position = Vector2(17.5, 17.5)
+texture = ExtResource("5_k7joh")
+
+[node name="Label Date" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 850.0
+offset_top = 203.0
+offset_right = 953.0
+offset_bottom = 253.0
+text = "Date (BC)"
+label_settings = SubResource("LabelSettings_ktea0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label Gold" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 850.0
+offset_top = 310.0
+offset_right = 950.0
+offset_bottom = 360.0
+text = "Gold"
+label_settings = SubResource("LabelSettings_ktea0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Gold" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 810.0
+offset_top = 360.0
+offset_right = 995.0
+offset_bottom = 412.0
+label_settings = SubResource("LabelSettings_equ5b")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WorkerCount" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 875.0
+offset_top = 550.0
+offset_right = 915.0
+offset_bottom = 602.0
+label_settings = SubResource("LabelSettings_00pg2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="Control"]
+layer = 100
+
+[node name="BuyWorkers" type="Button" parent="Control/CanvasLayer2"]
+z_index = 5
+offset_left = 823.0
+offset_top = 595.0
+offset_right = 983.0
+offset_bottom = 635.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_psh8h")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ohm0d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lij3p")
+
+[node name="Label" type="Label" parent="Control/CanvasLayer2/BuyWorkers"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 155.0
+offset_bottom = 37.0
+label_settings = SubResource("LabelSettings_r1662")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WorkerCountTotal" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 885.0
+offset_top = 460.0
+offset_right = 925.0
+offset_bottom = 512.0
+label_settings = SubResource("LabelSettings_00pg2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label WorkersTotal" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 803.0
+offset_top = 428.0
+offset_right = 997.0
+offset_bottom = 459.0
+text = "Total  Workers"
+label_settings = SubResource("LabelSettings_5e12c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label Workers" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 808.0
+offset_top = 521.0
+offset_right = 1002.0
+offset_bottom = 552.0
+text = "Available  Workers"
+label_settings = SubResource("LabelSettings_5e12c")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
@@ -1069,7 +825,6 @@ size = Vector2i(1000, 650)
 script = ExtResource("15_ha07b")
 
 [node name="Tutorial" type="Panel" parent="."]
-visible = false
 z_index = 200
 offset_right = 800.0
 offset_bottom = 650.0
@@ -1526,21 +1281,33 @@ texture = ExtResource("28_n3bou")
 
 [node name="Deal1" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(639.5, 617.5)
-scale = Vector2(4.5, 4.5)
+position = Vector2(640, 619.5)
+scale = Vector2(5.2, 3.9)
 texture = ExtResource("29_m8hxj")
 
 [node name="Deal2" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(700.5, 617.5)
-scale = Vector2(4.5, 4.5)
+position = Vector2(704, 619.5)
+scale = Vector2(5.2, 3.9)
 texture = ExtResource("30_8qfts")
 
 [node name="Deal3" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(760.5, 617.5)
-scale = Vector2(4.5, 4.5)
+position = Vector2(767.5, 619.5)
+scale = Vector2(5.10001, 3.9)
 texture = ExtResource("31_2v114")
 
-[connection signal="pressed" from="Control/Time/CanvasLayer/Pause" to="CanvasLayer/Pause Menu" method="_on_pause_pressed"]
-[connection signal="pressed" from="Control/Workers/CanvasLayer/BuyWorkers" to="Control" method="_on_buy_workers_pressed"]
+[node name="UiBottom" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(512.5, 404.5)
+scale = Vector2(6.38125, 4.89)
+texture = ExtResource("32_kwix0")
+
+[node name="UiSide" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(541.5, 314)
+scale = Vector2(5.74375, 6.7)
+texture = ExtResource("33_rob2a")
+
+[connection signal="pressed" from="Control/CanvasLayer/Pause" to="CanvasLayer/Pause Menu" method="_on_pause_pressed"]
+[connection signal="pressed" from="Control/CanvasLayer2/BuyWorkers" to="Control" method="_on_buy_workers_pressed"]

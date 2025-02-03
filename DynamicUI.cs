@@ -130,17 +130,17 @@ public partial class DynamicUI : Control
 	public override void _Ready()
 	{
 		_dialogue = GetTree().Root.GetNode<Label>("Node2D/Control/Dialogue");
-		_year = GetTree().Root.GetNode<Label>("Node2D/Control/Time/Panel/Year");
-		_month = GetTree().Root.GetNode<Label>("Node2D/Control/Time/Panel2/Month");
-		_day = GetTree().Root.GetNode<Label>("Node2D/Control/Time/Panel3/Day");
-		_gold = GetTree().Root.GetNode<Label>("Node2D/Control/Money/PanelGold/Gold");
-		_workers = GetTree().Root.GetNode<Label>("Node2D/Control/Workers/WorkerCount");
-		_workerstotal = GetTree().Root.GetNode<Label>("Node2D/Control/Workers/WorkerCountTotal");
-		_hungerbar = GetTree().Root.GetNode<ProgressBar>("Node2D/Control/HungerBox/ProgressBar");
-		_statuebar = GetTree().Root.GetNode<ProgressBar>("Node2D/Control/StatueBox/ProgressBar");
-		_hunger = GetTree().Root.GetNode<Label>("Node2D/Control/HungerBox/Hunger");
-		_statue = GetTree().Root.GetNode<Label>("Node2D/Control/StatueBox/Statue");
-		_buybutton = GetTree().Root.GetNode<Button>("Node2D/Control/Workers/CanvasLayer/BuyWorkers");
+		_year = GetTree().Root.GetNode<Label>("Node2D/Control/Panel/Year");
+		_month = GetTree().Root.GetNode<Label>("Node2D/Control/Panel2/Month");
+		_day = GetTree().Root.GetNode<Label>("Node2D/Control/Panel3/Day");
+		_gold = GetTree().Root.GetNode<Label>("Node2D/Control/Gold");
+		_workers = GetTree().Root.GetNode<Label>("Node2D/Control/WorkerCount");
+		_workerstotal = GetTree().Root.GetNode<Label>("Node2D/Control/WorkerCountTotal");
+		_hungerbar = GetTree().Root.GetNode<ProgressBar>("Node2D/Control/ProgressBar");
+		_statuebar = GetTree().Root.GetNode<ProgressBar>("Node2D/Control/ProgressBar2");
+		_hunger = GetTree().Root.GetNode<Label>("Node2D/Control/Hunger");
+		_statue = GetTree().Root.GetNode<Label>("Node2D/Control/Statue2");
+		_buybutton = GetTree().Root.GetNode<Button>("Node2D/Control/CanvasLayer2/BuyWorkers");
 		_buybutton.Pressed += OnBuyWorkersPressed;
 		_vup = GetTree().Root.GetNode<Button>("Node2D/Control/Village/CanvasLayer/Up");
 		_vup.ButtonDown += OnVUPHeld;
@@ -183,7 +183,7 @@ public partial class DynamicUI : Control
 		_villagelabel = GetTree().Root.GetNode<Label>("Node2D/VillageLabel");
 		_statuelabel = GetTree().Root.GetNode<Label>("Node2D/StatueLabel");
 		_farmlabel = GetTree().Root.GetNode<Label>("Node2D/FarmLabel");
-		_price = GetTree().Root.GetNode<Label>("Node2D/Control/Workers/CanvasLayer/BuyWorkers/Label");
+		_price = GetTree().Root.GetNode<Label>("Node2D/Control/CanvasLayer2/BuyWorkers/Label");
 		_vrevolt = GetTree().Root.GetNode<Button>("Node2D/Control/Village/Button");
 		_vrevolt.Pressed += OnVRPressed;
 		_srevolt = GetTree().Root.GetNode<Button>("Node2D/Control/Statue/Button");
@@ -212,7 +212,7 @@ public partial class DynamicUI : Control
 		_deal3 = GetTree().Root.GetNode<Sprite2D>("Node2D/Deal3");
 		_war = GetTree().Root.GetNode<Sprite2D>("Node2D/War");
 		_famine = GetTree().Root.GetNode<Sprite2D>("Node2D/Famine");
-		_pause = GetTree().Root.GetNode<Button>("Node2D/Control/Time/CanvasLayer/Pause");
+		_pause = GetTree().Root.GetNode<Button>("Node2D/Control/CanvasLayer/Pause");
 		_pause.Pressed += OnPausePressed;
 	}
 	

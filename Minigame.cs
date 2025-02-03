@@ -15,6 +15,36 @@ public partial class Minigame : Control
 	public Button _b3;
 	public Button _b4;
 	public Button _b5;
+	public Sprite2D _g1s1;
+	public Sprite2D _g1s2;
+	public Sprite2D _g1s3;
+	public Sprite2D _g1s4;
+	public Sprite2D _g1s5;
+	public Sprite2D _g1s6;
+	public Sprite2D _g2s1;
+	public Sprite2D _g2s2;
+	public Sprite2D _g2s3;
+	public Sprite2D _g2s4;
+	public Sprite2D _g2s5;
+	public Sprite2D _g2s6;
+	public Sprite2D _g3s1;
+	public Sprite2D _g3s2;
+	public Sprite2D _g3s3;
+	public Sprite2D _g3s4;
+	public Sprite2D _g3s5;
+	public Sprite2D _g3s6;
+	public Sprite2D _g4s1;
+	public Sprite2D _g4s2;
+	public Sprite2D _g4s3;
+	public Sprite2D _g4s4;
+	public Sprite2D _g4s5;
+	public Sprite2D _g4s6;
+	public Sprite2D _g5s1;
+	public Sprite2D _g5s2;
+	public Sprite2D _g5s3;
+	public Sprite2D _g5s4;
+	public Sprite2D _g5s5;
+	public Sprite2D _g5s6;
 	private Panel _p;
 	
 	public override void _Ready()
@@ -31,6 +61,36 @@ public partial class Minigame : Control
 		_b5 = GetTree().Root.GetNode<Button>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button5");
 		_b5.Pressed += OnB5Pressed;
 		_p = GetTree().Root.GetNode<Panel>("Node2D/PopupPanel/CanvasLayer/Panel");
+		_g1s1 = GetTree().Root.GetNode<Sprite2D>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button/Sprite2D");
+		_g1s2 = GetTree().Root.GetNode<Sprite2D>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button/Sprite2D2");
+		_g1s3 = GetTree().Root.GetNode<Sprite2D>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button/Sprite2D3");
+		_g1s4 = GetTree().Root.GetNode<Sprite2D>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button/Sprite2D4");
+		_g1s5 = GetTree().Root.GetNode<Sprite2D>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button/Sprite2D5");
+		_g1s6 = GetTree().Root.GetNode<Sprite2D>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button/Sprite2D6");
+		_g2s1 = GetTree().Root.GetNode<Sprite2D>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button2/Sprite2D");
+		_g2s2 = GetTree().Root.GetNode<Sprite2D>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button2/Sprite2D2");
+		_g2s3 = GetTree().Root.GetNode<Sprite2D>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button2/Sprite2D3");
+		_g2s4 = GetTree().Root.GetNode<Sprite2D>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button2/Sprite2D4");
+		_g2s5 = GetTree().Root.GetNode<Sprite2D>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button2/Sprite2D5");
+		_g2s6 = GetTree().Root.GetNode<Sprite2D>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button2/Sprite2D6");
+		_g3s1 = GetTree().Root.GetNode<Sprite2D>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button3/Sprite2D");
+		_g3s2 = GetTree().Root.GetNode<Sprite2D>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button3/Sprite2D2");
+		_g3s3 = GetTree().Root.GetNode<Sprite2D>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button3/Sprite2D3");
+		_g3s4 = GetTree().Root.GetNode<Sprite2D>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button3/Sprite2D4");
+		_g3s5 = GetTree().Root.GetNode<Sprite2D>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button3/Sprite2D5");
+		_g3s6 = GetTree().Root.GetNode<Sprite2D>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button3/Sprite2D6");
+		_g4s1 = GetTree().Root.GetNode<Sprite2D>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button4/Sprite2D");
+		_g4s2 = GetTree().Root.GetNode<Sprite2D>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button4/Sprite2D2");
+		_g4s3 = GetTree().Root.GetNode<Sprite2D>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button4/Sprite2D3");
+		_g4s4 = GetTree().Root.GetNode<Sprite2D>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button4/Sprite2D4");
+		_g4s5 = GetTree().Root.GetNode<Sprite2D>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button4/Sprite2D5");
+		_g4s6 = GetTree().Root.GetNode<Sprite2D>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button4/Sprite2D6");
+		_g5s1 = GetTree().Root.GetNode<Sprite2D>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button5/Sprite2D");
+		_g5s2 = GetTree().Root.GetNode<Sprite2D>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button5/Sprite2D2");
+		_g5s3 = GetTree().Root.GetNode<Sprite2D>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button5/Sprite2D3");
+		_g5s4 = GetTree().Root.GetNode<Sprite2D>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button5/Sprite2D4");
+		_g5s5 = GetTree().Root.GetNode<Sprite2D>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button5/Sprite2D5");
+		_g5s6 = GetTree().Root.GetNode<Sprite2D>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button5/Sprite2D6");
 		
 		int[] buttons = {1,2,3,4,5};
 		List<int> list = new List<int>(buttons);
@@ -60,13 +120,19 @@ public partial class Minigame : Control
 		}
 		if(b >= 5)
 		{
-			if(Equal(key, input)){
+			if(Equal(key, input))
+			{
 				Global.minigame = true;
 			}
 			else{
 				Global.toreload = true;
 			}
 		}
+	}
+	
+	public void Disperse(Sprite2D person)
+	{
+		
 	}
 	
 	public void SetScale(float scale)
