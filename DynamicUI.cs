@@ -221,15 +221,26 @@ public partial class DynamicUI : Control
 		if(Global.resume)
 		{
 			_music.StreamPaused = false;
-			Global.resume = false;;
+			Global.resume = false;
 		}
 		if(Global.meet2 && !m2)
 		{
-			_deal2.Visible = true;
 			m2 = true;
 			GD.Print("yikes!");
 			worker_price -= 500;
 			Global.meet2 = false;
+		}
+		if(Global.meet1 && Global.meet1check)
+		{
+			_deal1.Visible = true;
+		}
+		if(Global.meet2 && Global.meet2check)
+		{
+			_deal2.Visible = true;
+		}
+		if(Global.meet3 && Global.meet3check)
+		{
+			_deal3.Visible = true;
 		}
 		if(!tutorial)
 		{
@@ -499,12 +510,7 @@ public partial class DynamicUI : Control
 		}
 		else{gold_py = traders * 10;}
 		statue_py = (builders/10);
-		if(Global.meet3)
-		{
-			_deal3.Visible = true;
-		}
 		if(Global.meet1){
-			_deal1.Visible = true;
 			hunger_py = (total_workers - farmers * 4);
 		}
 		else if(!Global.meet1 && !famine){hunger_py = total_workers - farmers * 3;}
