@@ -566,11 +566,11 @@ public partial class DynamicUI : Control
 			_famine.Visible = false;
 			DisplayDialogue("Your fields are renewed, and hunger is no more.");
 		}
-		if(i == 1 && day_value == 29 && !statuerevolt && !villagerevolt && !farmrevolt && year_value < 1277 && !war)
+		if(i == 4 && day_value == 29 && !statuerevolt && !villagerevolt && !farmrevolt && year_value < 1277 && !war)
 		{
 			Random random = new Random();
-			int pluh = random.Next(0,8);
-			if(pluh == 0)
+			int okay = random.Next(0,9);
+			if(okay == 0)
 			{
 				_military.ShowMilitary();
 				_music.StreamPaused = true;
