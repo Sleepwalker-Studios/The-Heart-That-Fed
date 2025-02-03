@@ -1,16 +1,51 @@
-[gd_scene load_steps=3 format=3 uid="uid://i0qlh63wnjbq"]
+[gd_scene load_steps=12 format=3 uid="uid://i0qlh63wnjbq"]
 
 [ext_resource type="Script" path="res://Loss.cs" id="1_3faqc"]
+[ext_resource type="Texture2D" uid="uid://cosdqd5jt6clm" path="res://ase files/end1.png" id="2_e25wp"]
+[ext_resource type="Texture2D" uid="uid://d0qtb8tvl7pwb" path="res://ase files/end2.png" id="3_ureyc"]
+[ext_resource type="Texture2D" uid="uid://v6jq2u2o6mwf" path="res://ase files/end3.png" id="4_l0qg8"]
+[ext_resource type="Texture2D" uid="uid://cg1qqaxrrg11a" path="res://ase files/end4.png" id="5_p56af"]
+[ext_resource type="Texture2D" uid="uid://cmo8xrxssytf2" path="res://ase files/end5.png" id="6_2uwux"]
+[ext_resource type="Texture2D" uid="uid://reqgw1wgrhpv" path="res://ase files/end6.png" id="7_7628h"]
+[ext_resource type="Texture2D" uid="uid://dur1pyn71t66w" path="res://ase files/end7.png" id="8_q3ret"]
+[ext_resource type="Texture2D" uid="uid://ctkpt8hdqknid" path="res://ase files/end8.png" id="9_hdw84"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8vl7q"]
 font_size = 48
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_7duy1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_e25wp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ureyc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_l0qg8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_p56af")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2uwux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7628h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_q3ret")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_hdw84")
+}],
+"loop": true,
+"name": &"bg",
+"speed": 5.0
+}]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1000.0
-offset_bottom = 650.0
-color = Color(0, 0, 0, 1)
+[node name="CanvasLayer" type="CanvasLayer"]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -35,3 +70,15 @@ GAME OVER"
 label_settings = SubResource("LabelSettings_8vl7q")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1000.0
+offset_bottom = 650.0
+color = Color(0, 0, 0, 0.352941)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ColorRect"]
+z_index = -1
+position = Vector2(500, 325)
+scale = Vector2(6.5, 6.5)
+sprite_frames = SubResource("SpriteFrames_7duy1")
+animation = &"bg"

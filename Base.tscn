@@ -995,6 +995,7 @@ autowrap_mode = 3
 stream = ExtResource("8_k5f71")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Pause Menu" parent="CanvasLayer" instance=ExtResource("3_srk5w")]
 visible = false
@@ -1066,6 +1067,7 @@ size = Vector2i(1000, 650)
 script = ExtResource("15_ha07b")
 
 [node name="Tutorial" type="Panel" parent="."]
+visible = false
 z_index = 200
 offset_right = 800.0
 offset_bottom = 650.0

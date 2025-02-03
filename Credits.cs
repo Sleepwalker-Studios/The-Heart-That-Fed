@@ -6,8 +6,11 @@ public partial class Credits : Control
 	public float idk = 0.35f;
 	public Label _dialogue;
 	public ColorRect _cr;
+	public AnimatedSprite2D _bg;
 	public override void _Ready()
 	{
+		_bg = GetTree().Root.GetNode<AnimatedSprite2D>("CanvasLayer/ColorRect/AnimatedSprite2D");
+		_bg.Play("bg");
 		_cr = GetTree().Root.GetNode<ColorRect>("CanvasLayer/ColorRect");
 		_dialogue = GetTree().Root.GetNode<Label>("CanvasLayer/Control/Label");
 		_dialogue.Text = "CONGRATULATIONS\n\nReigned for 66 years\nExploited " + Global.exploit + " subjects\nKilled and replaced "
