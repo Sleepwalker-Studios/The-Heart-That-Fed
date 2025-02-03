@@ -36,10 +36,13 @@ public partial class Minigame : Control
 
 	public Sprite2D _g5s7;
 	private Panel _p;
+	public AudioStreamPlayer _BowSound;
 	
 	public override void _Ready()
 	{
+		
 		GD.Print("hiya");
+		_BowSound = GetTree().Root.GetNode<AudioStreamPlayer>("Node2D/PopupPanel/CanvasLayer/Panel/Control/Bow");
 		_b1 = GetTree().Root.GetNode<Button>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button");
 		_b1.Pressed += OnB1Pressed;
 		_b2 = GetTree().Root.GetNode<Button>("Node2D/PopupPanel/CanvasLayer/Panel/Control/CanvasLayer/Button2");
@@ -159,6 +162,7 @@ public partial class Minigame : Control
 	
 	public void OnB1Pressed()
 	{
+		_BowSound.Playing = true;
 		_g1s2.Visible = false;
 		_g1s7.Visible = true;
 		input[b] = 1;
@@ -170,6 +174,7 @@ public partial class Minigame : Control
 	}
 	public void OnB2Pressed()
 	{
+		_BowSound.Playing = true;
 		_g2s2.Visible = false;
 		_g2s7.Visible = true;
 		input[b] = 2;
@@ -181,6 +186,7 @@ public partial class Minigame : Control
 	}
 	public void OnB3Pressed()
 	{
+		_BowSound.Playing = true;
 		_g3s2.Visible = false;
 		_g3s7.Visible = true;
 		input[b] = 3;
@@ -192,6 +198,7 @@ public partial class Minigame : Control
 	}
 	public void OnB4Pressed()
 	{
+		_BowSound.Playing = true;
 		_g4s2.Visible = false;
 		_g4s7.Visible = true;
 		input[b] = 4;
@@ -203,6 +210,7 @@ public partial class Minigame : Control
 	}
 	public void OnB5Pressed()
 	{
+		_BowSound.Playing = true;
 		_g5s2.Visible = false;
 		_g5s7.Visible = true;
 		input[b] = 5;
