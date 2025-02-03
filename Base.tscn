@@ -1069,6 +1069,7 @@ size = Vector2i(1000, 650)
 script = ExtResource("15_ha07b")
 
 [node name="Tutorial" type="Panel" parent="."]
+visible = false
 z_index = 200
 offset_right = 800.0
 offset_bottom = 650.0
