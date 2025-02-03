@@ -74,12 +74,14 @@ font_size = 48
 [node name="CanvasLayer" type="CanvasLayer"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(500, 325)
 scale = Vector2(6.5, 6.5)
 texture = ExtResource("1_e7k54")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 visible = false
+texture_filter = 1
 position = Vector2(500, 325)
 scale = Vector2(6.5, 6.5)
 texture = ExtResource("2_f8bl1")
@@ -100,6 +102,7 @@ offset_bottom = 630.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_kc3xi")
 
 [node name="Option1" type="Button" parent="Control/Panel"]
+visible = false
 layout_mode = 0
 offset_left = 100.0
 offset_top = 5.0
@@ -112,6 +115,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_p8stw")
 text = "Yes"
 
 [node name="Option2" type="Button" parent="Control/Panel"]
+visible = false
 layout_mode = 0
 offset_left = 300.0
 offset_top = 5.0
