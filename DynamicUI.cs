@@ -97,6 +97,11 @@ public partial class DynamicUI : Control
 	public Sprite2D _pharaoh2;
 	public Sprite2D _pharaoh3;
 	public Sprite2D _pharaoh4;
+	public Sprite2D _deal1;
+	public Sprite2D _deal2;
+	public Sprite2D _deal3;
+	public Sprite2D _war;
+	public Sprite2D _famine;
 	public Label _villagelabel;
 	public Label _statuelabel;
 	public Label _farmlabel;
@@ -202,6 +207,11 @@ public partial class DynamicUI : Control
 		_pharaoh2 = GetTree().Root.GetNode<Sprite2D>("Node2D/PharaohHead2");
 		_pharaoh3 = GetTree().Root.GetNode<Sprite2D>("Node2D/PharaohHead3");
 		_pharaoh4 = GetTree().Root.GetNode<Sprite2D>("Node2D/PharaohHead4");
+		_deal1 = GetTree().Root.GetNode<Sprite2D>("Node2D/Deal1");
+		_deal2 = GetTree().Root.GetNode<Sprite2D>("Node2D/Deal2");
+		_deal3 = GetTree().Root.GetNode<Sprite2D>("Node2D/Deal3");
+		_war = GetTree().Root.GetNode<Sprite2D>("Node2D/War");
+		_famine = GetTree().Root.GetNode<Sprite2D>("Node2D/Famine");
 	}
 	
 	public override void _Process(double delta)
@@ -213,6 +223,7 @@ public partial class DynamicUI : Control
 		}
 		if(Global.meet2 && !m2)
 		{
+			_deal2.Visible = true;
 			m2 = true;
 			GD.Print("yikes!");
 			worker_price -= 500;
@@ -486,7 +497,12 @@ public partial class DynamicUI : Control
 		}
 		else{gold_py = traders * 10;}
 		statue_py = (builders/10);
+		if(Global.meet3)
+		{
+			_deal3.Visible = true;
+		}
 		if(Global.meet1){
+			_deal1.Visible = true;
 			hunger_py = (total_workers - farmers * 4);
 		}
 		else if(!Global.meet1 && !famine){hunger_py = total_workers - farmers * 3;}
@@ -539,11 +555,13 @@ public partial class DynamicUI : Control
 			faminetime = false;
 			faminetick = 0;
 			famine = true;
+			_famine.Visible = true;
 			DisplayDialogue("A famine has begun.");
 		}
 		if(i == 6 && day_value == 3 && famine && faminetick >= 3)
 		{
 			famine = false;
+			_famine.Visible = false;
 			DisplayDialogue("Your fields are renewed, and hunger is no more.");
 		}
 		if(i == 1 && day_value == 29 && !statuerevolt && !villagerevolt && !farmrevolt && year_value < 1277 && !war)
@@ -555,12 +573,14 @@ public partial class DynamicUI : Control
 				_military.ShowMilitary();
 				_music.StreamPaused = true;
 				war = true;
+				_war.Visible = true;
 				wartime = 0;
 			}
 		}
 		if(i == 2 && day_value == 25 && war && wartime >= 3)
 		{
 			war = false;
+			_war.Visible = false;
 			Random random = new Random();
 			int real = random.Next(0,2);
 			if(real == 0){

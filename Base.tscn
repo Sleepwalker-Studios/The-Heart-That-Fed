@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://lsujkapc0lhq"]
+[gd_scene load_steps=88 format=3 uid="uid://lsujkapc0lhq"]
 
 [ext_resource type="Script" path="res://DynamicUI.cs" id="2_pilr5"]
 [ext_resource type="FontFile" uid="uid://656a3usq0856" path="res://Jersey10-Regular.ttf" id="2_x74ly"]
@@ -26,6 +26,11 @@
 [ext_resource type="Texture2D" uid="uid://bvgynb2ruamia" path="res://ase files/statue3.png" id="24_qkg38"]
 [ext_resource type="Texture2D" uid="uid://c332nupxm7tsk" path="res://ase files/statue4.png" id="25_u05y8"]
 [ext_resource type="Texture2D" uid="uid://b0ou20y8vwey5" path="res://ase files/statue5.png" id="26_xgsr7"]
+[ext_resource type="Texture2D" uid="uid://mvj3pimrmjjn" path="res://ase files/icons5.png" id="27_qlh2w"]
+[ext_resource type="Texture2D" uid="uid://bryuhcgltaqx0" path="res://ase files/icons4.png" id="28_n3bou"]
+[ext_resource type="Texture2D" uid="uid://bc3l104hvv701" path="res://ase files/icons1.png" id="29_m8hxj"]
+[ext_resource type="Texture2D" uid="uid://dulqwucr0hnfj" path="res://ase files/icons2.png" id="30_8qfts"]
+[ext_resource type="Texture2D" uid="uid://gabc8w4ff1b3" path="res://ase files/icons3.png" id="31_2v114"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjkhg"]
 bg_color = Color(1, 1, 1, 1)
@@ -1505,6 +1510,36 @@ z_index = -2
 position = Vector2(500, 315)
 scale = Vector2(6.5, 6.3)
 texture = ExtResource("26_xgsr7")
+
+[node name="War" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(770, 30)
+scale = Vector2(4, 4)
+texture = ExtResource("27_qlh2w")
+
+[node name="Famine" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(725, 30)
+scale = Vector2(4, 4)
+texture = ExtResource("28_n3bou")
+
+[node name="Deal1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(639.5, 617.5)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("29_m8hxj")
+
+[node name="Deal2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(700.5, 617.5)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("30_8qfts")
+
+[node name="Deal3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(760.5, 617.5)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("31_2v114")
 
 [connection signal="pressed" from="Control/Time/CanvasLayer/Pause" to="CanvasLayer/Pause Menu" method="_on_pause_pressed"]
 [connection signal="pressed" from="Control/Workers/CanvasLayer/BuyWorkers" to="Control" method="_on_buy_workers_pressed"]
