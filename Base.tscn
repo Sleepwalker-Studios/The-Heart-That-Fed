@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://lsujkapc0lhq"]
+[gd_scene load_steps=79 format=3 uid="uid://lsujkapc0lhq"]
 
 [ext_resource type="Script" path="res://DynamicUI.cs" id="2_pilr5"]
 [ext_resource type="FontFile" uid="uid://656a3usq0856" path="res://Jersey10-Regular.ttf" id="2_x74ly"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://btrxcyov0v3kl" path="res://PlayButton.png" id="5_k7joh"]
 [ext_resource type="Texture2D" uid="uid://cfimrecp5hyxf" path="res://exclamation.png" id="7_ptfdk"]
 [ext_resource type="AudioStream" uid="uid://egcc1ysa6ile" path="res://BMGJ25_MX_mainMusic_-5dB.wav" id="8_k5f71"]
+[ext_resource type="AudioStream" uid="uid://du71o7kkg4q4m" path="res://BMGJ25_SFX_UI_buttonPress.wav" id="9_rwsqc"]
 [ext_resource type="Texture2D" uid="uid://dywcflsxbtsmb" path="res://ase files/market.png" id="10_mrgjj"]
 [ext_resource type="Texture2D" uid="uid://b5rqxttbw02pl" path="res://ase files/statue.png" id="10_sfju5"]
 [ext_resource type="Texture2D" uid="uid://7wbpaxo71ctp" path="res://ase files/farm.png" id="11_8t4yx"]
@@ -761,6 +762,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="UISound" type="AudioStreamPlayer" parent="Control"]
+stream = ExtResource("9_rwsqc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
