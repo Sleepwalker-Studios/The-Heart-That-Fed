@@ -170,9 +170,9 @@ public partial class DynamicUI : Control
 		_villagepanel = GetTree().Root.GetNode<Panel>("Node2D/Control/Village");
 		_statuepanel = GetTree().Root.GetNode<Panel>("Node2D/Control/Statue");
 		_farmpanel = GetTree().Root.GetNode<Panel>("Node2D/Control/Farm");
-		_pause = GetTree().Root.GetNode<Button>("Node2D/Control/Time/CanvasLayer/Pause");
-		_pausesprite = GetTree().Root.GetNode<Sprite2D>("Node2D/Control/Time/CanvasLayer/Pause/Pause");
-		_playsprite = GetTree().Root.GetNode<Sprite2D>("Node2D/Control/Time/CanvasLayer/Pause/Play");
+		_pause = GetTree().Root.GetNode<Button>("Node2D/Control/CanvasLayer/Pause");
+		_pausesprite = GetTree().Root.GetNode<Sprite2D>("Node2D/Control/CanvasLayer/Pause/Pause");
+		_playsprite = GetTree().Root.GetNode<Sprite2D>("Node2D/Control/CanvasLayer/Pause/Play");
 		_villagesprite = GetTree().Root.GetNode<Sprite2D>("Node2D/Village");
 		_statuesprite = GetTree().Root.GetNode<Sprite2D>("Node2D/Statue");
 		_statuesprite2 = GetTree().Root.GetNode<Sprite2D>("Node2D/Statue2");
@@ -193,8 +193,6 @@ public partial class DynamicUI : Control
 		_popup = GetTree().Root.GetNode<MinigamePanel>("Node2D/PopupPanel");
 		_advisor = GetTree().Root.GetNode<AdvisorPanel>("Node2D/AdvisorPanel");
 		_military = GetTree().Root.GetNode<MilitaryPanel>("Node2D/MilitaryPanel");
-		_revoltbar = GetTree().Root.GetNode<ProgressBar>("Node2D/Control/RevoltBar");
-		_revolt = GetTree().Root.GetNode<Label>("Node2D/Control/RevoltBar/Revolt");
 		_tutorial = GetTree().Root.GetNode<Panel>("Node2D/Tutorial");
 		_1 = GetTree().Root.GetNode<Button>("Node2D/Tutorial/Panel/Statue/CanvasLayer/Up");
 		_2 = GetTree().Root.GetNode<Button>("Node2D/Tutorial/Panel/Statue/CanvasLayer/Down");
@@ -966,6 +964,10 @@ public partial class DynamicUI : Control
 	
 	void NewYear()
 	{
+		if(year_value == 1278)
+		{
+			StatueRevolt();
+		}
 		if(year_value == 1254)
 		{
 			_pharaoh2.Visible = true;
@@ -1065,8 +1067,6 @@ public partial class DynamicUI : Control
 	
 	void EndRevolt(int area)
 	{
-		_revoltbar.Visible = false;
-		_revoltbar.Value = 0;
 		revoltbool = false;
 		revolttick = 0.0;
 		_frevolt.Visible = false;

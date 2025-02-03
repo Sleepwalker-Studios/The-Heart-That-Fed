@@ -1,7 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://cnhd80wrw0abs"]
+[gd_scene load_steps=14 format=3 uid="uid://cnhd80wrw0abs"]
 
 [ext_resource type="Script" path="res://Minigame.cs" id="1_hm5gc"]
 [ext_resource type="Texture2D" uid="uid://bnbivfvc4s5bh" path="res://red.png" id="2_wsxv1"]
+[ext_resource type="Texture2D" uid="uid://cnuau3d38slb" path="res://ase files/civilians/civilians1.png" id="3_x0spq"]
+[ext_resource type="Texture2D" uid="uid://cuvdhf3du8ps3" path="res://ase files/civilians/civilians2.png" id="4_v8gfw"]
+[ext_resource type="Texture2D" uid="uid://cqr1766hrsd5u" path="res://ase files/civilians/civilians3.png" id="5_bjp4u"]
+[ext_resource type="Texture2D" uid="uid://cff0il2u0gjvg" path="res://ase files/civilians/civilians4.png" id="6_8c3sn"]
+[ext_resource type="Texture2D" uid="uid://cfweuciaxlfxd" path="res://ase files/civilians/civilians5.png" id="7_5dywo"]
+[ext_resource type="Texture2D" uid="uid://dpomfleva7w01" path="res://ase files/civilians/civilians6.png" id="8_5ybgp"]
+[ext_resource type="Texture2D" uid="uid://dxv1jui2ducdx" path="res://ase files/civilians/deadcivil.png" id="9_mu2yb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_65ijw"]
 bg_color = Color(0.6, 0.6, 0.6, 0.372549)
@@ -64,21 +71,39 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_c67h8")
 
 [node name="Sprite2D" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button"]
 position = Vector2(50, 50)
+scale = Vector2(6, 6)
+texture = ExtResource("3_x0spq")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button"]
 position = Vector2(80, 100)
+scale = Vector2(6, 6)
+texture = ExtResource("4_v8gfw")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button"]
 position = Vector2(80, 40)
+scale = Vector2(6, 6)
+texture = ExtResource("5_bjp4u")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button"]
 position = Vector2(90, 60)
+scale = Vector2(6, 6)
+texture = ExtResource("6_8c3sn")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button"]
 position = Vector2(65, 80)
+scale = Vector2(6, 6)
+texture = ExtResource("7_5dywo")
 
 [node name="Sprite2D6" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button"]
-position = Vector2(55, 95)
+position = Vector2(43, 101)
+scale = Vector2(6, 6)
+texture = ExtResource("8_5ybgp")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button"]
+visible = false
+position = Vector2(80, 100)
+scale = Vector2(6, 6)
+texture = ExtResource("9_mu2yb")
 
 [node name="Button2" type="Button" parent="Panel/Control/CanvasLayer"]
 z_index = 10
@@ -91,21 +116,39 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_c67h8")
 
 [node name="Sprite2D" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button2"]
 position = Vector2(50, 50)
+scale = Vector2(6, 6)
+texture = ExtResource("3_x0spq")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button2"]
 position = Vector2(80, 100)
+scale = Vector2(6, 6)
+texture = ExtResource("4_v8gfw")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button2"]
 position = Vector2(80, 40)
+scale = Vector2(6, 6)
+texture = ExtResource("5_bjp4u")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button2"]
 position = Vector2(90, 60)
+scale = Vector2(6, 6)
+texture = ExtResource("6_8c3sn")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button2"]
 position = Vector2(65, 80)
+scale = Vector2(6, 6)
+texture = ExtResource("7_5dywo")
 
 [node name="Sprite2D6" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button2"]
-position = Vector2(55, 95)
+position = Vector2(45, 98)
+scale = Vector2(6, 6)
+texture = ExtResource("8_5ybgp")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button2"]
+visible = false
+position = Vector2(80, 100)
+scale = Vector2(6, 6)
+texture = ExtResource("9_mu2yb")
 
 [node name="Button3" type="Button" parent="Panel/Control/CanvasLayer"]
 z_index = 10
@@ -118,21 +161,39 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_c67h8")
 
 [node name="Sprite2D" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button3"]
 position = Vector2(50, 50)
+scale = Vector2(6, 6)
+texture = ExtResource("8_5ybgp")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button3"]
 position = Vector2(80, 100)
+scale = Vector2(6, 6)
+texture = ExtResource("7_5dywo")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button3"]
 position = Vector2(80, 40)
+scale = Vector2(6, 6)
+texture = ExtResource("6_8c3sn")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button3"]
 position = Vector2(90, 60)
+scale = Vector2(6, 6)
+texture = ExtResource("5_bjp4u")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button3"]
 position = Vector2(65, 80)
+scale = Vector2(6, 6)
+texture = ExtResource("4_v8gfw")
 
 [node name="Sprite2D6" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button3"]
-position = Vector2(55, 95)
+position = Vector2(46, 99)
+scale = Vector2(6, 6)
+texture = ExtResource("3_x0spq")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button3"]
+visible = false
+position = Vector2(80, 100)
+scale = Vector2(6, 6)
+texture = ExtResource("9_mu2yb")
 
 [node name="Button4" type="Button" parent="Panel/Control/CanvasLayer"]
 z_index = 10
@@ -145,21 +206,39 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_c67h8")
 
 [node name="Sprite2D" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button4"]
 position = Vector2(50, 50)
+scale = Vector2(6, 6)
+texture = ExtResource("3_x0spq")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button4"]
 position = Vector2(80, 100)
+scale = Vector2(6, 6)
+texture = ExtResource("4_v8gfw")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button4"]
 position = Vector2(80, 40)
+scale = Vector2(6, 6)
+texture = ExtResource("5_bjp4u")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button4"]
 position = Vector2(90, 60)
+scale = Vector2(6, 6)
+texture = ExtResource("6_8c3sn")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button4"]
 position = Vector2(65, 80)
+scale = Vector2(6, 6)
+texture = ExtResource("7_5dywo")
 
 [node name="Sprite2D6" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button4"]
-position = Vector2(55, 95)
+position = Vector2(45, 98)
+scale = Vector2(6, 6)
+texture = ExtResource("8_5ybgp")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button4"]
+visible = false
+position = Vector2(80, 100)
+scale = Vector2(6, 6)
+texture = ExtResource("9_mu2yb")
 
 [node name="Button5" type="Button" parent="Panel/Control/CanvasLayer"]
 z_index = 10
@@ -172,21 +251,39 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_c67h8")
 
 [node name="Sprite2D" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button5"]
 position = Vector2(50, 50)
+scale = Vector2(6, 6)
+texture = ExtResource("3_x0spq")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button5"]
 position = Vector2(80, 100)
+scale = Vector2(6, 6)
+texture = ExtResource("4_v8gfw")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button5"]
 position = Vector2(80, 40)
+scale = Vector2(6, 6)
+texture = ExtResource("5_bjp4u")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button5"]
 position = Vector2(90, 60)
+scale = Vector2(6, 6)
+texture = ExtResource("6_8c3sn")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button5"]
 position = Vector2(65, 80)
+scale = Vector2(6, 6)
+texture = ExtResource("7_5dywo")
 
 [node name="Sprite2D6" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button5"]
-position = Vector2(55, 95)
+position = Vector2(45, 98)
+scale = Vector2(6, 6)
+texture = ExtResource("8_5ybgp")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Panel/Control/CanvasLayer/Button5"]
+visible = false
+position = Vector2(80, 100)
+scale = Vector2(6, 6)
+texture = ExtResource("9_mu2yb")
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 0
