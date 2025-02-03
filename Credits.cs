@@ -15,7 +15,7 @@ public partial class Credits : Control
 		_dialogue = GetTree().Root.GetNode<Label>("CanvasLayer/Control/Label");
 		_dialogue.Text = "CONGRATULATIONS\n\nReigned for 66 years\nExploited " + Global.exploit + " subjects\nKilled and replaced "
 						 + Global.killed + " workers\nStarved " + Global.starved + 
-						" people\n\n\nNothing beside remains.\n\n\n--CREDITS--\n\nWritten, Designed & Directed by:\nWTV\n\nProgrammed by:\nJeremy Poulin & Hayat Ahmad\n\nDrawn & Animated by:\nDaniel Sun\n\nScored by:\nOtter Eve\n\nInspired by Percy Shelley's Ozymandias\n\n\n\n\n\n\n\n\nA game by Sleepwalker Studios.";
+						" people\n\n\nNothing beside remains.\n\n\n--CREDITS--\n\nWritten, Designed & Directed by:\nWTV\n\nProgrammed by:\nJeremy Poulin & Hayat Ahmad\n\nDrawn & Animated by:\nDimsun\n\nScored by:\nOtter Eve\n\nInspired by Percy Shelley's Ozymandias\n\n\n\n\n\n\n\n\nA game by Sleepwalker Studios";
 	}
 	
 	public override void _Process(double delta)

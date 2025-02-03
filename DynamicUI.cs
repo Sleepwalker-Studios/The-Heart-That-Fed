@@ -487,7 +487,7 @@ public partial class DynamicUI : Control
 		else{gold_py = traders * 10;}
 		statue_py = (builders/10);
 		if(Global.meet1){
-			hunger_py = (total_workers - farmers * 5);
+			hunger_py = (total_workers - farmers * 4);
 		}
 		else if(!Global.meet1 && !famine){hunger_py = total_workers - farmers * 3;}
 		else if(!Global.meet1 && famine){hunger_py = total_workers - farmers * 2;}
@@ -527,7 +527,7 @@ public partial class DynamicUI : Control
 		if(i == 6 && day_value == 3 && !faminetime && !famine && !statuerevolt && !villagerevolt && !farmrevolt && year_value < 1277)
 		{
 			Random random = new Random();
-			int pluh = random.Next(0,17);
+			int pluh = random.Next(0,14);
 			if(pluh == 0)
 			{
 				DisplayDialogue("The harvest withered; a famine draws nigh...");
@@ -546,10 +546,10 @@ public partial class DynamicUI : Control
 			famine = false;
 			DisplayDialogue("Your fields are renewed, and hunger is no more.");
 		}
-		if(i == 1 && day_value == 29 && !statuerevolt && !villagerevolt && !farmrevolt && year_value < 1277)
+		if(i == 1 && day_value == 29 && !statuerevolt && !villagerevolt && !farmrevolt && year_value < 1277 && !war)
 		{
 			Random random = new Random();
-			int pluh = random.Next(0,9);
+			int pluh = random.Next(0,8);
 			if(pluh == 0)
 			{
 				_military.ShowMilitary();
@@ -575,7 +575,7 @@ public partial class DynamicUI : Control
 		}
 		if(statue >= 7500)
 		{
-			GetTree().ChangeSceneToFile("res://Credits.tscn");
+			GetTree().ChangeSceneToFile("res://Glory.tscn");
 			if(Global.meet1)
 			{
 				Global.starved += ((Global.killed * 3)/10);
@@ -988,7 +988,7 @@ public partial class DynamicUI : Control
 			KillAnyWorkers(20);
 		}
 		CalculateHappiness();
-		if(happiness < 40 || statuerevoltcount >= 3)
+		if(happiness < 40 || statuerevoltcount >= 3 && year_value != 1267 && year_value != 1266 && year_value != 1245 && year_value != 1244 && year_value != 1223 && year_value != 1222)
 		{
 			statuerevoltcount = 3;
 			if(revolt_cooldown <= 0 && !revoltbool && !Global.meet3)

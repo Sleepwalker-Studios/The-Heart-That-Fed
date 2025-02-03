@@ -30,10 +30,10 @@ public partial class MilitaryPanel : PopupPanel
 	
 	public void CloseMilitary()
 	{
-		_control.SetProcess(true);
-		Global.resume = true;
 		_instance.QueueFree();
 		_instance = null;
 		Hide();
+		_control.SetProcess(true);
+		Global.resume = true;
 	}
 }
