@@ -86,6 +86,10 @@ public partial class DynamicUI : Control
 	public Sprite2D _playsprite;
 	public Sprite2D _villagesprite;
 	public Sprite2D _statuesprite;
+	public Sprite2D _statuesprite2;
+	public Sprite2D _statuesprite3;
+	public Sprite2D _statuesprite4;
+	public Sprite2D _statuesprite5;
 	public Sprite2D _farmsprite;
 	public Sprite2D _villagealert;
 	public Sprite2D _statuealert;
@@ -166,6 +170,10 @@ public partial class DynamicUI : Control
 		_playsprite = GetTree().Root.GetNode<Sprite2D>("Node2D/Control/Time/CanvasLayer/Pause/Play");
 		_villagesprite = GetTree().Root.GetNode<Sprite2D>("Node2D/Village");
 		_statuesprite = GetTree().Root.GetNode<Sprite2D>("Node2D/Statue");
+		_statuesprite2 = GetTree().Root.GetNode<Sprite2D>("Node2D/Statue2");
+		_statuesprite3 = GetTree().Root.GetNode<Sprite2D>("Node2D/Statue3");
+		_statuesprite4 = GetTree().Root.GetNode<Sprite2D>("Node2D/Statue4");
+		_statuesprite5 = GetTree().Root.GetNode<Sprite2D>("Node2D/Statue5");
 		_farmsprite = GetTree().Root.GetNode<Sprite2D>("Node2D/Farm");
 		_villagelabel = GetTree().Root.GetNode<Label>("Node2D/VillageLabel");
 		_statuelabel = GetTree().Root.GetNode<Label>("Node2D/StatueLabel");
@@ -882,7 +890,26 @@ public partial class DynamicUI : Control
 		_farmlabel.Visible = false;
 		
 		_statuelabel.Visible = true;
-		_statuesprite.Visible = true;
+		if(statue < 1500)
+		{
+			_statuesprite.Visible = true;
+		}
+		else if(statue >= 1500 && statue < 3000)
+		{
+			_statuesprite2.Visible = true;
+		}
+		else if(statue >= 3000 && statue < 4500)
+		{
+			_statuesprite3.Visible = true;
+		}
+		else if(statue >= 4500 && statue < 6000)
+		{
+			_statuesprite4.Visible = true;
+		}
+		else if(statue >= 6000)
+		{
+			_statuesprite2.Visible = true;
+		}
 		_statuepanel.Visible = true;
 		_sup.Visible = true;
 		_sdown.Visible = true;

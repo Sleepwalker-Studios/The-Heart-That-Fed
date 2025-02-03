@@ -5,4 +5,3 @@
 [node name="AudioStreamPlayer" type="AudioStreamPlayer"]
 stream = ExtResource("1_vpwu7")
 autoplay = true
-bus = &"Volume"
