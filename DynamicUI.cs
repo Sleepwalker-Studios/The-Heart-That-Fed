@@ -97,6 +97,11 @@ public partial class DynamicUI : Control
 	public Sprite2D _pharaoh2;
 	public Sprite2D _pharaoh3;
 	public Sprite2D _pharaoh4;
+	public Sprite2D _deal1;
+	public Sprite2D _deal2;
+	public Sprite2D _deal3;
+	public Sprite2D _war;
+	public Sprite2D _famine;
 	public Label _villagelabel;
 	public Label _statuelabel;
 	public Label _farmlabel;
@@ -202,6 +207,13 @@ public partial class DynamicUI : Control
 		_pharaoh2 = GetTree().Root.GetNode<Sprite2D>("Node2D/PharaohHead2");
 		_pharaoh3 = GetTree().Root.GetNode<Sprite2D>("Node2D/PharaohHead3");
 		_pharaoh4 = GetTree().Root.GetNode<Sprite2D>("Node2D/PharaohHead4");
+		_deal1 = GetTree().Root.GetNode<Sprite2D>("Node2D/Deal1");
+		_deal2 = GetTree().Root.GetNode<Sprite2D>("Node2D/Deal2");
+		_deal3 = GetTree().Root.GetNode<Sprite2D>("Node2D/Deal3");
+		_war = GetTree().Root.GetNode<Sprite2D>("Node2D/War");
+		_famine = GetTree().Root.GetNode<Sprite2D>("Node2D/Famine");
+		_pause = GetTree().Root.GetNode<Button>("Node2D/Control/Time/CanvasLayer/Pause");
+		_pause.Pressed += OnPausePressed;
 	}
 	
 	public override void _Process(double delta)
@@ -213,6 +225,7 @@ public partial class DynamicUI : Control
 		}
 		if(Global.meet2 && !m2)
 		{
+			_deal2.Visible = true;
 			m2 = true;
 			GD.Print("yikes!");
 			worker_price -= 500;
@@ -486,8 +499,13 @@ public partial class DynamicUI : Control
 		}
 		else{gold_py = traders * 10;}
 		statue_py = (builders/10);
+		if(Global.meet3)
+		{
+			_deal3.Visible = true;
+		}
 		if(Global.meet1){
-			hunger_py = (total_workers - farmers * 5);
+			_deal1.Visible = true;
+			hunger_py = (total_workers - farmers * 4);
 		}
 		else if(!Global.meet1 && !famine){hunger_py = total_workers - farmers * 3;}
 		else if(!Global.meet1 && famine){hunger_py = total_workers - farmers * 2;}
@@ -527,7 +545,7 @@ public partial class DynamicUI : Control
 		if(i == 6 && day_value == 3 && !faminetime && !famine && !statuerevolt && !villagerevolt && !farmrevolt && year_value < 1277)
 		{
 			Random random = new Random();
-			int pluh = random.Next(0,17);
+			int pluh = random.Next(0,14);
 			if(pluh == 0)
 			{
 				DisplayDialogue("The harvest withered; a famine draws nigh...");
@@ -539,28 +557,32 @@ public partial class DynamicUI : Control
 			faminetime = false;
 			faminetick = 0;
 			famine = true;
+			_famine.Visible = true;
 			DisplayDialogue("A famine has begun.");
 		}
 		if(i == 6 && day_value == 3 && famine && faminetick >= 3)
 		{
 			famine = false;
+			_famine.Visible = false;
 			DisplayDialogue("Your fields are renewed, and hunger is no more.");
 		}
-		if(i == 1 && day_value == 29 && !statuerevolt && !villagerevolt && !farmrevolt && year_value < 1277)
+		if(i == 4 && day_value == 29 && !statuerevolt && !villagerevolt && !farmrevolt && year_value < 1277 && !war)
 		{
 			Random random = new Random();
-			int pluh = random.Next(0,9);
-			if(pluh == 0)
+			int okay = random.Next(0,9);
+			if(okay == 0)
 			{
 				_military.ShowMilitary();
 				_music.StreamPaused = true;
 				war = true;
+				_war.Visible = true;
 				wartime = 0;
 			}
 		}
 		if(i == 2 && day_value == 25 && war && wartime >= 3)
 		{
 			war = false;
+			_war.Visible = false;
 			Random random = new Random();
 			int real = random.Next(0,2);
 			if(real == 0){
@@ -575,7 +597,7 @@ public partial class DynamicUI : Control
 		}
 		if(statue >= 7500)
 		{
-			GetTree().ChangeSceneToFile("res://Credits.tscn");
+			GetTree().ChangeSceneToFile("res://Glory.tscn");
 			if(Global.meet1)
 			{
 				Global.starved += ((Global.killed * 3)/10);
@@ -839,19 +861,19 @@ public partial class DynamicUI : Control
 		}
 	}
 	
-	//void OnPausePressed()
-	//{
-		//if(_pausesprite.Visible == true)
-		//{
-			//_pausesprite.Visible = false;
-			//_playsprite.Visible = true;
-		//}
-		//else
-		//{
-			//_pausesprite.Visible = true;
-			//_playsprite.Visible = false;
-		//}
-	//}
+	void OnPausePressed()
+	{
+		if(_pausesprite.Visible == true)
+		{
+			_pausesprite.Visible = false;
+			_playsprite.Visible = true;
+		}
+		else
+		{
+			_pausesprite.Visible = true;
+			_playsprite.Visible = false;
+		}
+	}
 	
 	void SetVillage()
 	{
@@ -988,7 +1010,7 @@ public partial class DynamicUI : Control
 			KillAnyWorkers(20);
 		}
 		CalculateHappiness();
-		if(happiness < 40 || statuerevoltcount >= 3)
+		if(happiness < 40 || statuerevoltcount >= 3 && year_value != 1267 && year_value != 1266 && year_value != 1245 && year_value != 1244 && year_value != 1223 && year_value != 1222)
 		{
 			statuerevoltcount = 3;
 			if(revolt_cooldown <= 0 && !revoltbool && !Global.meet3)

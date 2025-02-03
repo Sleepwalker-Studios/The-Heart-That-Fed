@@ -4,7 +4,7 @@ using System;
 public partial class Advisor : Control
 {
 	public string[] meeting1 = new string[6]{"My pharaoh…", "To thy legacy I am bound.", "You may be aware — one of our most devout religious sects began daytime fasting.",
-											"I propose we encourage our laborers to follow this example.", "Enforcing this would lessen each worker's food consumption by 30%, at no personal cost.",
+											"I propose we encourage our laborers to follow this example.", "Enforcing this would cause each farmer to feed one extra person, at no personal cost.",
 											"What is your order, my lord?"};
 	public string[] y1 = new string[1]{"Your word is done."};
 	public string[] n1 = new string[3]{"How unlike you.", "You will never finish your statue by worrying over your people.", "Still, your word is done."};
