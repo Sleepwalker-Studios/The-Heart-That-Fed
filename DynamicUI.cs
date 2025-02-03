@@ -570,7 +570,7 @@ public partial class DynamicUI : Control
 			_famine.Visible = false;
 			DisplayDialogue("Your fields are renewed, and hunger is no more.");
 		}
-		if(year_value == 1238i == 4 && day_value == 29)
+		if(year_value == 1238 && i == 4 && day_value == 29)
 		{
 			_military.ShowMilitary();
 			_music.StreamPaused = true;
