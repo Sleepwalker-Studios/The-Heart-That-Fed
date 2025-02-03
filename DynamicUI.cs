@@ -212,6 +212,8 @@ public partial class DynamicUI : Control
 		_deal3 = GetTree().Root.GetNode<Sprite2D>("Node2D/Deal3");
 		_war = GetTree().Root.GetNode<Sprite2D>("Node2D/War");
 		_famine = GetTree().Root.GetNode<Sprite2D>("Node2D/Famine");
+		_pause = GetTree().Root.GetNode<Button>("Node2D/Control/Time/CanvasLayer/Pause");
+		_pause.Pressed += OnPausePressed;
 	}
 	
 	public override void _Process(double delta)
@@ -859,19 +861,19 @@ public partial class DynamicUI : Control
 		}
 	}
 	
-	//void OnPausePressed()
-	//{
-		//if(_pausesprite.Visible == true)
-		//{
-			//_pausesprite.Visible = false;
-			//_playsprite.Visible = true;
-		//}
-		//else
-		//{
-			//_pausesprite.Visible = true;
-			//_playsprite.Visible = false;
-		//}
-	//}
+	void OnPausePressed()
+	{
+		if(_pausesprite.Visible == true)
+		{
+			_pausesprite.Visible = false;
+			_playsprite.Visible = true;
+		}
+		else
+		{
+			_pausesprite.Visible = true;
+			_playsprite.Visible = false;
+		}
+	}
 	
 	void SetVillage()
 	{
